@@ -5,6 +5,8 @@ import { NewForm } from '../newForm';
 import formData from './formData';
 import './formContainer.css';
 import imgForm from '../img/plataforma-de-beneficios-scaled.jpg';
+import imgLogo from '../img/Logo-dibanka-768x158-1.png';
+import imgCCG from '../img/logo-ccgltda-1586537131.png'
 
 function FormContainer() {
     const [selectedCampaña, setSelectedCampaña] = useState('');
@@ -57,7 +59,9 @@ function FormContainer() {
                             <Row>
                                 <Col md={6} lg={7} className="d-flex align-items-center">
                                     <Card.Body className="p-5">
+                                        <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-5" />
                                         <Form>
+                                            
                                             <Form.Group as={Row} className="mb-3" controlId="formTelefono">
 
                                                 <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
@@ -99,7 +103,7 @@ function FormContainer() {
                                                     }
                                                 />
                                             ))}
-                                            <Button variant="primary" onClick={handleShowData}>
+                                            <Button className = "btn mt-5" variant="primary" onClick={handleShowData}>
                                                 Mostrar Datos
                                             </Button>
                                         </Form>
@@ -109,7 +113,10 @@ function FormContainer() {
     <div className="background-container">
         <img src={imgForm} alt="login form background" className="img-background" />
     </div>
+    <p className="text-img">Seleccione una campaña</p>
 </Col>
+
+
 
                             </Row>
                         </Card>

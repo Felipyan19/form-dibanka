@@ -1,47 +1,31 @@
 /* Header.css */
-
-.header-container {
-    background-color: #04364A;
-    padding: 20px 0;
-}
-
-.nav-container {
+.header{
+    background: linear-gradient(to bottom, #296c92, #274a63);
+  }
+  
+  .profile-nav {
     display: flex;
-    justify-content: space-between;
-}
-
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: background-color 0.3s;
-}
-
-.nav-link:hover {
-    background-color: #DAFFFB;
-}
-
-.profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.user-label {
-    color: #64CCC5;
-    background-color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.user-label:hover {
-    background-color: #DAFFFB;
-}
-
-#salirbtn {
-    font-weight: bold;
-}
+    align-items: center;
+    margin-left: 20px; /* Ajusta el margen para separar el perfil del menú */
+  }
+  
+  .profile-image {
+    width: 30px; /* Ajusta el ancho de la imagen de perfil según tus necesidades */
+    height: auto;
+    margin-right: 8px; /* Ajusta el margen entre la imagen y el nombre de usuario */
+    border-radius: 50%; /* Si deseas que la imagen de perfil sea redonda */
+  }
+  
+  .nav-link {
+    color: white; /* Color del texto del menú */
+  }
+  
+  /* Personaliza el estilo de los enlaces según tus preferencias */
+  .nav-link:hover {
+    color: #53baea; /* Color al pasar el mouse por encima */
+  }
+  
+  #salirbtn {
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón de salir */
+  }
+  

@@ -12,9 +12,11 @@ function App() {
 
   return (
     <>
-      <Header onLoginSuccess={handleLoginSuccess} />
       {isLoggedIn ? (
-        <FormContainer />
+        <>
+          <Header onLoginSuccess={handleLoginSuccess} />
+          <FormContainer />
+        </>
       ) : (
         <Login onLoginSuccess={handleLoginSuccess} />
       )}
@@ -23,4 +25,5 @@ function App() {
 }
 
 export default App;
+
 
