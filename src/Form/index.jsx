@@ -4,6 +4,7 @@ import { MyModal } from '../Modal';
 import { NewForm } from '../newForm';
 import formData from './formData';
 import './formContainer.css';
+import imgForm from '../img/plataforma-de-beneficios-scaled.jpg';
 
 function FormContainer() {
     const [selectedCampaña, setSelectedCampaña] = useState('');
@@ -105,8 +106,11 @@ function FormContainer() {
                                     </Card.Body>
                                 </Col>
                                 <Col md={6} lg={5} className="text-center-col">
+    <div className="background-container">
+        <img src={imgForm} alt="login form background" className="img-background" />
+    </div>
+</Col>
 
-                                </Col>
                             </Row>
                         </Card>
                     </Col>

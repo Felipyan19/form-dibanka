@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import './Login.css'; 
 import { sendLoginData } from '../Api'; 
+import imgLogin from '../img/dibanka-beneficios.png';
+import imgLogo from '../img/Logo-dibanka-768x158-1.png'
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
@@ -32,16 +34,15 @@ const Login = (props) => {
                         <Card className="login-card mt-5">
                             <Row>
                                 <Col md={6} lg={5} className="d-none d-md-block text-center login-image">
-                                    <img src="./img/vus-logo.png" alt="login form" className="img-fluid" width="75%" />
+                                    <img src={imgLogin} alt="login form" className="img-fluid" width="75%" />
                                 </Col>
                                 <Col md={6} lg={7} className="d-flex align-items-center mt-5 mb-5">
                                     <Card.Body className="p-4 p-lg-5 text-black">
                                         <Form>
-                                            <div className="logo-section">
-                                                <i className="fas fa-cubes fa-2x me-3 logo-icon"></i>
-                                                <img src="./img/logo-ccg.png" alt="logo" width="35%" className="img-fluid" />
+                                            <div className="logo-section mb-5">
+                                                <img src={imgLogo} alt="logo" width="45%" className="img-fluid" />
                                             </div>
-                                            <h5 className="fw-normal form-title mb-5">Formulario</h5>
+
                                             <Form.Group className="mb-3" controlId="username">
                                                 <Form.Label>Usuario</Form.Label>
                                                 <Form.Control
