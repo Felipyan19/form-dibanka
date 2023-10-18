@@ -1,11 +1,16 @@
 const formData = {
-    Casur: [
-        {
+    Casur: {
+        config: {
+          backgroundImage: require('../img/logo-casur.png'),
+          title: "Casur",
+          text: "Soy Casur",
+        },
+        data: [
+          {
             title: 'Tipo de Gestión',
             type: 'list',
-            options: ['LLAMADA ENTRANTE', 'LLAMADA SALIENTE', 'LLAMADA WEB', 
-            'VIDEOLLAMADA', 'SALIENTE WEB']
-        },
+            options: ['LLAMADA ENTRANTE', 'LLAMADA SALIENTE', 'LLAMADA WEB', 'VIDEOLLAMADA', 'SALIENTE WEB'],
+          },
         {
             title: 'Nombre del Cliente',
             type: 'text'
@@ -123,14 +128,21 @@ const formData = {
         {
             title: 'Observaciones',
             type: 'textarea'
-        }
-    ],
-    FPS: [
-        {
+        },
+    ]
+    },
+    FPS: {
+        config: {
+          backgroundImage: require('../img/LOGO-FONDO-DE-PASIVO-SOCIAL-768x192.png'),
+          title: "FPS",
+          text: "Soy FPS",
+        },
+        data: [
+          {
             title: 'Tipo de Gestión',
             type: 'list',
-            options: ['Gestion 1', 'Gestion 2', 'Gestion 3']
-        },
+            options: ['LLAMADA ENTRANTE', 'LLAMADA SALIENTE', 'LLAMADA WEB', 'VIDEOLLAMADA', 'SALIENTE WEB'],
+          },
         {
             title: 'Nombre del Cliente',
             type: 'text'
@@ -177,7 +189,8 @@ const formData = {
             title: 'Observaciones',
             type: 'textarea'
         }
-    ]
+    ],
+}
 };
 
 export default formData;

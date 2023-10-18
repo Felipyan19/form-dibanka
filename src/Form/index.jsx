@@ -5,32 +5,37 @@ import { NewForm } from '../newForm';
 import formData from './formData';
 import './formContainer.css';
 import imgForm from '../img/plataforma-de-beneficios-scaled.jpg';
-import imgLogo from '../img/Logo-dibanka-768x158-1.png';
-import imgCCG from '../img/logo-ccgltda-1586537131.png'
-
+import imgCCG from '../img/logo-ccgltda-1586537131.png';
+import { send_data } from '../send_data';
 function FormContainer() {
     const [selectedCampaña, setSelectedCampaña] = useState('');
     const [telefono, setTelefono] = useState('');
     const [formArray, setFormArray] = useState([]);
     const [selectedData, setSelectedData] = useState({});
+    const [backgroundImage, setBackgroundImage] = useState(imgForm);
+    const [text, setText] = useState('Soy Dibanka');
 
     const handleCampañaChange = (e) => {
-        setSelectedCampaña(e.target.value);
-
-        if (formData[e.target.value]) {
-            const initialFormArray = formData[e.target.value].map((form) => ({ ...form, value: '' }));
+        const filterdata = e.target.value;
+        setSelectedCampaña(filterdata);
+    
+        if (formData[filterdata] && formData[filterdata].data) {
+            const initialFormArray = formData[filterdata].data.map((form) => ({ ...form, value: '' }));
             setFormArray(initialFormArray);
+            setBackgroundImage(formData[filterdata].config.backgroundImage);
+            setText(formData[filterdata].config.text);
+
         } else {
             setFormArray([]);
         }
     };
+    
 
     const handleTelefono = (e) => {
-        setTelefono(e.target.value); // Cambiado a 'telefono'
+        setTelefono(e.target.value);
     }
 
     const handleFieldChange = (fieldName, fieldValue) => {
-        // Actualizar el valor de un campo específico en el estado
         const updatedFormArray = formArray.map((form) =>
             form.title === fieldName ? { ...form, value: fieldValue } : form
         );
@@ -39,15 +44,16 @@ function FormContainer() {
 
     const handleShowData = () => {
         const data = {
-            plantilla: selectedCampaña,
-            telefono: telefono,
+            Campaña: selectedCampaña,
+            Telefono: telefono,
         };
 
         formArray.forEach((form) => {
             data[form.title] = form.value;
         });
+
         setSelectedData(data);
-        console.log(data);
+        send_data(data)
     };
 
     return (
@@ -61,22 +67,18 @@ function FormContainer() {
                                     <Card.Body className="p-5">
                                         <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-5" />
                                         <Form>
-                                            
                                             <Form.Group as={Row} className="mb-3" controlId="formTelefono">
-
                                                 <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
                                                     Telefono
                                                 </Form.Label>
-
                                                 <Form.Control
-                                                    type="text" placeholder="Anonymous"
+                                                    type="text"
+                                                    placeholder="Anonymous"
                                                     value={telefono}
-                                                    onChange={(e) => handleTelefono(e)} />
-
+                                                    onChange={(e) => handleTelefono(e)}
+                                                />
                                             </Form.Group>
-
                                             <Form.Group as={Row} className="mb-3" controlId="formCampaña">
-
                                                 <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
                                                     Campaña
                                                 </Form.Label>
@@ -88,9 +90,7 @@ function FormContainer() {
                                                         </option>
                                                     ))}
                                                 </Form.Select>
-
                                             </Form.Group>
-
                                             {formArray.map((form) => (
                                                 <NewForm
                                                     key={form.title}
@@ -103,21 +103,18 @@ function FormContainer() {
                                                     }
                                                 />
                                             ))}
-                                            <Button className = "btn mt-5" variant="primary" onClick={handleShowData}>
-                                                Mostrar Datos
+                                            <Button className="btn mt-5" variant="primary" onClick={handleShowData}>
+                                                Enviar Datos
                                             </Button>
                                         </Form>
                                     </Card.Body>
                                 </Col>
                                 <Col md={6} lg={5} className="text-center-col">
-    <div className="background-container">
-        <img src={imgForm} alt="login form background" className="img-background" />
-    </div>
-    <p className="text-img">Seleccione una campaña</p>
-</Col>
-
-
-
+                                    <div className="background-container">
+                                        <img src={backgroundImage} alt="login form background" className="img-background" />
+                                    </div>
+                                    <p className="text-img">{text}</p>
+                                </Col>
                             </Row>
                         </Card>
                     </Col>
@@ -127,4 +124,5 @@ function FormContainer() {
         </section>
     );
 }
+
 export { FormContainer };
