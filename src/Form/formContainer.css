@@ -1,0 +1,25 @@
+/* FormContainer.css */
+#formulario-container {
+    padding: 20px;
+    background-color: #f0f0f0; /* Change to your desired background color */
+  }
+  
+  .card {
+    border-radius: 1rem;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .form-label {
+    width: 8rem;
+    font-weight: bold;
+  }
+  
+  .text-center-col {
+    background-color: #176B87;
+    color: aliceblue;
+    border-radius: 1rem;
+  }
+  

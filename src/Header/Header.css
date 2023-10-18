@@ -1,0 +1,47 @@
+/* Header.css */
+
+.header-container {
+    background-color: #04364A;
+    padding: 20px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #DAFFFB;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-label {
+    color: #64CCC5;
+    background-color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-label:hover {
+    background-color: #DAFFFB;
+}
+
+#salirbtn {
+    font-weight: bold;
+}

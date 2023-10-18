@@ -1,0 +1,53 @@
+/* Login.css */
+
+.login-card {
+    border-radius: 1rem;
+}
+
+.login-image {
+    background-color: #04364A;
+    border-radius: 1rem;
+}
+
+.login-image img {
+    border-radius: 1rem 0 0 1rem;
+    margin-top: 8rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-icon {
+    color: #ff6219;
+}
+
+.form-title {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.custom-button {
+    background-color: #04364A;
+    color: aliceblue;
+}
+
+.create-account-link {
+    color: #393f81;
+    margin-top: 25px;
+}
+
+.create-account-link a {
+    color: #393f81;
+    text-decoration: underline;
+}
+
+.terms-link,
+.privacy-link {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Add any additional styles as needed */
