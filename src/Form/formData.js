@@ -138,6 +138,11 @@ const formData = {
           text: "Soy FPS",
         },
         data: [
+            {
+                title: 'Otra gestion',
+                type: 'list',
+                options: ['Gestion 1', 'Gestion 2', 'Gestion 3'],
+              },
           {
             title: 'Tipo de Gestión',
             type: 'list',
