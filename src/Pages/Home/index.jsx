@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Layout } from '../../Components/Layout';
 import { MyModal } from '../../Components/Modal';
 import { NewForm } from '../../Components/newForm';
 import formData from '../../Components/Form/formData';
@@ -15,7 +16,7 @@ function Home() {
     const [formArray, setFormArray] = useState([]);
     const [selectedData, setSelectedData] = useState({});
     const [backgroundImage, setBackgroundImage] = useState(imgForm);
-    const [text, setText] = useState('Soy Dibanka');
+    const [text, setText] = useState([]);
 
     const handleCampañaChange = (e) => {
         const filterdataCampaña = e.target.value;
@@ -68,96 +69,104 @@ function Home() {
     };
 
     return (
-        <section className="container-fluid" id="formulario-container">
-            <Container fluid>
-                <Row className="d-flex justify-content-center align-items-center h-100">
-                    <Col xl={10}>
-                        <Card>
-                            <Row>
-                                <Col md={6} lg={7} className="d-flex align-items-center">
-                                    <Card.Body className="p-5">
-                                        <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-5" />
-                                        <Form>
-                                            <Form.Group as={Row} className="mb-3" controlId="formTelefono">
-                                                <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
-                                                    Telefono
-                                                </Form.Label>
-                                                <Form.Control
-                                                    type="text"
-                                                    placeholder="Anonymous"
-                                                    value={telefono}
-                                                    onChange={(e) => handleTelefono(e)}
-                                                />
-                                            </Form.Group>
-                                            <Form.Group as={Row} className="mb-3" controlId="formTelefono">
-                                                <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
-                                                    ID Wolkvox
-                                                </Form.Label>
-                                                <Form.Control
-                                                    type="text"
-                                                    placeholder="Anonymous"
-                                                    value={telefono}
-                                                    onChange={(e) => handleTelefono(e)}
-                                                />
-                                            </Form.Group>
-                                            <Form.Group as={Row} className="mb-3" controlId="formCampaña">
-                                                <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
-                                                    Pagaduria
-                                                </Form.Label>
-                                                <Form.Select value={selectedPagaduria} onChange={handlePagaduriaChange}>
-                                                    <option value="">Select a pagaduria</option>
-                                                    {Object.keys(formData).map((Pagaduria) => (
-                                                        <option key={Pagaduria} value={Pagaduria}>
-                                                            {Pagaduria}
-                                                        </option>
-                                                    ))}
-                                                </Form.Select>
-                                            </Form.Group>
-                                            <Form.Group as={Row} className="mb-3" controlId="formCampaña">
-                                                <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
-                                                    Campaña
-                                                </Form.Label>
-                                                <Form.Select value={selectedCampaña} onChange={handleCampañaChange}>
-                                                    <option value="">Select a campaign</option>
-                                                    {Object.keys(formData[selectedPagaduria] || {}).map((campaña) => (
-                                                        <option key={campaña} value={campaña}>
-                                                            {campaña}
-                                                        </option>
-                                                    ))}
-                                                </Form.Select>
-                                            </Form.Group>
+        <Layout>
+            <section className="container-fluid" id="formulario-container">
+                <Container fluid>
+                    <Row className="d-flex justify-content-center align-items-center h-100">
+                        <Col xl={10}>
+                            <Card>
+                                <Row>
+                                    <Col md={6} lg={7} className="d-flex align-items-center">
+                                        <Card.Body className="p-5">
+                                            <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-5" />
+                                            <Form>
+                                                <Form.Group as={Row} className="mb-3" controlId="formTelefono">
+                                                    <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+                                                        Telefono
+                                                    </Form.Label>
+                                                    <Form.Control
+                                                        type="text"
+                                                        placeholder="Anonymous"
+                                                        value={telefono}
+                                                        onChange={(e) => handleTelefono(e)}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Row} className="mb-3" controlId="formTelefono">
+                                                    <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+                                                        ID Wolkvox
+                                                    </Form.Label>
+                                                    <Form.Control
+                                                        type="text"
+                                                        placeholder="Anonymous"
+                                                        value={telefono}
+                                                        onChange={(e) => handleTelefono(e)}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Row} className="mb-3" controlId="formCampaña">
+                                                    <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+                                                        Pagaduria
+                                                    </Form.Label>
+                                                    <Form.Select value={selectedPagaduria} onChange={handlePagaduriaChange}>
+                                                        <option value="">Select a pagaduria</option>
+                                                        {Object.keys(formData).map((Pagaduria) => (
+                                                            <option key={Pagaduria} value={Pagaduria}>
+                                                                {Pagaduria}
+                                                            </option>
+                                                        ))}
+                                                    </Form.Select>
+                                                </Form.Group>
+                                                <Form.Group as={Row} className="mb-3" controlId="formCampaña">
+                                                    <Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+                                                        Campaña
+                                                    </Form.Label>
+                                                    <Form.Select value={selectedCampaña} onChange={handleCampañaChange}>
+                                                        <option value="">Select a campaign</option>
+                                                        {Object.keys(formData[selectedPagaduria] || {}).map((campaña) => (
+                                                            <option key={campaña} value={campaña}>
+                                                                {campaña}
+                                                            </option>
+                                                        ))}
+                                                    </Form.Select>
+                                                </Form.Group>
 
-                                            {formArray.map((form) => (
-                                                <NewForm
-                                                    key={form.title}
-                                                    type={form.type}
-                                                    title={form.title}
-                                                    options={form.options}
-                                                    value={form.value}
-                                                    onValueChange={(fieldValue) =>
-                                                        handleFieldChange(form.title, fieldValue)
-                                                    }
-                                                />
+                                                {formArray.map((form) => (
+                                                    <NewForm
+                                                        key={form.title}
+                                                        type={form.type}
+                                                        title={form.title}
+                                                        options={form.options}
+                                                        value={form.value}
+                                                        onValueChange={(fieldValue) =>
+                                                            handleFieldChange(form.title, fieldValue)
+                                                        }
+                                                    />
+                                                ))}
+                                                <Button className="btn mt-5" variant="primary" onClick={handleShowData}>
+                                                    Enviar Datos
+                                                </Button>
+                                            </Form>
+                                        </Card.Body>
+                                    </Col>
+                                    <Col md={6} lg={5} className="text-center-col p-5">
+                                        <div className="container-card">
+                                            <div className="container-img mb-5">
+                                                <img src={backgroundImage} alt="login form background" className="img-fluid" />
+                                            </div>
+                                            {text && text.map((parrafo, index) => (
+                                                <p key={index} className={`parrafo-${index + 1} mt-5`} dangerouslySetInnerHTML={{ __html: parrafo }}>
+                                                </p>
                                             ))}
-                                            <Button className="btn mt-5" variant="primary" onClick={handleShowData}>
-                                                Enviar Datos
-                                            </Button>
-                                        </Form>
-                                    </Card.Body>
-                                </Col>
-                                <Col md={6} lg={5} className="text-center-col">
-                                    <div className="background-container">
-                                        <img src={backgroundImage} alt="login form background" className="img-background" />
-                                    </div>
-                                    <p className="text-img">{text}</p>
-                                </Col>
-                            </Row>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
-            <MyModal selectedData={selectedData} />
-        </section>
+                                        </div>
+                                    </Col>
+
+                                </Row>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
+                <MyModal selectedData={selectedData} />
+            </section>
+        </Layout>
     );
 }
 

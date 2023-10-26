@@ -1,52 +1,63 @@
 /* FormContainer.css */
 #formulario-container {
-  
-    display: flex; /* Usa flexbox */
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    min-height: 70vh; /* Asegura que ocupe al menos el alto de la ventana */
-  }
-  
-  
-  .card {
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .card-body {
-    padding: 2rem;
-  }
-  
-  .form-label {
-    width: 8rem;
-    font-weight: bold;
-  }
-  
-  .text-center-col {
-    position: relative;
-    background-color: #176B87;
-    color: aliceblue;
-    border-radius: 1rem;
-    overflow: hidden;
-  
-  }
-  
-  .img-background {
-    width: 150%;
-    height: auto;
-  
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.8; 
-  }
-  
-  .text-img{
-    position: absolute;
-    top: 82%;
-    font-size: 2rem;
-    font-weight: bold;
-    color: aliceblue;
-  
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.form-label {
+  width: 8rem;
+  font-weight: bold;
+}
+
+.text-center-col {
+  background-color: #176B87;
+  color: aliceblue;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Estilo del contenedor de la imagen y el texto */
+.container-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+/* Estilo de la imagen */
+.container-img img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para los párrafos */
+.parrafo-1 {
+  font-size: 1.3rem;
+  color: white;
+  font-style: italic;
+}
+
+.parrafo-2 {
+  font-size: 1.3rem;
+  color: white;
+  font-style: italic;
+}
+
+.parrafo-3 {
+  font-size: 1.3rem;
+  color: white;
+  font-style: italic;
+}

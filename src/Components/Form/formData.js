@@ -4,7 +4,7 @@ const formData = {
             config: {
                 backgroundImage: require('../../img/logo-casur.png'),
                 title: "Casur",
-                text: "Le recuerdo nuestro punto de atención presencial en la cr 7 séptima con calle 12 b 58 en la ciudad de Bogotá en los horarios de 7:30 am a 4:00 pm. Y Un botón de asesoría que puede encontrar en la página web portal DiBanka.                Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.               Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada, en la cual la máxima calificación es 5.",
+                text: ["Le recuerdo nuestro punto de atención presencial en la cr 7 séptima con calle 12 b 58 en la ciudad de Bogotá en los horarios de 7:30 am a 4:00 pm. Y Un botón de asesoría que puede encontrar en la página web portal DiBanka.","Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.","Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada, en la cual la máxima calificación es 5."],
             },
             data: [
                 {
@@ -106,7 +106,7 @@ const formData = {
             config: {
                 backgroundImage: require('../../img/LOGO-FONDO-DE-PASIVO-SOCIAL-768x192.png'),
                 title: "FPS",
-                text: "Soy FPS",
+                text: ["Le recuerdo nuestro punto de atención presencial se encuentra ubicado en la Cll 19 No 14 21 en la ciudad de Bogotá los días martes y jueves en los horarios de 8:00 am a 4:30 pm.", " Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.", " Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada."],
             },
             data: [
                 {
@@ -191,13 +191,143 @@ const formData = {
             ],
 
         },
+        Gobernacion: {
+            config: {
+                backgroundImage: require('../../img/LOGO-FONDO-DE-PASIVO-SOCIAL-768x192.png'),
+                title: "Gobernacion",
+                text: ["Le recuerdo nuestro punto de atención presencial se encuentra ubicado en la Cll 19 No 14 21 en la ciudad de Bogotá los días martes y jueves en los horarios de 8:00 am a 4:30 pm.", " Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.", " Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada."],
+            },
+            data: [
+                {
+                    title: 'Tipo de Gestión',
+                    type: 'list',
+                    options: ['LLAMADA ENTRANTE', 'LLAMADA SALIENTE','LLAMADA WEB', 'VIDEO LLAMADA', 'SALIENTE WEB'],
+                },
+                {
+                    title: 'Nombre del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Tipo de Identificación',
+                    type: 'list',
+                    options: ['NIT']
+                },
+                {
+                    title: 'Numero de Identificación',
+                    type: 'text'
+                },
+                {
+                    title: 'Telefono del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Celular Actualizado',
+                    type: 'text'
+                },
+                {
+                    title: 'Correo',
+                    type: 'list'
+                },
+                {
+                    title: 'Solución en el primer Contacto',
+                    type: 'list',
+                    options: ['SI', 'NO']
+                },
+                {
+                    title: 'Pagaduria -v',
+                    type: 'list',
+                    options: ['GOBERNACIÓN DE CUNDINAMARCA', 'UNIDAD DE PENSIONADOS']
+                },
+                {
+                    title: 'Motivo Consulta',
+                    type: 'list',
+                    options:   [
+                        "1. Usuario y contraseña para registro",
+                        "2. ¿Cómo apruebo o rechazo solicitud de crédito?",
+                        "3. ¿Cómo retiro o modifico un crédito?",
+                        "4. ¿Cómo incorporo un descuento (productos y servicios)",
+                        "5. Documentos para ingreso de la plataforma",
+                        "6. ¿Cómo solicita un crédito un pensionado?",
+                        "7. Información descuento afiliado",
+                        "8. ¿Cómo solicita un crédito el pensionado?",
+                        "9. Diligenciar factor por millón"
+                    ]
+                },
+                {
+                    title: 'Observaciones',
+                    type: 'textarea'
+                },
+            ],
+
+        },
+        Educame: {
+            config: {
+                backgroundImage: require('../../img/LOGO-FONDO-DE-PASIVO-SOCIAL-768x192.png'),
+                title: "Educame",
+                text: ["Le recuerdo nuestro punto de atención presencial se encuentra ubicado en la Cll 19 No 14 21 en la ciudad de Bogotá los días martes y jueves en los horarios de 8:00 am a 4:30 pm.", " Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.", " Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada."],
+            },
+            data: [
+                {
+                    title: 'Tipo de Gestión',
+                    type: 'list',
+                    options: ['LLAMADA ENTRANTE', 'LLAMADA SALIENTE'],
+                },
+                {
+                    title: 'Nombre del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Tipo de Identificación',
+                    type: 'list',
+                    options: ['NIT']
+                },
+                {
+                    title: 'Numero de Identificación',
+                    type: 'text'
+                },
+                {
+                    title: 'Telefono del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Celular Actualizado',
+                    type: 'text'
+                },
+                {
+                    title: 'Correo',
+                    type: 'list'
+                },
+                {
+                    title: 'Solución en el primer Contacto',
+                    type: 'list',
+                    options: ['SI', 'NO']
+                },
+                {
+                    title: 'Motivo Consulta',
+                    type: 'list',
+                    options:  [
+                        "1. Usuario y contraseña para registro",
+                        "2. ¿Cómo apruebo o rechazo solicitud de crédito?",
+                        "3. ¿Cómo retiro o modifico un crédito?",
+                        "4. ¿Cómo incorporo un descuento (productos y servicios)",
+                        "5. Temas de facturación (valor de uso de la plataforma)",
+                        "6. Bloqueo por pagaduría"
+                    ]
+                },
+                {
+                    title: 'Observaciones',
+                    type: 'textarea'
+                },
+            ],
+
+        },
     },
     Afiliados: {
         Casur: {
             config: {
                 backgroundImage: require('../../img/logo-casur.png'),
                 title: "Casur",
-                text: "Le recuerdo nuestro punto de atención presencial en la cr 7 séptima con calle 12 b 58 en la ciudad de Bogotá en los horarios de 7:30 am a 4:00 pm. Y Un botón de asesoría que puede encontrar en la página web portal DiBanka.                Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.               Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada, en la cual la máxima calificación es 5.",
+                text: ["Le recuerdo nuestro punto de atención presencial en la cr 7 séptima con calle 12 b 58 en la ciudad de Bogotá en los horarios de 7:30 am a 4:00 pm. Y Un botón de asesoría que puede encontrar en la página web portal DiBanka.","Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.","Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada, en la cual la máxima calificación es 5."],
             },
             data: [
                 {
@@ -299,7 +429,7 @@ const formData = {
             config: {
                 backgroundImage: require('../../img/LOGO-FONDO-DE-PASIVO-SOCIAL-768x192.png'),
                 title: "FPS",
-                text: "Soy FPS",
+                text: ["Le recuerdo nuestro punto de atención presencial se encuentra ubicado en la Cll 19 No 14 21 en la ciudad de Bogotá los días martes y jueves en los horarios de 8:00 am a 4:30 pm.", " Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.", " Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada."],
             },
             data: [
                 {
@@ -386,6 +516,132 @@ const formData = {
                         "38. Transferencia a Casur",
                         "39. Prueba de llamada",
                         "40. Bloqueo Representante legal"
+                    ]
+                },
+                {
+                    title: 'Observaciones',
+                    type: 'textarea'
+                },
+            ],
+
+        },
+        Gobernacion: {
+            config: {
+                backgroundImage: require('../../img/LOGO-FONDO-DE-PASIVO-SOCIAL-768x192.png'),
+                title: "Gobernacion",
+                text: ["Le recuerdo nuestro punto de atención presencial se encuentra ubicado en la Cll 19 No 14 21 en la ciudad de Bogotá los días martes y jueves en los horarios de 8:00 am a 4:30 pm.", " Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.", " Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada."],
+            },
+            data: [
+                {
+                    title: 'Tipo de Gestión',
+                    type: 'list',
+                    options: ['LLAMADA ENTRANTE', 'LLAMADA SALIENTE','LLAMADA WEB', 'VIDEO LLAMADA', 'SALIENTE WEB'],
+                },
+                {
+                    title: 'Nombre del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Tipo de Identificación',
+                    type: 'list',
+                    options: ['Cedula de Ciudadania']
+                },
+                {
+                    title: 'Numero de Identificación',
+                    type: 'text'
+                },
+                {
+                    title: 'Telefono del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Celular Actualizado',
+                    type: 'text'
+                },
+                {
+                    title: 'Correo Institucional',
+                    type: 'list'
+                },
+                {
+                    title: 'Solución en el primer Contacto',
+                    type: 'list',
+                    options: ['SI', 'NO']
+                },
+                {
+                    title: 'Pagaduria -v',
+                    type: 'list',
+                    options: ['GOBERNACIÓN DE CUNDINAMARCA', 'UNIDAD DE PENSIONADOS']
+                },
+                {
+                    title: 'Motivo Consulta',
+                    type: 'list',
+                    options:  [
+                        "1. Solicitud de Usuario y Contraseña",
+                        "2. ¿Cómo solicito un Crédito, qué trámite debo hacer?",
+                        "3. Enrolado efectivo",
+                        "4. Llamada caida",
+                        "5. Se contacta un tercero",
+                        "6. Olvido usuario y contraseña",
+                        "7. Link de ingreso - ¿Qué es DiBanka?",
+                        "8. ¿Dónde descargo los desprendibles?"
+                    ]
+                },
+                {
+                    title: 'Observaciones',
+                    type: 'textarea'
+                },
+            ],
+
+        },
+        Educame: {
+            config: {
+                backgroundImage: require('../../img/LOGO-FONDO-DE-PASIVO-SOCIAL-768x192.png'),
+                title: "Educame",
+                text: ["Le recuerdo nuestro punto de atención presencial se encuentra ubicado en la Cll 19 No 14 21 en la ciudad de Bogotá los días martes y jueves en los horarios de 8:00 am a 4:30 pm.", " Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.", " Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada."],
+            },
+            data: [
+                {
+                    title: 'Tipo de Gestión',
+                    type: 'list',
+                    options: ['LLAMADA ENTRANTE', 'LLAMADA SALIENTE','LLAMADA WEB', 'VIDEO LLAMADA', 'SALIENTE WEB'],
+                },
+                {
+                    title: 'Nombre del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Tipo de Identificación',
+                    type: 'list',
+                    options: ['Cedula de Ciudadania']
+                },
+                {
+                    title: 'Numero de Identificación',
+                    type: 'text'
+                },
+                {
+                    title: 'Telefono del Cliente',
+                    type: 'text'
+                },
+                {
+                    title: 'Celular Actualizado',
+                    type: 'text'
+                },
+                {
+                    title: 'Correo Institucional',
+                    type: 'list'
+                },
+                {
+                    title: 'Solución en el primer Contacto',
+                    type: 'list',
+                    options: ['SI', 'NO']
+                },
+                {
+                    title: 'Motivo Consulta',
+                    type: 'list',
+                    options:   [
+                        "1. Solicitud de Usuario y Contraseña",
+                        "2. ¿Cómo solicito un Crédito, qué trámite debo hacer?",
+                        "3. Enrolado efectivo",
                     ]
                 },
                 {
