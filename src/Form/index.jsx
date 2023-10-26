@@ -51,7 +51,8 @@ function FormContainer() {
         formArray.forEach((form) => {
             data[form.title] = form.value;
         });
-
+        data.source = 'hoja 1';
+        console.log(data);
         setSelectedData(data);
         send_data(data)
     };
