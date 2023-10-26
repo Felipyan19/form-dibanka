@@ -6,7 +6,7 @@ import formData from './formData';
 import './formContainer.css';
 import imgForm from '../img/plataforma-de-beneficios-scaled.jpg';
 import imgCCG from '../img/logo-ccgltda-1586537131.png';
-import { send_data } from '../send_data';
+import { send_data } from '../../send_data';
 function FormContainer() {
     const [selectedCampaña, setSelectedCampaña] = useState('');
     const [telefono, setTelefono] = useState('');

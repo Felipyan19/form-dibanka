@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import './Login.css'; 
-import { sendLoginData } from '../../Api'; 
 import imgLogin from '../../img/dibanka-beneficios.png';
 import imgLogo from '../../img/Logo-dibanka-768x158-1.png'
 
 const SignIn = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        try {
-            const response = await sendLoginData(username, password, props.onLoginSuccess);
-            console.log(response);
-        } catch (error) {
-            console.error(error);
-        }
-    };
+        const handleLogin = async () => {
+            try {
+                // Realiza tu lógica de inicio de sesión aquí
+                if (username === 'admin' && password === 'password') {
+                    props.login(true);  
+                    navigate('/Home'); // Esto está bien, ya que navigate se usa dentro del componente funcional
+                } else {
+                    throw new Error('Usuario o contraseña incorrectos.');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+    
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
