@@ -1,5 +1,6 @@
-const send_data = (data) => {
+const send_data = (data,setSendtoExcel) => {
     console.log(data);
+    setSendtoExcel(true);
     const url = 'https://script.google.com/macros/s/AKfycbx3jVq4TbrOYMcAaXyWql-6iBHzN9wZbH66d24yEjSwcXrvi3fNQgTEFjbqDGGbnra3IQ/exec'
     
     fetch(url, {
@@ -18,6 +19,7 @@ const send_data = (data) => {
         }
     })
     .then(data => {
+        setSendtoExcel(false);
         console.log('Solicitud exitosa. Respuesta:', data);
     })
     .catch(error => {
