@@ -1,6 +1,6 @@
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
-import { useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import { FormDefault } from '../FormDefault';
 import { Card, Button } from 'react-bootstrap';
 import { NewForm } from '../../Components/newForm';
@@ -110,6 +110,7 @@ const FormCard = ({
   };
 
   return (
+    {sendtoExcel ? 
     <Card.Body className="p-5">
     <div className="d-flex justify-content-between align-items-center">
       <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-3" />
@@ -162,7 +163,9 @@ const FormCard = ({
         )}
       </Formik>
     </Card.Body>
+    : < Skeleton />}
   );
+  
 };
 
 export { FormCard };
