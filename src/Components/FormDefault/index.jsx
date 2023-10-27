@@ -10,6 +10,8 @@ const FormDefault = ({
   formData,
   selectedCampaña,
   handleCampañaChange,
+  setTelefono,
+  setIdWolkvox,
 }) => {
   const renderOptions = (options) =>
     Object.keys(options).map((option) => (
@@ -19,7 +21,11 @@ const FormDefault = ({
     ));
 
   const customHandleChange = (name, value) => {
-    console.log(`Campo: ${name}, Valor: ${value}`);
+    if (name === 'formTelefono') {
+        setTelefono(value);
+      } else if (name === 'formIdWolkvox') {
+        setIdWolkvox(value);
+      }
     handleChange(name)(value);
   };
 

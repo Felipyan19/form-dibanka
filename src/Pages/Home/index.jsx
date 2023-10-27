@@ -17,6 +17,7 @@ function Home() {
     const [backgroundImage, setBackgroundImage] = useState(imgForm);
     const [text, setText] = useState([]);
     const [telefono, setTelefono] = useState('');
+    const [IdWolkvox, setIdWolkvox] = useState('');
 
     return (
         <Layout>
@@ -36,6 +37,8 @@ function Home() {
                         setText={setText}
                         telefono={telefono}
                         setTelefono={setTelefono}
+                        IdWolkvox={IdWolkvox}
+                        setIdWolkvox={setIdWolkvox}
                     />
                 </Col>
                 <Col md={6} lg={5} className="text-center-col p-5">

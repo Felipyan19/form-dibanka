@@ -1,5 +1,6 @@
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
+import { useState } from 'react';
 import { FormDefault } from '../FormDefault';
 import { Card, Button } from 'react-bootstrap';
 import { NewForm } from '../../Components/newForm';
@@ -21,23 +22,46 @@ const FormCard = ({
   setText,
   telefono,
   setTelefono,
+  IdWolkvox,
+  setIdWolkvox,
 }) => {
-  const schema = yup.object().shape({
-    formTelefono: yup.string().required('Este campo es obligatorio'),
-    formIdWolkvox: yup.string().required('Este campo es obligatorio'),
-    formPagaduria: yup.string().required('Este campo es obligatorio'),
-    formCampaña : yup.string().required('Este campo es obligatorio'),
-  });
+    const [arraySchema, setArraySchema] = useState({
+        formTelefono: yup.string().required('Este campo es obligatorio'),
+        formIdWolkvox: yup.string().required('Este campo es obligatorio'),
+        formPagaduria: yup.string().required('Este campo es obligatorio'),
+        formCampaña : yup.string().required('Este campo es obligatorio'),
+    });
 
+  const [arrayInitialValues, setArrayInitialValues] = useState({
+        formTelefono: '',
+        formIdWolkvox: '',
+        formPagaduria: '',
+        formCampaña: '',
+  });
+  const schema = yup.object().shape(arraySchema);
   const handleCampaignChange = (value) => {
     const filterDataCampaign = value;
-    console.log(filterDataCampaign);
     const dataForm = formData[selectedPagaduria][filterDataCampaign].data;
     const configForm = formData[selectedPagaduria][filterDataCampaign].config;
     setSelectedCampaña(filterDataCampaign);
-
+  
     if (formData[selectedPagaduria][filterDataCampaign] && dataForm) {
-      const initialFormArray = dataForm.map((form) => ({ ...form, value: '' }));
+      const updatedSchema = { ...arraySchema };
+      const updatedInitialValues = { ...arrayInitialValues };
+  
+      dataForm.forEach((form) => {
+        updatedInitialValues[form.title] = '';
+        updatedSchema[form.title] = yup.string().required('Este campo es obligatorio');
+      });
+  
+      setArraySchema(updatedSchema); // Actualiza el estado con el nuevo objeto
+      setArrayInitialValues(updatedInitialValues); // Actualiza el estado con el nuevo objeto
+  
+      const initialFormArray = dataForm.map((form) => ({
+        ...form,
+        value: '',
+      }));
+  
       setFormArray(initialFormArray);
       setBackgroundImage(configForm.backgroundImage);
       setText(configForm.text);
@@ -45,6 +69,7 @@ const FormCard = ({
       setFormArray([]);
     }
   };
+  
 
   const handlePagaduriaChange = (value) => {
     setSelectedPagaduria(value);
@@ -70,29 +95,32 @@ const FormCard = ({
     const data = {
       campaign: selectedCampaña,
       telefono: telefono,
+      IdWolkvox: IdWolkvox,
+      pagaduria: selectedPagaduria,
     };
 
     formArray.forEach((form) => {
       data[form.title] = form.value;
     });
-    data.source = 'hoja 1';
+    data.source =  selectedPagaduria + '-' + selectedCampaña;
 
     setSelectedData(data);
+    console.log(data);
     send_data(data);
   };
 
   return (
     <Card.Body className="p-5">
-      <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-5" />
+    <div className="d-flex justify-content-between align-items-center">
+      <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-3" />
+      <h1 className='text-center'>
+        {selectedCampaña ? selectedPagaduria + '-' + selectedCampaña : 'DiBanka'}
+      </h1>
+    </div>
       <Formik
         validationSchema={schema}
         onSubmit={handleShowData}
-        initialValues={{
-            formTelefono: '',
-            formIdWolkvox: '',
-            formPagaduria: '',
-            formCampaña: '',
-        }}
+        initialValues={arrayInitialValues}
       >
         {({ handleSubmit, handleChange, values, touched, errors }) => (
           <FormikForm noValidate onSubmit={handleSubmit}>
@@ -108,12 +136,18 @@ const FormCard = ({
               selectedCampaña={selectedCampaña}
               setSelectedCampaña={setSelectedCampaña}
               handleCampañaChange={handleCampaignChange}
+              setTelefono={setTelefono}
+              setIdWolkvox={setIdWolkvox}
             />
             {formArray.map((form) => (
               <NewForm
                 key={form.title}
                 type={form.type}
                 title={form.title}
+                values={values}
+                handleChange={handleChange}
+                touched={touched}
+                errors={errors}
                 options={form.options}
                 value={form.value}
                 onValueChange={(fieldValue) =>
