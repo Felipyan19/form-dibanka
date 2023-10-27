@@ -4,7 +4,7 @@ const formData = {
             config: {
                 backgroundImage: require('../../img/logo-casur.png'),
                 title: "Casur",
-                text: ["Le recuerdo nuestro punto de atención presencial en la cr 7 séptima con calle 12 b 58 en la ciudad de Bogotá en los horarios de 7:30 am a 4:00 pm. Y Un botón de asesoría que puede encontrar en la página web portal DiBanka.","Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.","Por último, le voy a enviar una breve encuesta para que califique el servicio de atención brindado en la llamada, en la cual la máxima calificación es 5."],
+                text: ["Le recuerdo nuestro punto de atención presencial en la <b>cr 7 séptima con calle 12 b 58</b> en la ciudad de Bogotá en los horarios de <b>7:30 am a 4:00 pm.</b> Y Un botón de asesoría que puede encontrar en la página web portal DiBanka.","Recuerde que hablo con ------ muchas gracias por comunicarse con nosotros.","Por último, le voy a enviar una breve encuesta para que califique el <b>servicio de atención</b> brindado en la llamada, en la cual la máxima calificación es 5."],
             },
             data: [
                 {

@@ -1,35 +1,27 @@
 import React from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap';
-import './Header.css';
 import imgUser from '../../img/user-interface.png';
+import './Header.css';
 
-const NavbarComponent = ({ onLoginSuccess }) => {
+const NavbarComponent = ({ setAceptedLogin, username }) => {
   const handleLogin = () => {
-    onLoginSuccess();
-    console.log('Cerrando sesión');
+    setAceptedLogin(false);
   };
 
   return (
-    <Navbar className='header'>
-      <Navbar variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand href="#home">DiBanka</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#">Aliados</Nav.Link>
-            </Nav>
-            <Nav className="profile-nav">
-              <img src={imgUser} alt="perfil" className="profile-image" />
-              <Nav.Link href="#">User</Nav.Link>
-            </Nav>
-            <Nav className="ml-auto">
-              <Nav.Link id="salirbtn" onClick={handleLogin}>Salir</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </Navbar>
+    <div className='header' variant="dark" expand="lg">
+      <div className='header-container'>
+        <div className='header-brand'>
+          DiBanka
+        </div>
+        <div className="container-user">
+          <img src={imgUser} alt="perfil" className="profile-img" />
+          <p className="profile-name">{username}</p>
+        </div>
+        <div className="salir">
+          <button id="salirbtn" onClick={handleLogin}>Salir</button>
+        </div>
+      </div>
+    </div>
   );
 };
 

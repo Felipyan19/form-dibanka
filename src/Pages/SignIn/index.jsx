@@ -6,16 +6,16 @@ import imgLogin from '../../img/dibanka-beneficios.png';
 import imgLogo from '../../img/Logo-dibanka-768x158-1.png'
 
 const SignIn = (props) => {
-    const [username, setUsername] = useState('');
+    
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
         const handleLogin = async () => {
             try {
-                // Realiza tu lógica de inicio de sesión aquí
-                if (username === 'admin' && password === 'password') {
+
+                if (props.username === 'admin' && password === 'password') {
                     props.login(true);  
-                    navigate('/Home'); // Esto está bien, ya que navigate se usa dentro del componente funcional
+                    navigate('/Home');
                 } else {
                     throw new Error('Usuario o contraseña incorrectos.');
                 }
@@ -26,7 +26,7 @@ const SignIn = (props) => {
     
 
     const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
+        props.setUsername(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
@@ -55,7 +55,7 @@ const SignIn = (props) => {
                                                 <Form.Control
                                                     type="email"
                                                     placeholder="name@example.com"
-                                                    value={username}
+                                                    value={props.username}
                                                     onChange={handleUsernameChange}
                                                 />
                                             </Form.Group>
