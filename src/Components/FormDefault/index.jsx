@@ -19,6 +19,7 @@ const FormDefault = ({
     ));
 
   const customHandleChange = (name, value) => {
+    console.log(`Campo: ${name}, Valor: ${value}`);
     handleChange(name)(value);
   };
 
@@ -34,7 +35,7 @@ const FormDefault = ({
             type="text"
             placeholder="Anonymous"
             value={values[id]}
-            onChange={(e) => customHandleChange(id, e.target.value)}
+            onChange={(e) => customHandleChange(id, e.target.value)} // Usar la función personalizada
             isValid={touched[id] && !errors[id]}
           />
         </div>
@@ -45,9 +46,9 @@ const FormDefault = ({
             name={id}
             value={selectOptions.value || ''}
             onChange={(e) => {
-              selectOptions.onChange(e.target.value);
-              customHandleChange(id, e.target.value);
-            }}
+                selectOptions.onChange(e.target.value)
+                customHandleChange(id, e.target.value)
+                }}
             isValid={touched[id] && !errors[id]}
           >
             <option value="">Select a {label.toLowerCase()}</option>
@@ -71,7 +72,7 @@ const FormDefault = ({
       {renderFormGroup('formCampaña', 'Campaña', {
         value: selectedCampaña,
         onChange: handleCampañaChange,
-        data: selectedPagaduria ? formData[selectedPagaduria] : null,
+        data: selectedPagaduria && formData[selectedPagaduria],
       })}
     </>
   );
