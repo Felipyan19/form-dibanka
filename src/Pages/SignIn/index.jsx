@@ -28,13 +28,15 @@ const SignIn = (props) => {
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         console.log(searchParams);
-        const ani = searchParams.get('$ani');
-        const dnis = searchParams.get('$dnis');
-        const id_call = searchParams.get('$id_call');
-        const webrtc = searchParams.get('$webrtc');
+        const ani = searchParams.get('ani');
+        const dnis = searchParams.get('dnis');
+        const id_customer = searchParams.get('id_customer');
+        const id_call = searchParams.get('id_call');
+        const webrtc = searchParams.get('webrtc');
     
-        console.log(`ID: ${ani}`);
-        console.log(`Nombre: ${dnis}`);
+        console.log(`ani: ${ani}`);
+        console.log(`dnis: ${dnis}`);
+        console.log(`ID Customer: ${id_customer}`);
         console.log(`ID Call: ${id_call}`);
         console.log(`WebRTC: ${webrtc}`);
     }, []);
