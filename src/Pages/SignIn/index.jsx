@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import './Login.css'; 
@@ -23,7 +23,21 @@ const SignIn = (props) => {
                 console.error(error);
             }
         };
+
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search);
+
+        const ani = searchParams.get('$ani');
+        const dnis = searchParams.get('$dnis');
+        const id_call = searchParams.get('$id_call');
+        const webrtc = searchParams.get('$webrtc');
     
+        console.log(`ID: ${ani}`);
+        console.log(`Nombre: ${dnis}`);
+        console.log(`ID Call: ${id_call}`);
+        console.log(`WebRTC: ${webrtc}`);
+    }, []);
 
     const handleUsernameChange = (e) => {
         props.setUsername(e.target.value);

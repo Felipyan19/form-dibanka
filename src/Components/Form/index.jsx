@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { FormDefault } from '../FormDefault';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button} from 'react-bootstrap';
 import { NewForm } from '../../Components/newForm';
 import imgCCG from '../../img/logo-ccgltda-1586537131.png';
 import formData from '../../Components/Form/formData';
 import { send_data } from '../../send_data';
+import Swal from 'sweetalert2'
 
 const FormCard = ({
   selectedCampaña,
@@ -27,6 +28,8 @@ const FormCard = ({
   IdWolkvox,
   setIdWolkvox,
 }) => {
+   
+    const [modal, setModal] = useState(false) 
     const [sendtoExcel, setSendtoExcel] = useState(false);
     const [arraySchema, setArraySchema] = useState({
         formTelefono: yup.string().required('Este campo es obligatorio'),
@@ -105,22 +108,30 @@ const FormCard = ({
     formArray.forEach((form) => {
       data[form.title] = form.value;
     });
+    console.log(data);
     data.source =  selectedPagaduria + '-' + selectedCampaña;
 
     setSelectedData(data);
     console.log(data);
-    send_data(data, setSendtoExcel);
+    send_data(data, setSendtoExcel, setModal);
   };
-
+  if (modal) {
+    Swal.fire({
+      title: 'Registro Exitoso',
+      text: 'Se ha registrado con exito en la hoja ',
+      icon: 'success',
+      confirmButtonText: 'ok'
+    });
+  }
   return (
-    !sendtoExcel ? (
-      <Card.Body className="p-5">
-        <div className="d-flex justify-content-between align-items-center">
-          <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-3" />
-          <h1 className='text-center'>
-            {selectedCampaña ? selectedPagaduria + '-' + selectedCampaña : 'DiBanka'}
-          </h1>
-        </div>
+    <Card.Body className="p-5">
+      <div className="d-flex justify-content-between align-items-center">
+        <img src={imgCCG} alt="logo" width="45%" className="img-fluid mb-3" />
+        <h1 className='text-center'>
+          {selectedCampaña ? selectedPagaduria + '-' + selectedCampaña : 'DiBanka'}
+        </h1>
+      </div>
+      {!sendtoExcel ? (
         <Formik
           validationSchema={schema}
           onSubmit={handleShowData}
@@ -128,53 +139,51 @@ const FormCard = ({
         >
           {({ handleSubmit, handleChange, values, touched, errors }) => (
             <FormikForm noValidate onSubmit={handleSubmit}>
-            <FormDefault
-              values={values}
-              handleChange={handleChange}
-              touched={touched}
-              errors={errors}
-              selectedPagaduria={selectedPagaduria}
-              setSelectedPagaduria={setSelectedPagaduria}
-              handlePagaduriaChange={handlePagaduriaChange}
-              formData={formData}
-              selectedCampaña={selectedCampaña}
-              setSelectedCampaña={setSelectedCampaña}
-              handleCampañaChange={handleCampaignChange}
-              setTelefono={setTelefono}
-              setIdWolkvox={setIdWolkvox}
-            />
-            {formArray.map((form) => (
-              <NewForm
-                key={form.title}
-                type={form.type}
-                title={form.title}
+              <FormDefault
                 values={values}
                 handleChange={handleChange}
                 touched={touched}
                 errors={errors}
-                options={form.options}
-                value={form.value}
-                onValueChange={(fieldValue) =>
-                  handleFieldChange(form.title, fieldValue)
-                }
+                selectedPagaduria={selectedPagaduria}
+                setSelectedPagaduria={setSelectedPagaduria}
+                handlePagaduriaChange={handlePagaduriaChange}
+                formData={formData}
+                selectedCampaña={selectedCampaña}
+                setSelectedCampaña={setSelectedCampaña}
+                handleCampañaChange={handleCampaignChange}
+                setTelefono={setTelefono}
+                setIdWolkvox={setIdWolkvox}
               />
-            ))}
-            <Button type="submit" className="btn mt-5" variant="primary">
-              Enviar Datos
-            </Button>
-          </FormikForm>
+              {formArray.map((form) => (
+                <NewForm
+                  key={form.title}
+                  type={form.type}
+                  title={form.title}
+                  values={values}
+                  handleChange={handleChange}
+                  touched={touched}
+                  errors={errors}
+                  options={form.options}
+                  value={form.value}
+                  onValueChange={(fieldValue) => handleFieldChange(form.title, fieldValue)}
+                />
+              ))}
+              <Button type="submit" className="btn mt-5" variant="primary">
+                Enviar Datos
+              </Button>
+            </FormikForm>
           )}
         </Formik>
-      </Card.Body>
-    ) : (
-      <SkeletonTheme baseColor="#202020" highlightColor="#444">
-    <p>
-      <Skeleton count={3} />
-    </p>
-  </SkeletonTheme>
-    )
+      ) : (
+        <p className='mb-5 mt-5 '>
+          {
+            <Skeleton count={10} height={30} />
+          }
+          
+        </p>
+      )}
+    </Card.Body>
   );
-  
 };
 
 export { FormCard };
