@@ -27,7 +27,7 @@ const SignIn = (props) => {
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
-
+        console.log(searchParams);
         const ani = searchParams.get('$ani');
         const dnis = searchParams.get('$dnis');
         const id_call = searchParams.get('$id_call');
