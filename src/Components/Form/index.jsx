@@ -28,7 +28,7 @@ const FormCard = ({
   IdWolkvox,
   setIdWolkvox,
 }) => {
-   
+    
     const [modal, setModal] = useState(false) 
     const [sendtoExcel, setSendtoExcel] = useState(false);
     const [arraySchema, setArraySchema] = useState({
@@ -46,6 +46,9 @@ const FormCard = ({
   });
   const schema = yup.object().shape(arraySchema);
   const handleCampaignChange = (value) => {
+    if (!formData[selectedPagaduria]) {
+      return; // Salir de la función si selectedPagaduria no está definido en formData
+    }
     const filterDataCampaign = value;
     const dataForm = formData[selectedPagaduria][filterDataCampaign].data;
     const configForm = formData[selectedPagaduria][filterDataCampaign].config;
@@ -78,7 +81,9 @@ const FormCard = ({
   
 
   const handlePagaduriaChange = (value) => {
+    
     setSelectedPagaduria(value);
+
   };
 
   const handleFieldChange = (fieldName, fieldValue) => {
@@ -99,8 +104,8 @@ const FormCard = ({
     }
 
     const data = {
-      campaign: selectedCampaña,
-      telefono: telefono,
+      Campaña: selectedCampaña,
+      Telefono: telefono,
       IdWolkvox: IdWolkvox,
       pagaduria: selectedPagaduria,
     };

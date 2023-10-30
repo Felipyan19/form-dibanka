@@ -1,44 +1,40 @@
-import React, { useState , useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
-import './Login.css'; 
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import './Login.css';
 import imgLogin from '../../img/dibanka-beneficios.png';
 import imgLogo from '../../img/Logo-dibanka-768x158-1.png'
 
 const SignIn = (props) => {
-    
+
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-        const handleLogin = async () => {
-            try {
+    const handleLogin = async () => {
+        try {
 
-                if (props.username === 'admin' && password === 'password') {
-                    props.login(true);  
-                    navigate('/Home');
-                } else {
-                    throw new Error('Usuario o contraseña incorrectos.');
-                }
-            } catch (error) {
-                console.error(error);
+            if (props.username === 'admin' && password === 'password') {
+                Cookies.set('loggedIn', 'true', { expires: 1 }); 
+                Cookies.set('userName', props.username, { expires: 1 }); 
+                props.login(true);
+                navigate('/Home');
+            } else {
+                throw new Error('Usuario o contraseña incorrectos.');
             }
-        };
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
     useEffect(() => {
-        const searchParams = new URLSearchParams(window.location.search);
-        console.log(searchParams);
-        const ani = searchParams.get('ani');
-        const dnis = searchParams.get('dnis');
-        const id_customer = searchParams.get('id_customer');
-        const id_call = searchParams.get('id_call');
-        const webrtc = searchParams.get('webrtc');
-    
-        console.log(`ani: ${ani}`);
-        console.log(`dnis: ${dnis}`);
-        console.log(`ID Customer: ${id_customer}`);
-        console.log(`ID Call: ${id_call}`);
-        console.log(`WebRTC: ${webrtc}`);
+
+        if(Cookies.get('loggedIn') === 'true') {
+            props.login(true);
+            navigate('/Home');
+        }
+
     }, []);
 
     const handleUsernameChange = (e) => {
@@ -85,12 +81,12 @@ const SignIn = (props) => {
                                                 />
                                             </Form.Group>
                                             <div className="d-grid gap-2 login-button mt-5">
-                                                <Button 
-                                                variant="dark" 
-                                                type="button" 
-                                                className="custom-button"
-                                                onClick={handleLogin}>
-                                                Ingresar
+                                                <Button
+                                                    variant="dark"
+                                                    type="button"
+                                                    className="custom-button"
+                                                    onClick={handleLogin}>
+                                                    Ingresar
                                                 </Button>
                                             </div>
                                         </Form>
@@ -105,4 +101,4 @@ const SignIn = (props) => {
     );
 }
 
-export  { SignIn };
+export { SignIn };

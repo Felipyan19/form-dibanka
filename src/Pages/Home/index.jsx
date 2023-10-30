@@ -8,7 +8,7 @@ import imgForm from '../../img/plataforma-de-beneficios-scaled.jpg';
 import './style.css';
 
 
-function Home() {
+function Home({urlParametres}) {
 
     const [selectedCampaña, setSelectedCampaña] = useState('');
     const [selectedPagaduria, setSelectedPagaduria] = useState('');
@@ -18,7 +18,7 @@ function Home() {
     const [text, setText] = useState([]);
     const [telefono, setTelefono] = useState('');
     const [IdWolkvox, setIdWolkvox] = useState('');
-
+    const urlData = JSON.parse(localStorage.getItem('urlParametres'));
     return (
         <Layout>
             <FormLayout>
@@ -39,6 +39,7 @@ function Home() {
                         setTelefono={setTelefono}
                         IdWolkvox={IdWolkvox}
                         setIdWolkvox={setIdWolkvox}
+                        urlParametres={urlData}
                     />
                 </Col>
                 <Col md={6} lg={5} className="text-center-col p-5">
