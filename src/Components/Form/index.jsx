@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { FormDefault } from '../FormDefault';
-import { Card, Button} from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { NewForm } from '../../Components/newForm';
 import imgCCG from '../../img/logo-ccgltda-1586537131.png';
 import formData from '../../Components/Form/formData';
@@ -28,21 +28,22 @@ const FormCard = ({
   IdWolkvox,
   setIdWolkvox,
 }) => {
-    const urlData = JSON.parse(localStorage.getItem('urlParametres'));
-    const [modal, setModal] = useState(false) 
-    const [sendtoExcel, setSendtoExcel] = useState(false);
-    const [arraySchema, setArraySchema] = useState({
-        formTelefono: yup.string().required('Este campo es obligatorio'),
-        formIdWolkvox: yup.string().required('Este campo es obligatorio'),
-        // formPagaduria: yup.string().required('Este campo es obligatorio'),
-        // formCampaña : yup.string().required('Este campo es obligatorio'),
-    });
+  const [response, setResponse] = useState('');
+  const urlData = JSON.parse(localStorage.getItem('urlParametres'));
+  const [modal, setModal] = useState(false)
+  const [sendtoExcel, setSendtoExcel] = useState(false);
+  const [arraySchema, setArraySchema] = useState({
+    formTelefono: yup.string().required('Este campo es obligatorio'),
+    formIdWolkvox: yup.string().required('Este campo es obligatorio'),
+    // formPagaduria: yup.string().required('Este campo es obligatorio'),
+    // formCampaña : yup.string().required('Este campo es obligatorio'),
+  });
 
   const [arrayInitialValues, setArrayInitialValues] = useState({
-        formTelefono: '',
-        formIdWolkvox: '',
-        formPagaduria: '',
-        formCampaña: '',
+    formTelefono: '',
+    formIdWolkvox: '',
+    formPagaduria: '',
+    formCampaña: '',
   });
   const schema = yup.object().shape(arraySchema);
   const handleCampaignChange = (value) => {
@@ -53,24 +54,24 @@ const FormCard = ({
     const dataForm = formData[selectedPagaduria][filterDataCampaign].data;
     const configForm = formData[selectedPagaduria][filterDataCampaign].config;
     setSelectedCampaña(filterDataCampaign);
-  
+
     if (formData[selectedPagaduria][filterDataCampaign] && dataForm) {
       const updatedSchema = { ...arraySchema };
       const updatedInitialValues = { ...arrayInitialValues };
-  
+
       dataForm.forEach((form) => {
         updatedInitialValues[form.title] = '';
         updatedSchema[form.title] = yup.string().required('Este campo es obligatorio');
       });
-  
+
       setArraySchema(updatedSchema); // Actualiza el estado con el nuevo objeto
       setArrayInitialValues(updatedInitialValues); // Actualiza el estado con el nuevo objeto
-  
+
       const initialFormArray = dataForm.map((form) => ({
         ...form,
         value: '',
       }));
-  
+
       setFormArray(initialFormArray);
       setBackgroundImage(configForm.backgroundImage);
       setText(configForm.text);
@@ -78,7 +79,7 @@ const FormCard = ({
       setFormArray([]);
     }
   };
-  
+
 
   const handlePagaduriaChange = (value) => {
 
@@ -117,20 +118,24 @@ const FormCard = ({
     if (urlData.cedulaCliente) {
       data['Numero de Identificación'] = urlData.cedulaCliente;
     }
-    
+
     console.log(data);
-    data.source =  selectedPagaduria + '-' + selectedCampaña;
+    data.source = selectedPagaduria + '-' + selectedCampaña;
 
     setSelectedData(data);
     console.log(data);
-    send_data(data, setSendtoExcel, setModal);
+    send_data(data, setSendtoExcel, setModal,setResponse);
   };
   if (modal) {
     Swal.fire({
-      title: 'Registro Exitoso',
-      text: 'Se ha registrado con exito en la hoja ',
+      title: 'Registro Exitoso #'+response,
+      text: 'Se ha registrado con exito en la hoja '+selectedPagaduria+'-'+selectedCampaña,
       icon: 'success',
-      confirmButtonText: 'ok'
+      confirmButtonText: 'Ok',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      } 
     });
   }
   return (
@@ -191,7 +196,7 @@ const FormCard = ({
           {
             <Skeleton count={10} height={30} />
           }
-          
+
         </p>
       )}
     </Card.Body>

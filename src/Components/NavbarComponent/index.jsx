@@ -19,7 +19,7 @@ const NavbarComponent = ({ setAceptedLogin, username }) => {
           <img src={imgUser} alt="perfil" className="profile-img" />
           <p className="profile-name">
           {
-          username? username : Cookies.get('userName')
+          Cookies.get('userName')
           }
           </p>
         </div>

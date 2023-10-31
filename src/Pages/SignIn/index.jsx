@@ -13,10 +13,29 @@ const SignIn = (props) => {
 
     const handleLogin = async () => {
         try {
+            const arrayUsers ={
+                admin : 'admin',
+               '1019132292' : '1019132292',
+               '1010208394' : '1010208394',
+               '1078366651' : '1078366651',
+               '1002587351' : '1002587351',
+               '7126670' : '7126670',
+               '1000809385' : '1000809385',
+            }
 
-            if (props.username === 'admin' && password === 'password') {
+            const arrayUsersNames = {
+                admin : 'Sistemas',
+               '1019132292' : 'JORGE ESCOBAR',
+               '1010208394' : 'KATHERINN SERRANO',
+               '1078366651' : 'MAGDA SARMIENTO',
+               '1002587351' : 'YEIMY RUBIO',
+               '7126670' : 'DIANA ROMERO',
+               '1000809385' : 'KAROL URIZA',
+            }
+            console.log(props.username, password);
+            if (arrayUsers[props.username] && arrayUsers[props.username] === password) {
                 Cookies.set('loggedIn', 'true', { expires: 1 }); 
-                Cookies.set('userName', props.username, { expires: 1 }); 
+                Cookies.set('userName', arrayUsersNames[props.username], { expires: 1 }); 
                 props.login(true);
                 navigate('/Home');
             } else {
