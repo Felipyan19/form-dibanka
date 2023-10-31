@@ -14,8 +14,9 @@ const FormDefault = ({
   handleCampañaChange,
   setTelefono,
   setIdWolkvox,
+  urlData
 }) => {
-  const urlData = JSON.parse(localStorage.getItem('urlParametres'));
+  
   const renderOptions = (options) =>
     Object.keys(options).map((option) => (
       <option key={option} value={option}>
@@ -46,6 +47,7 @@ const FormDefault = ({
     if(urlData.mensaje){
       handlePagaduriaChange(words[0]);
       handleChange('Pagaduria')(words[0]);
+      console.log(words[0] + " words0");
     }
     if (urlData.cedulaCliente) {
       handleChange('Numero de Identificación')(urlData.cedulaCliente);
@@ -57,11 +59,13 @@ const FormDefault = ({
     if(urlData.mensaje){
       handleCampañaChange(words[1]);
       handleChange('Campaña')(words[1]);
+      console.log(words[1] + " words1");
     }
   },[selectedPagaduria])
 
+
   const renderFormGroup = (id, label, selectOptions) => {
-    // Define el valor inicial en función de la existencia de la etiqueta
+
     const initialValue = label && label[1] ? label[1] : '';
 
     return (

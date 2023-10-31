@@ -28,14 +28,14 @@ const FormCard = ({
   IdWolkvox,
   setIdWolkvox,
 }) => {
-    
+    const urlData = JSON.parse(localStorage.getItem('urlParametres'));
     const [modal, setModal] = useState(false) 
     const [sendtoExcel, setSendtoExcel] = useState(false);
     const [arraySchema, setArraySchema] = useState({
         formTelefono: yup.string().required('Este campo es obligatorio'),
         formIdWolkvox: yup.string().required('Este campo es obligatorio'),
-        formPagaduria: yup.string().required('Este campo es obligatorio'),
-        formCampaña : yup.string().required('Este campo es obligatorio'),
+        // formPagaduria: yup.string().required('Este campo es obligatorio'),
+        // formCampaña : yup.string().required('Este campo es obligatorio'),
     });
 
   const [arrayInitialValues, setArrayInitialValues] = useState({
@@ -81,7 +81,7 @@ const FormCard = ({
   
 
   const handlePagaduriaChange = (value) => {
-    
+
     setSelectedPagaduria(value);
 
   };
@@ -113,6 +113,11 @@ const FormCard = ({
     formArray.forEach((form) => {
       data[form.title] = form.value;
     });
+
+    if (urlData.cedulaCliente) {
+      data['Numero de Identificación'] = urlData.cedulaCliente;
+    }
+    
     console.log(data);
     data.source =  selectedPagaduria + '-' + selectedCampaña;
 
@@ -158,6 +163,7 @@ const FormCard = ({
                 handleCampañaChange={handleCampaignChange}
                 setTelefono={setTelefono}
                 setIdWolkvox={setIdWolkvox}
+                urlData={urlData}
               />
               {formArray.map((form) => (
                 <NewForm
@@ -170,6 +176,7 @@ const FormCard = ({
                   errors={errors}
                   options={form.options}
                   value={form.value}
+                  urlData={urlData}
                   onValueChange={(fieldValue) => handleFieldChange(form.title, fieldValue)}
                 />
               ))}
