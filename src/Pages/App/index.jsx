@@ -49,7 +49,7 @@ const App = () => {
     const id_customer = searchParams.get('id_customer');
     const id_call = searchParams.get('id_call');
     const webrtc = searchParams.get('webrtc');
-    const mensaje = searchParams.get('mensaje');
+    let mensaje = searchParams.get('mensaje');
     const cedulaCliente = searchParams.get('cedula_cliente');
 
     const urlParams = {
@@ -58,7 +58,7 @@ const App = () => {
       id_customer: id_customer,
       id_call: id_call,
       webrtc: webrtc,
-      mensaje: mensaje,
+      mensaje: mensaje || null,
       cedulaCliente: cedulaCliente
     };
 
