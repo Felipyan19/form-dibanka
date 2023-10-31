@@ -18,15 +18,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['NIT']
-                },
-                {
-                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
-                    title: 'Telefono del Cliente',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
@@ -120,15 +115,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['NIT']
-                },
-                {
-                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
-                    title: 'Telefono del Cliente',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
@@ -209,15 +199,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['NIT']
-                },
-                {
-                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
-                    title: 'Telefono del Cliente',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
@@ -278,15 +263,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['NIT']
-                },
-                {
-                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
-                    title: 'Telefono del Cliente',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
@@ -341,15 +321,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['NIT']
-                },
-                {
-                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
-                    title: 'Telefono del Cliente',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
@@ -443,15 +418,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['Cedula de Ciudadania']
-                },
-                {
-                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
-                    title: 'Telefono del Cliente',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
@@ -547,11 +517,7 @@ const formData = {
                     options: ['Cedula de Ciudadania']
                 },
                 {
-                    title: 'Numero de Identificación',
-                    type: 'text'
-                },
-                {
-                    title: 'Telefono del Cliente',
+                    title: 'Tipo de Identificación',
                     type: 'text'
                 },
                 {
@@ -611,15 +577,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['Cedula de Ciudadania']
-                },
-                {
-                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
-                    title: 'Telefono del Cliente',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {

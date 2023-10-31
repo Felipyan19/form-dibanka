@@ -1,9 +1,9 @@
-import React from 'react';
+import React  from 'react';
 import { Form, Row } from 'react-bootstrap';
 
 const NewForm = (props) => {
-    const { type, title, options, value, onValueChange, handleChange, values, touched, errors, urlData } = props;
-
+    const { type, title, options, value, onValueChange, handleChange, values, touched, errors, urlData, selectedPagaduria } = props;
+    
     const handleSelectChange = (e) => {
         onValueChange(e.target.value);
         handleChange(title)(e);
@@ -34,6 +34,16 @@ const NewForm = (props) => {
         } else if (type === 'text') {
              if(urlData.cedulaCliente && title === 'Numero de Identificación'){
                 inputProps.value = urlData.cedulaCliente
+             }
+             if(title === 'Tipo de Identificación'){
+                if(selectedPagaduria === 'Afiliados'){
+                    inputProps.value = 'CEDULA DE CIUDADANIA'
+                    
+                } 
+                if(selectedPagaduria === 'Aliados'){
+                    inputProps.value = 'NIT'
+                }
+                
              }
             return (
                 <div>

@@ -33,7 +33,6 @@ const FormDefault = ({
     handleChange(name)(value);
   };
   const words = urlData.mensaje?.split('-');
-  console.log(words);
   
   useEffect(() => {
     if (urlData.ani) {
@@ -47,19 +46,16 @@ const FormDefault = ({
     if(urlData.mensaje){
       handlePagaduriaChange(words[0]);
       handleChange('Pagaduria')(words[0]);
-      console.log(words[0] + " words0");
     }
     if (urlData.cedulaCliente) {
       handleChange('Numero de Identificación')(urlData.cedulaCliente);
     }
-    console.log(urlData);
   },[])
 
   useEffect(() => {
     if(urlData.mensaje){
       handleCampañaChange(words[1]);
       handleChange('Campaña')(words[1]);
-      console.log(words[1] + " words1");
     }
   },[selectedPagaduria])
 

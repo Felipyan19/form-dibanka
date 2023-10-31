@@ -1,5 +1,4 @@
 const send_data = (data,setSendtoExcel,setModal,setResponse) => {
-    console.log(data);
     setSendtoExcel(true);
     const url = 'https://script.google.com/macros/s/AKfycbx3jVq4TbrOYMcAaXyWql-6iBHzN9wZbH66d24yEjSwcXrvi3fNQgTEFjbqDGGbnra3IQ/exec'
     
@@ -22,7 +21,6 @@ const send_data = (data,setSendtoExcel,setModal,setResponse) => {
         setSendtoExcel(false);
         setModal(true);
         setResponse(data['row']);
-        console.log('Solicitud exitosa. Respuesta:', data);
     })
     .catch(error => {
         console.error('Error:', error);

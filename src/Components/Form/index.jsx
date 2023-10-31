@@ -119,11 +119,14 @@ const FormCard = ({
       data['Numero de Identificación'] = urlData.cedulaCliente;
     }
 
-    console.log(data);
+    if(selectedPagaduria === 'Aliados'){
+      data['Tipo de Identificación'] = 'NIT';
+    }
+    if(selectedPagaduria === 'Afiliados'){
+      data['Tipo de Identificación'] = 'CEDULA DE CIUDADANIA';
+    }
     data.source = selectedPagaduria + '-' + selectedCampaña;
-
     setSelectedData(data);
-    console.log(data);
     send_data(data, setSendtoExcel, setModal,setResponse);
   };
   if (modal) {
@@ -183,9 +186,16 @@ const FormCard = ({
                   value={form.value}
                   urlData={urlData}
                   onValueChange={(fieldValue) => handleFieldChange(form.title, fieldValue)}
+                  selectedPagaduria = {selectedPagaduria}
+
                 />
               ))}
-              <Button type="submit" className="btn mt-5" variant="primary">
+              <Button 
+                onClick={() => handleChange('Tipo de Identificación')('go')} 
+                type="submit" 
+                className="btn mt-5" 
+                variant="primary"
+                >
                 Enviar Datos
               </Button>
             </FormikForm>
