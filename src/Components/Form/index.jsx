@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
+import Cookies from 'js-cookie';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { FormDefault } from '../FormDefault';
@@ -108,7 +109,7 @@ const FormCard = ({
       Campaña: selectedCampaña,
       Telefono: telefono,
       IdWolkvox: IdWolkvox,
-      pagaduria: selectedPagaduria,
+      Pagaduria: selectedPagaduria,
     };
 
     formArray.forEach((form) => {
@@ -125,8 +126,10 @@ const FormCard = ({
     if(selectedPagaduria === 'Afiliados'){
       data['Tipo de Identificación'] = 'CEDULA DE CIUDADANIA';
     }
+    data.Agente = Cookies.get('userName')
     data.source = selectedPagaduria + '-' + selectedCampaña;
     setSelectedData(data);
+
     send_data(data, setSendtoExcel, setModal,setResponse);
   };
   if (modal) {
