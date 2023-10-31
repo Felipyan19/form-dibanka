@@ -513,11 +513,10 @@ const formData = {
                 },
                 {
                     title: 'Tipo de Identificación',
-                    type: 'list',
-                    options: ['Cedula de Ciudadania']
+                    type: 'text'
                 },
                 {
-                    title: 'Tipo de Identificación',
+                    title: 'Numero de Identificación',
                     type: 'text'
                 },
                 {
