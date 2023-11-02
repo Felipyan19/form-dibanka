@@ -26,6 +26,7 @@ const NewForm = (props) => {
         if (title === 'Motivo Específico') {
             setMotivoEspecifico(options);
             setMotivoEspecificoBackup(options);
+            console.log('in backup');
         }
     }, []);
 
