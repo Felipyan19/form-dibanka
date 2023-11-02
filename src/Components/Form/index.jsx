@@ -29,6 +29,9 @@ const FormCard = ({
   IdWolkvox,
   setIdWolkvox,
 }) => {
+  const [motivoEspecificoBackup, setMotivoEspecificoBackup] = useState([]);
+  const [motivoConsulta, setMotivoConsulta] = useState('');
+  const [motivoEspecifico, setMotivoEspecifico] = useState([]);
   const [response, setResponse] = useState('');
   const urlData = JSON.parse(localStorage.getItem('urlParametres'));
   const [modal, setModal] = useState(false)
@@ -190,6 +193,12 @@ const FormCard = ({
                   urlData={urlData}
                   onValueChange={(fieldValue) => handleFieldChange(form.title, fieldValue)}
                   selectedPagaduria = {selectedPagaduria}
+                  motivoConsulta = {motivoConsulta}
+                  setMotivoConsulta = {setMotivoConsulta}
+                  motivoEspecifico = {motivoEspecifico}
+                  setMotivoEspecifico = {setMotivoEspecifico}
+                  motivoEspecificoBackup = {motivoEspecificoBackup}
+                  setMotivoEspecificoBackup = {setMotivoEspecificoBackup}
 
                 />
               ))}
