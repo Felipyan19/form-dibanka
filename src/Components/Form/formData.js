@@ -58,7 +58,7 @@ const formData = {
                     ]
                 },
                 {
-                    title: 'Motivo Especifico',
+                    title: 'Motivo Específico',
                     type: 'list',
                     options: [
                         "1.1 No me llega usuario y contraseña (Operador nuevo)",
@@ -159,7 +159,7 @@ const formData = {
                     ]
                 },
                 {
-                    title: 'Motivo Especifico',
+                    title: 'Motivo Específico',
                     type: 'list',
                     options: [
                         "1.1 No me llega usuario y contraseña (Operador nuevo)",
@@ -266,7 +266,7 @@ const formData = {
                     ]
                 },
                 {
-                    title: 'Motivo Especifico',
+                    title: 'Motivo Específico',
                     type: 'list',
                     options: [
                         "1.1 No me llega usuario y contraseña (Operador nuevo)",
@@ -368,7 +368,7 @@ const formData = {
                     ]
                 },
                 {
-                    title: 'Motivo Especifico',
+                    title: 'Motivo Específico',
                     type: 'list',
                     options: [
                         "1.1 No me llega usuario y contraseña (Operador nuevo)",
