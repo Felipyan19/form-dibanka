@@ -26,7 +26,6 @@ const NewForm = (props) => {
         if (title === 'Motivo Específico') {
             setMotivoEspecifico(options);
             setMotivoEspecificoBackup(options);
-            console.log('in backup');
         }
     }, []);
 
@@ -44,9 +43,6 @@ const NewForm = (props) => {
     useEffect(() => {
         if (motivoConsulta) {
             let filterNumber = '';
-            console.log(motivoConsulta);
-            console.log(motivoEspecificoBackup);
-            console.log(motivoEspecifico);
             if (motivoConsulta.match(/^\d+/)) {
                 filterNumber = motivoConsulta.match(/^\d+/)[0];
             }

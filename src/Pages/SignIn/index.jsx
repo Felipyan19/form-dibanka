@@ -32,7 +32,6 @@ const SignIn = (props) => {
                '7126670' : 'DIANA ROMERO',
                '1000809385' : 'KAROL URIZA',
             }
-            console.log(props.username, password);
             if (arrayUsers[props.username] && arrayUsers[props.username] === password) {
                 Cookies.set('loggedIn', 'true', { expires: 1 }); 
                 Cookies.set('userName', arrayUsersNames[props.username], { expires: 1 }); 
