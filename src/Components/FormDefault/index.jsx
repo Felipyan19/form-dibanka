@@ -92,7 +92,7 @@ const FormDefault = ({
               }}
               isValid={touched[id] && !errors[id]}
             >
-              <option value="">Select a {label[0].toLowerCase()}</option>
+              <option value=""> Seleccione</option>
               {renderOptions(selectOptions.data)}
             </Form.Select>
           </div>

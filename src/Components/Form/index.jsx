@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
 import Cookies from 'js-cookie';
@@ -52,7 +52,7 @@ const FormCard = ({
   const schema = yup.object().shape(arraySchema);
   const handleCampaignChange = (value) => {
     if (!formData[selectedPagaduria]) {
-      return; // Salir de la función si selectedPagaduria no está definido en formData
+      return; 
     }
     const filterDataCampaign = value;
     const dataForm = formData[selectedPagaduria][filterDataCampaign].data;
@@ -68,8 +68,8 @@ const FormCard = ({
         updatedSchema[form.title] = yup.string().required('Este campo es obligatorio');
       });
 
-      setArraySchema(updatedSchema); // Actualiza el estado con el nuevo objeto
-      setArrayInitialValues(updatedInitialValues); // Actualiza el estado con el nuevo objeto
+      setArraySchema(updatedSchema); 
+      setArrayInitialValues(updatedInitialValues);
 
       const initialFormArray = dataForm.map((form) => ({
         ...form,
@@ -83,7 +83,12 @@ const FormCard = ({
       setFormArray([]);
     }
   };
-
+ useEffect(() => {
+   if(selectedCampaña){
+    handleCampaignChange(selectedCampaña)
+    setMotivoEspecificoBackup(formData[selectedPagaduria][selectedCampaña].data[8].options)
+   }
+ },[selectedPagaduria])
 
   const handlePagaduriaChange = (value) => {
 
