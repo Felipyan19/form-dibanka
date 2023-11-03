@@ -106,12 +106,12 @@ const FormDefault = ({
     <>
       {renderFormGroup('formTelefono', ['Telefono', urlData.ani])}
       {renderFormGroup('formIdWolkvox', ['ID Wolkvox',urlData.id_call])}
-      {renderFormGroup('formPagaduria', ['Pagaduria'], {
+      {renderFormGroup('formPagaduria', ['Campaña'], {
         value: selectedPagaduria,
         onChange: handlePagaduriaChange,
         data: formData,
       })}
-      {renderFormGroup('formCampaña', ['Campaña'], {
+      {renderFormGroup('formCampaña', ['Pagaduria'], {
         value: selectedCampaña,
         onChange: handleCampañaChange,
         data: selectedPagaduria && formData[selectedPagaduria],
