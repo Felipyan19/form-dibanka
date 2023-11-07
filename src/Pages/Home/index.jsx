@@ -8,7 +8,12 @@ import imgForm from '../../img/plataforma-de-beneficios-scaled.jpg';
 import './style.css';
 
 
-function Home({urlParametres}) {
+/**
+ * Renders the Home component.
+ *
+ * @return {JSX.Element} The rendered Home component.
+ */
+function Home() {
 
     const [selectedCampaña, setSelectedCampaña] = useState('');
     const [selectedPagaduria, setSelectedPagaduria] = useState('');

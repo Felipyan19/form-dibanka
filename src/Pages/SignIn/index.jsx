@@ -6,11 +6,22 @@ import './Login.css';
 import imgLogin from '../../img/dibanka-beneficios.png';
 import imgLogo from '../../img/Logo-dibanka-768x158-1.png'
 
+/**
+ * Sign in function that handles the login process.
+ *
+ * @param {Object} props - the props object containing the necessary data.
+ * @return {void} This function does not return anything.
+ */
 const SignIn = (props) => {
 
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
+    /**
+     * Handles the login functionality.
+     *
+     * @return {Promise<void>} - A promise that resolves when the login is successful.
+     */
     const handleLogin = async () => {
         try {
             const arrayUsers ={
@@ -46,19 +57,36 @@ const SignIn = (props) => {
     };
 
 
+    /**
+     * Performs a check to see if the user is already logged in.
+     * If the user is logged in, updates the state in the parent component and redirects to the home page.
+     * 
+     * @param {Object} props - The props object containing the necessary data for the component.
+     * @returns {void}
+     */
     useEffect(() => {
-
-        if(Cookies.get('loggedIn') === 'true') {
+        if (Cookies.get('loggedIn') === 'true') {
             props.login(true);
             navigate('/Home');
         }
-
     }, []);
 
+    /**
+     * Updates the username in the props based on the value of the event target.
+     *
+     * @param {Event} e - The event object.
+     * @return {void} This function does not return anything.
+     */
     const handleUsernameChange = (e) => {
         props.setUsername(e.target.value);
     };
 
+    /**
+     * Handles the change event for the password input field.
+     *
+     * @param {object} e - The event object.
+     * @return {void} No return value.
+     */
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };

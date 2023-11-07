@@ -3,7 +3,20 @@ import Cookies from 'js-cookie';
 import imgUser from '../../img/user-interface.png';
 import './Header.css';
 
-const NavbarComponent = ({ setAceptedLogin, username }) => {
+/**
+ * Renders the Navbar component.
+ *
+ * @param {function} setAceptedLogin - A function to set the accepted login state
+ * @param {string} username - The username of the logged-in user
+ * @return {JSX.Element} The rendered Navbar component
+ */
+const NavbarComponent = ({ setAceptedLogin }) => {
+  /**
+   * Handles the login process by removing the 'loggedIn' cookie
+   * and setting the 'acceptedLogin' state to false.
+   *
+   * @return {void} This function does not return a value.
+   */
   const handleLogin = () => {
     Cookies.remove('loggedIn');
     setAceptedLogin(false);

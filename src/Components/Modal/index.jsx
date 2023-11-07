@@ -1,6 +1,11 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
+/**
+ * Renders a modal component with a form submission success message.
+ *
+ * @return {JSX.Element} The rendered modal component.
+ */
 const MyModal = () => {
     return (
         <div>

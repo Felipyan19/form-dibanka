@@ -12,6 +12,26 @@ import formData from '../../Components/Form/formData';
 import { send_data } from '../../send_data';
 import Swal from 'sweetalert2'
 
+/**
+ * Renders a form card component.
+ *
+ * @param {Object} selectedCampaña - the currently selected campaign
+ * @param {function} setSelectedCampaña - a function to set the selected campaign
+ * @param {Object} selectedPagaduria - the currently selected pagaduria
+ * @param {function} setSelectedPagaduria - a function to set the selected pagaduria
+ * @param {Array} formArray - an array of form data
+ * @param {function} setFormArray - a function to set the form data array
+ * @param {function} setSelectedData - a function to set the selected data
+ * @param {string} backgroundImage - the background image for the card
+ * @param {function} setBackgroundImage - a function to set the background image
+ * @param {string} text - the text for the card
+ * @param {function} setText - a function to set the text
+ * @param {string} telefono - the telephone number
+ * @param {function} setTelefono - a function to set the telephone number
+ * @param {string} IdWolkvox - the Wolkvox ID
+ * @param {function} setIdWolkvox - a function to set the Wolkvox ID
+ * @return {JSX.Element} - the rendered form card component
+ */
 const FormCard = ({
   selectedCampaña,
   setSelectedCampaña,
@@ -90,12 +110,25 @@ const FormCard = ({
    }
  },[selectedPagaduria])
 
+  /**
+   * Handles the change event for the "Pagaduria" input.
+   *
+   * @param {type} value - The new value selected for the "Pagaduria" input.
+   * @return {undefined} This function does not return anything.
+   */
   const handlePagaduriaChange = (value) => {
 
     setSelectedPagaduria(value);
 
   };
 
+  /**
+   * Updates a field in the form array.
+   *
+   * @param {string} fieldName - The name of the field to be updated.
+   * @param {any} fieldValue - The new value for the field.
+   * @return {void} This function does not return anything.
+   */
   const handleFieldChange = (fieldName, fieldValue) => {
     const updatedFormArray = formArray.map((form) =>
       form.title === fieldName ? { ...form, value: fieldValue } : form
@@ -103,10 +136,20 @@ const FormCard = ({
     setFormArray(updatedFormArray);
   };
 
+  /**
+   * Checks if the form is valid.
+   *
+   * @return {boolean} Returns true if the form is valid, otherwise false.
+   */
   const isFormValid = () => {
     return !formArray.some((form) => form.required && form.value === '');
   };
 
+  /**
+   * Handle the action of showing data.
+   *
+   * @return {undefined} No return value.
+   */
   const handleShowData = () => {
     if (!isFormValid()) {
       alert('Por favor, complete todos los campos obligatorios.');
