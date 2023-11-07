@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import './Login.css';
@@ -69,7 +69,7 @@ const SignIn = (props) => {
             props.login(true);
             navigate('/Home');
         }
-    }, []);
+    }, [ props,navigate ]);
 
     /**
      * Updates the username in the props based on the value of the event target.
@@ -93,7 +93,7 @@ const SignIn = (props) => {
 
     return (
         <main className="px-3 mt-5">
-            <Container fluid id="login-container">
+            <div fluid id="login-container">
                 <Row className="d-flex justify-content-center align-items-center h-100">
                     <Col xl={10}>
                         <Card className="login-card mt-5">
@@ -142,7 +142,7 @@ const SignIn = (props) => {
                         </Card>
                     </Col>
                 </Row>
-            </Container>
+            </div>
         </main>
     );
 }

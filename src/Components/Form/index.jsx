@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
 import Cookies from 'js-cookie';
@@ -8,7 +9,7 @@ import { FormDefault } from '../FormDefault';
 import { Card, Button } from 'react-bootstrap';
 import { NewForm } from '../../Components/newForm';
 import imgCCG from '../../img/logo-ccgltda-1586537131.png';
-import formData from '../../Components/Form/formData';
+import formData from './formData.js';
 import { send_data } from '../../send_data';
 import Swal from 'sweetalert2'
 
@@ -70,45 +71,56 @@ const FormCard = ({
     formCampaña: '',
   });
   const schema = yup.object().shape(arraySchema);
-  const handleCampaignChange = (value) => {
+  /**
+   * Handles the change event for the campaign.
+   *
+   * @param {type} value - the new value of the campaign
+   * @return {type} - none
+   */
+  const handleCampaignChange = useCallback((value) => {
     if (!formData[selectedPagaduria]) {
-      return; 
+      return;
     }
     const filterDataCampaign = value;
     const dataForm = formData[selectedPagaduria][filterDataCampaign].data;
     const configForm = formData[selectedPagaduria][filterDataCampaign].config;
     setSelectedCampaña(filterDataCampaign);
-
+  
     if (formData[selectedPagaduria][filterDataCampaign] && dataForm) {
       const updatedSchema = { ...arraySchema };
       const updatedInitialValues = { ...arrayInitialValues };
-
+  
       dataForm.forEach((form) => {
         updatedInitialValues[form.title] = '';
         updatedSchema[form.title] = yup.string().required('Este campo es obligatorio');
       });
-
-      setArraySchema(updatedSchema); 
+  
+      setArraySchema(updatedSchema);
       setArrayInitialValues(updatedInitialValues);
-
+  
       const initialFormArray = dataForm.map((form) => ({
         ...form,
         value: '',
       }));
-
+  
       setFormArray(initialFormArray);
       setBackgroundImage(configForm.backgroundImage);
       setText(configForm.text);
     } else {
       setFormArray([]);
     }
-  };
- useEffect(() => {
-   if(selectedCampaña){
-    handleCampaignChange(selectedCampaña)
-    setMotivoEspecificoBackup(formData[selectedPagaduria][selectedCampaña].data[8].options)
-   }
- },[selectedPagaduria])
+  }, [setText,setBackgroundImage,setSelectedCampaña,selectedPagaduria, arraySchema, arrayInitialValues, setFormArray,]);  
+  
+  useEffect(() => {
+    if (selectedCampaña) {
+      handleCampaignChange(selectedCampaña);
+  
+      if (formData[selectedPagaduria] && formData[selectedPagaduria][selectedCampaña] && formData[selectedPagaduria][selectedCampaña].data) {
+        setMotivoEspecificoBackup(formData[selectedPagaduria][selectedCampaña].data[8].options);
+      }
+    }
+  }, [selectedCampaña, selectedPagaduria, handleCampaignChange]);
+  
 
   /**
    * Handles the change event for the "Pagaduria" input.
@@ -116,11 +128,11 @@ const FormCard = ({
    * @param {type} value - The new value selected for the "Pagaduria" input.
    * @return {undefined} This function does not return anything.
    */
-  const handlePagaduriaChange = (value) => {
+  function handlePagaduriaChange(value) {
 
     setSelectedPagaduria(value);
 
-  };
+  }
 
   /**
    * Updates a field in the form array.

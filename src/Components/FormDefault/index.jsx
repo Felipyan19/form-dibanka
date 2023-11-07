@@ -91,14 +91,14 @@ const FormDefault = ({
     if (urlData.cedulaCliente) {
       handleChange('Numero de Identificación')(urlData.cedulaCliente);
     }
-  },[])
+  },[ urlData.ani, words,urlData.id_call, urlData.mensaje, urlData.cedulaCliente, handleChange, handlePagaduriaChange, setTelefono, setIdWolkvox])
 
   useEffect(() => {
     if(urlData.mensaje){
       handleCampañaChange(words[1]);
       handleChange('Campaña')(words[1]);
     }
-  },[selectedPagaduria])
+  },[selectedPagaduria,urlData.mensaje,words,handleCampañaChange,handleChange])
 
 
   /**

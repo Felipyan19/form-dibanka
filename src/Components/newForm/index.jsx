@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Form, Row } from 'react-bootstrap';
 
 /**
@@ -32,7 +32,6 @@ const NewForm = (props) => {
         value,
         onValueChange,
         handleChange,
-        values,
         touched,
         errors,
         urlData,
@@ -50,7 +49,7 @@ const NewForm = (props) => {
             setMotivoEspecifico(options);
             setMotivoEspecificoBackup(options);
         }
-    }, []);
+    }, [options,setMotivoEspecifico,setMotivoEspecificoBackup,title]);
 
     /**
      * Handles the change event of the select element.
@@ -95,7 +94,7 @@ const NewForm = (props) => {
                 setMotivoEspecifico(filteredOptions);
             }
         }
-    }, [motivoConsulta]);
+    }, [motivoConsulta, motivoEspecificoBackup, setMotivoEspecifico]);
 
 
     /**
