@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/FormDefault/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/FormDefault/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Importa las bibliotecas y componentes necesarios
+import React, { useEffect } from 'react';
+import { Row, Form } from 'react-bootstrap';
+
+/**
+ * Generates the form for the default values.
+ *
+ * @param {object} values - the values for the form
+ * @param {function} handleChange - the function to handle form changes
+ * @param {object} touched - the touched form fields
+ * @param {object} errors - the form errors
+ * @param {string} selectedPagaduria - the selected pagaduria
+ * @param {function} handlePagaduriaChange - the function to handle pagaduria changes
+ * @param {object} formData - the form data
+ * @param {string} selectedCampaña - the selected campaña
+ * @param {function} handleCampañaChange - the function to handle campaña changes
+ * @param {function} setTelefono - the function to set telefono
+ * @param {function} setIdWolkvox - the function to set idWolkvox
+ * @param {object} urlData - the url data
+ * @return {JSX.Element} - the form component
+ */
+const FormDefault = ({
+  values,
+  handleChange,
+  touched,
+  errors,
+  selectedPagaduria,
+  handlePagaduriaChange,
+  formData,
+  selectedCampaña,
+  handleCampañaChange,
+  setTelefono,
+  setIdWolkvox,
+  urlData
+}) => {
+  
+  /**
+   * Renders the options for a given set of options.
+   *
+   * @param {Object} options - The options to render.
+   * @return {Array} An array of option elements.
+   */
+  const renderOptions = (options) =>
+    Object.keys(options).map((option) => (
+      &lt;option key={option} value={option}>
+        {option}
+      &lt;/option>
+    ));
+
+  /**
+   * A function that handles the change of a name and value.
+   *
+   * @param {string} name - the name of the input field
+   * @param {any} value - the value of the input field
+   */
+  const customHandleChange = (name, value) => {
+    if (name === 'formTelefono') {
+      setTelefono(value);
+    } else if (name === 'formIdWolkvox') {
+      setIdWolkvox(value);
+    }
+    handleChange(name)(value);
+  };
+  const words = urlData.mensaje?.split('-');
+  
+  /**
+   * Executes two useEffect hooks to set values based on urlData and handle changes.
+   *
+   * @param {object} urlData - An object containing data from the URL, including `ani`, `id_call`, `mensaje`, and `cedulaCliente`.
+   * @param {string} selectedPagaduria - The currently selected pagaduria.
+   * @param {string} selectedCampaña - The currently selected campaña.
+   * @param {function} handleChange - A function to handle form changes.
+   * @param {function} handlePagaduriaChange - A function to handle pagaduria changes.
+   * @param {function} handleCampañaChange - A function to handle campaña changes.
+   * @param {function} setTelefono - A function to set the telefono value.
+   * @param {function} setIdWolkvox - A function to set the idWolkvox value.
+   */
+  useEffect(() => {
+    if (urlData.ani) {
+      setTelefono(urlData.ani);
+      handleChange('formTelefono')(urlData.ani);
+    }
+    if (urlData.id_call) {
+      setIdWolkvox(urlData.id_call);
+      handleChange('formIdWolkvox')(urlData.id_call);
+    }
+    if(urlData.mensaje){
+      handlePagaduriaChange(words[0]);
+      handleChange('Pagaduria')(words[0]);
+    }
+    if (urlData.cedulaCliente) {
+      handleChange('Numero de Identificación')(urlData.cedulaCliente);
+    }
+  },[ urlData.ani, words,urlData.id_call, urlData.mensaje, urlData.cedulaCliente, handleChange, handlePagaduriaChange, setTelefono, setIdWolkvox])
+
+  useEffect(() => {
+    if(urlData.mensaje){
+      handleCampañaChange(words[1]);
+      handleChange('Campaña')(words[1]);
+    }
+  },[selectedPagaduria,urlData.mensaje,words,handleCampañaChange,handleChange])
+
+
+  /**
+   * Renders a form group element.
+   *
+   * @param {string} id - The ID for the form control.
+   * @param {string} label - The label for the form control.
+   * @param {object} selectOptions - The select options for the form control.
+   * @return {JSX.Element} The rendered form group element.
+   */
+  const renderFormGroup = (id, label, selectOptions) => {
+
+    const initialValue = label &amp;&amp; label[1] ? label[1] : '';
+
+    return (
+      &lt;Form.Group as={Row} className="mb-3" controlId={id}>
+        &lt;Form.Label column style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+          {label[0]}
+        &lt;/Form.Label>
+        {!selectOptions &amp;&amp; (
+          &lt;div>
+            &lt;Form.Control
+              name={id}
+              type="text"
+              placeholder={initialValue || "Anonymous" }
+              value={values[id] || initialValue} // Usar el valor inicial si existe
+              onChange={(e) => customHandleChange(id, e.target.value)} // Usar la función personalizada
+              isValid={touched[id] &amp;&amp; !errors[id]}
+            />
+          &lt;/div>
+        )}
+        {selectOptions &amp;&amp; (
+          &lt;div>
+            &lt;Form.Select
+              name={id}
+              value={selectOptions.value || initialValue} // Usar el valor inicial si existe
+              onChange={(e) => {
+                selectOptions.onChange(e.target.value)
+                customHandleChange(id, e.target.value)
+              }}
+              isValid={touched[id] &amp;&amp; !errors[id]}
+            >
+              &lt;option value=""> Seleccione&lt;/option>
+              {renderOptions(selectOptions.data)}
+            &lt;/Form.Select>
+          &lt;/div>
+        )}
+        {touched[id] &amp;&amp; errors[id] &amp;&amp; &lt;div className="text-danger">{errors[id]}&lt;/div>}
+      &lt;/Form.Group>
+    );
+  };
+
+  return (
+    &lt;>
+      {renderFormGroup('formTelefono', ['Telefono', urlData.ani])}
+      {renderFormGroup('formIdWolkvox', ['ID Wolkvox',urlData.id_call])}
+      {renderFormGroup('formPagaduria', ['Campaña'], {
+        value: selectedPagaduria,
+        onChange: handlePagaduriaChange,
+        data: formData,
+      })}
+      {renderFormGroup('formCampaña', ['Pagaduria'], {
+        value: selectedCampaña,
+        onChange: handleCampañaChange,
+        data: selectedPagaduria &amp;&amp; formData[selectedPagaduria],
+      })}
+    &lt;/>
+  );
+};
+
+export { FormDefault };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AppRoutes">AppRoutes</a></li><li><a href="global.html#FormCard">FormCard</a></li><li><a href="global.html#FormDefault">FormDefault</a></li><li><a href="global.html#FormLayout">FormLayout</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#MyModal">MyModal</a></li><li><a href="global.html#NavbarComponent">NavbarComponent</a></li><li><a href="global.html#NewForm">NewForm</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#SignIn">SignIn</a></li><li><a href="global.html#send_data">send_data</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Nov 07 2023 15:31:15 GMT-0500 (hora estándar de Colombia)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
