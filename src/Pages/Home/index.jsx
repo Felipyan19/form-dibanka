@@ -12,7 +12,8 @@ import './style.css';
  *
  * @return {JSX.Element} El componente Home renderizado.
  */
-function Home() {
+
+function Home({urlParametres}) {
 
     /**
      * Estado para el valor de la campaña seleccionada.
@@ -94,7 +95,7 @@ function Home() {
                 <Col md={6} lg={5} className="text-center-col p-5">
                     <div className="container-card">
                         <div className="container-img mb-5">
-                            <img src={backgroundImage} alt="Fondo del formulario de inicio de sesión" className="img-fluid" />
+                            <img src={backgroundImage} alt="login form background" className="img-fluid" />
                         </div>
                         {text &&
                             text.map((parrafo, index) => (

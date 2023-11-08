@@ -1,3 +1,4 @@
+// Importa las bibliotecas y componentes necesarios
 import React, { useEffect } from 'react';
 import { Row, Form } from 'react-bootstrap';
 
@@ -39,6 +40,7 @@ const FormDefault = ({
    * @param {Object} options - Las opciones a renderizar.
    * @return {Array} Un arreglo de elementos de opción.
    */
+  
   const renderOptions = (options) =>
     Object.keys(options).map((option) => (
       <option key={option} value={option}>
@@ -46,12 +48,13 @@ const FormDefault = ({
       </option>
     ));
 
-  /**
+    /**
    * Una función que maneja el cambio de un nombre y un valor.
    *
    * @param {string} name - el nombre del campo de entrada
    * @param {any} value - el valor del campo de entrada
    */
+
   const customHandleChange = (name, value) => {
     if (name === 'formTelefono') {
       setTelefono(value);
@@ -74,6 +77,7 @@ const FormDefault = ({
    * @param {function} setTelefono - Una función para establecer el valor del teléfono.
    * @param {function} setIdWolkvox - Una función para establecer el ID de Wolkvox.
    */
+  
   useEffect(() => {
     if (urlData.ani) {
       setTelefono(urlData.ani);
@@ -83,21 +87,21 @@ const FormDefault = ({
       setIdWolkvox(urlData.id_call);
       handleChange('formIdWolkvox')(urlData.id_call);
     }
-    if (urlData.mensaje) {
+    if(urlData.mensaje){
       handlePagaduriaChange(words[0]);
       handleChange('Pagaduria')(words[0]);
     }
     if (urlData.cedulaCliente) {
-      handleChange('Número de Identificación')(urlData.cedulaCliente);
+      handleChange('Numero de Identificación')(urlData.cedulaCliente);
     }
-  }, [urlData.ani, words, urlData.id_call, urlData.mensaje, urlData.cedulaCliente, handleChange, handlePagaduriaChange, setTelefono, setIdWolkvox]);
+  },[])
 
   useEffect(() => {
-    if (urlData.mensaje) {
+    if(urlData.mensaje){
       handleCampañaChange(words[1]);
       handleChange('Campaña')(words[1]);
     }
-  }, [selectedPagaduria, urlData.mensaje, words, handleCampañaChange, handleChange]);
+  },[selectedPagaduria])
 
   /**
    * Renderiza un elemento de grupo de formulario.
@@ -107,6 +111,7 @@ const FormDefault = ({
    * @param {object} selectOptions - Las opciones de selección para el control del formulario.
    * @return {JSX.Element} El elemento de grupo de formulario renderizado.
    */
+
   const renderFormGroup = (id, label, selectOptions) => {
 
     const initialValue = label && label[1] ? label[1] : '';
@@ -121,7 +126,7 @@ const FormDefault = ({
             <Form.Control
               name={id}
               type="text"
-              placeholder={initialValue || "Anónimo"}
+              placeholder={initialValue || "Anonymous" }
               value={values[id] || initialValue} // Usar el valor inicial si existe
               onChange={(e) => customHandleChange(id, e.target.value)} // Usar la función personalizada
               isValid={touched[id] && !errors[id]}
@@ -151,8 +156,8 @@ const FormDefault = ({
 
   return (
     <>
-      {renderFormGroup('formTelefono', ['Teléfono', urlData.ani])}
-      {renderFormGroup('formIdWolkvox', ['ID Wolkvox', urlData.id_call])}
+      {renderFormGroup('formTelefono', ['Telefono', urlData.ani])}
+      {renderFormGroup('formIdWolkvox', ['ID Wolkvox',urlData.id_call])}
       {renderFormGroup('formPagaduria', ['Campaña'], {
         value: selectedPagaduria,
         onChange: handlePagaduriaChange,

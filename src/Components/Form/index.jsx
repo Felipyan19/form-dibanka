@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
 import Cookies from 'js-cookie';
@@ -8,7 +8,7 @@ import { FormDefault } from '../FormDefault';
 import { Card, Button } from 'react-bootstrap';
 import { NewForm } from '../../Components/newForm';
 import imgCCG from '../../img/logo-ccgltda-1586537131.png';
-import formData from './formData.js';
+import formData from '../../Components/Form/formData';
 import { send_data } from '../../send_data';
 import Swal from 'sweetalert2'
 
@@ -39,7 +39,9 @@ const FormCard = ({
   formArray,
   setFormArray,
   setSelectedData,
+  backgroundImage,
   setBackgroundImage,
+  text,
   setText,
   telefono,
   setTelefono,
@@ -67,16 +69,15 @@ const FormCard = ({
     formCampaña: '',
   });
   const schema = yup.object().shape(arraySchema);
-
   /**
    * Maneja el evento de cambio para la campaña.
    *
    * @param {type} value - el nuevo valor de la campaña
    * @return {type} - ninguno
    */
-  const handleCampaignChange = useCallback((value) => {
+  const handleCampaignChange = (value) => {
     if (!formData[selectedPagaduria]) {
-      return;
+      return; 
     }
     const filterDataCampaign = value;
     const dataForm = formData[selectedPagaduria][filterDataCampaign].data;
@@ -92,7 +93,7 @@ const FormCard = ({
         updatedSchema[form.title] = yup.string().required('Este campo es obligatorio');
       });
 
-      setArraySchema(updatedSchema);
+      setArraySchema(updatedSchema); 
       setArrayInitialValues(updatedInitialValues);
 
       const initialFormArray = dataForm.map((form) => ({
@@ -106,17 +107,13 @@ const FormCard = ({
     } else {
       setFormArray([]);
     }
-  }, [setText, setBackgroundImage, setSelectedCampaña, selectedPagaduria, arraySchema, arrayInitialValues, setFormArray]);
-
-  useEffect(() => {
-    if (selectedCampaña) {
-      handleCampaignChange(selectedCampaña);
-
-      if (formData[selectedPagaduria] && formData[selectedPagaduria][selectedCampaña] && formData[selectedPagaduria][selectedCampaña].data) {
-        setMotivoEspecificoBackup(formData[selectedPagaduria][selectedCampaña].data[8].options);
-      }
-    }
-  }, [selectedCampaña, selectedPagaduria, handleCampaignChange]);
+  };
+ useEffect(() => {
+   if(selectedCampaña){
+    handleCampaignChange(selectedCampaña)
+    setMotivoEspecificoBackup(formData[selectedPagaduria][selectedCampaña].data[8].options)
+   }
+ },[selectedPagaduria])
 
   /**
    * Maneja el evento de cambio para el input "Pagaduria".
@@ -124,17 +121,20 @@ const FormCard = ({
    * @param {type} value - El nuevo valor seleccionado para el input "Pagaduria".
    * @return {undefined} Esta función no retorna nada.
    */
-  function handlePagaduriaChange(value) {
-    setSelectedPagaduria(value);
-  }
+  const handlePagaduriaChange = (value) => {
 
-  /**
+    setSelectedPagaduria(value);
+
+  };
+
+    /**
    * Actualiza un campo en el arreglo de formularios.
    *
    * @param {string} fieldName - El nombre del campo que se actualizará.
    * @param {any} fieldValue - El nuevo valor para el campo.
    * @return {void} Esta función no retorna nada.
    */
+
   const handleFieldChange = (fieldName, fieldValue) => {
     const updatedFormArray = formArray.map((form) =>
       form.title === fieldName ? { ...form, value: fieldValue } : form
@@ -142,7 +142,7 @@ const FormCard = ({
     setFormArray(updatedFormArray);
   };
 
-  /**
+    /**
    * Comprueba si el formulario es válido.
    *
    * @return {boolean} Devuelve true si el formulario es válido, de lo contrario, devuelve false.
@@ -150,8 +150,8 @@ const FormCard = ({
   const isFormValid = () => {
     return !formArray.some((form) => form.required && form.value === '');
   };
-
-  /**
+  
+   /**
    * Maneja la acción de mostrar los datos.
    *
    * @return {undefined} No retorna ningún valor.
@@ -174,35 +174,33 @@ const FormCard = ({
     });
 
     if (urlData.cedulaCliente) {
-      data['Número de Identificación'] = urlData.cedulaCliente;
+      data['Numero de Identificación'] = urlData.cedulaCliente;
     }
 
-    if (selectedPagaduria === 'Aliados') {
+    if(selectedPagaduria === 'Aliados'){
       data['Tipo de Identificación'] = 'NIT';
     }
-    if (selectedPagaduria === 'Afiliados') {
-      data['Tipo de Identificación'] = 'CÉDULA DE CIUDADANÍA';
+    if(selectedPagaduria === 'Afiliados'){
+      data['Tipo de Identificación'] = 'CEDULA DE CIUDADANIA';
     }
-    data.Agente = Cookies.get('userName');
+    data.Agente = Cookies.get('userName')
     data.source = selectedPagaduria + '-' + selectedCampaña;
     setSelectedData(data);
 
-    send_data(data, setSendtoExcel, setModal, setResponse);
+    send_data(data, setSendtoExcel, setModal,setResponse);
   };
-
   if (modal) {
     Swal.fire({
-      title: 'Registro Exitoso #' + response,
-      text: 'Se ha registrado con éxito en la hoja ' + selectedPagaduria + '-' + selectedCampaña,
+      title: 'Registro Exitoso #'+response,
+      text: 'Se ha registrado con exito en la hoja '+selectedPagaduria+'-'+selectedCampaña,
       icon: 'success',
       confirmButtonText: 'Ok',
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.reload();
-      }
+      } 
     });
   }
-
   return (
     <Card.Body className="p-5">
       <div className="d-flex justify-content-between align-items-center">
@@ -230,7 +228,7 @@ const FormCard = ({
                 formData={formData}
                 selectedCampaña={selectedCampaña}
                 setSelectedCampaña={setSelectedCampaña}
-                handleCampaignChange={handleCampaignChange}
+                handleCampañaChange={handleCampaignChange}
                 setTelefono={setTelefono}
                 setIdWolkvox={setIdWolkvox}
                 urlData={urlData}
@@ -248,21 +246,22 @@ const FormCard = ({
                   value={form.value}
                   urlData={urlData}
                   onValueChange={(fieldValue) => handleFieldChange(form.title, fieldValue)}
-                  selectedPagaduria={selectedPagaduria}
-                  motivoConsulta={motivoConsulta}
-                  setMotivoConsulta={setMotivoConsulta}
-                  motivoEspecifico={motivoEspecifico}
-                  setMotivoEspecifico={setMotivoEspecifico}
-                  motivoEspecificoBackup={motivoEspecificoBackup}
-                  setMotivoEspecificoBackup={setMotivoEspecificoBackup}
+                  selectedPagaduria = {selectedPagaduria}
+                  motivoConsulta = {motivoConsulta}
+                  setMotivoConsulta = {setMotivoConsulta}
+                  motivoEspecifico = {motivoEspecifico}
+                  setMotivoEspecifico = {setMotivoEspecifico}
+                  motivoEspecificoBackup = {motivoEspecificoBackup}
+                  setMotivoEspecificoBackup = {setMotivoEspecificoBackup}
+
                 />
               ))}
-              <Button
-                onClick={() => handleChange('Tipo de Identificación')('go')}
-                type="submit"
-                className="btn mt-5"
+              <Button 
+                onClick={() => handleChange('Tipo de Identificación')('go')} 
+                type="submit" 
+                className="btn mt-5" 
                 variant="primary"
-              >
+                >
                 Enviar Datos
               </Button>
             </FormikForm>
@@ -273,6 +272,7 @@ const FormCard = ({
           {
             <Skeleton count={10} height={30} />
           }
+
         </p>
       )}
     </Card.Body>

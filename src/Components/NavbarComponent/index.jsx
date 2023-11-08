@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom'
 import Cookies from 'js-cookie';
 import imgUser from '../../img/user-interface.png';
 import './Header.css';
@@ -7,10 +9,17 @@ import './Header.css';
  * Renderiza el componente Navbar.
  *
  * @param {function} setAcceptedLogin - Una función para establecer el estado de inicio de sesión aceptado.
- * @param {string} username - El nombre de usuario del usuario que ha iniciado sesión.
  * @return {JSX.Element} El componente Navbar renderizado.
  */
-const NavbarComponent = ({ setAcceptedLogin, username }) => {
+
+const NavbarComponent = ({ setAceptedLogin }) => {
+  const [Docs, setDocs] = useState(false);
+  const [UrlDocs, setUrlDocs] = useState('/Docs');
+  const handleDocs = () => {
+    setDocs(!Docs);
+    Docs ? setUrlDocs('/Docs') : setUrlDocs('/Home');
+  };
+
   /**
    * Maneja el proceso de inicio de sesión eliminando la cookie 'loggedIn'
    * y estableciendo el estado 'acceptedLogin' en false.
@@ -19,7 +28,7 @@ const NavbarComponent = ({ setAcceptedLogin, username }) => {
    */
   const handleLogin = () => {
     Cookies.remove('loggedIn');
-    setAcceptedLogin(false);
+    setAceptedLogin(false);
   };
 
   return (
@@ -31,13 +40,24 @@ const NavbarComponent = ({ setAcceptedLogin, username }) => {
         <div className="container-user">
           <img src={imgUser} alt="perfil" className="profile-img" />
           <p className="profile-name">
-          {
-          username
-          }
+            {
+              Cookies.get('userName')
+            }
           </p>
         </div>
         <div className="salir">
-          <button id="salirbtn" onClick={handleLogin}>Salir</button>
+          <NavLink 
+            to={UrlDocs}>
+            <button id="salirbtn" 
+            onClick={() => handleDocs()}>
+            {!Docs ? 'Documentacion' : 'Formulario'}
+            </button>
+          </NavLink>
+        </div>
+        <div className="salir">
+          <NavLink to='/'>
+            <button id="salirbtn" onClick={handleLogin}>Salir</button>
+          </NavLink>
         </div>
       </div>
     </div>

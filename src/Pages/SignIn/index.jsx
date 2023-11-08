@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import './Login.css';
@@ -12,6 +12,7 @@ import imgLogo from '../../img/Logo-dibanka-768x158-1.png'
  * @param {Object} props - el objeto de propiedades que contiene los datos necesarios.
  * @return {void} Esta función no devuelve nada.
  */
+
 const SignIn = (props) => {
 
     const [password, setPassword] = useState('');
@@ -22,30 +23,31 @@ const SignIn = (props) => {
      *
      * @return {Promise<void>} - Una promesa que se resuelve cuando el inicio de sesión es exitoso.
      */
+
     const handleLogin = async () => {
         try {
-            const arrayUsers = {
-                admin: 'admin',
-                '1019132292': '1019132292',
-                '1010208394': '1010208394',
-                '1078366651': '1078366651',
-                '1002587351': '1002587351',
-                '7126670': '7126670',
-                '1000809385': '1000809385',
+            const arrayUsers ={
+                admin : 'admin',
+               '1019132292' : '1019132292',
+               '1010208394' : '1010208394',
+               '1078366651' : '1078366651',
+               '1002587351' : '1002587351',
+               '7126670' : '7126670',
+               '1000809385' : '1000809385',
             }
 
             const arrayUsersNames = {
-                admin: 'Sistemas',
-                '1019132292': 'JORGE ESCOBAR',
-                '1010208394': 'KATHERINN SERRANO',
-                '1078366651': 'MAGDA SARMIENTO',
-                '1002587351': 'YEIMY RUBIO',
-                '7126670': 'DIANA ROMERO',
-                '1000809385': 'KAROL URIZA',
+                admin : 'Sistemas',
+               '1019132292' : 'JORGE ESCOBAR',
+               '1010208394' : 'KATHERINN SERRANO',
+               '1078366651' : 'MAGDA SARMIENTO',
+               '1002587351' : 'YEIMY RUBIO',
+               '7126670' : 'DIANA ROMERO',
+               '1000809385' : 'KAROL URIZA',
             }
             if (arrayUsers[props.username] && arrayUsers[props.username] === password) {
-                Cookies.set('loggedIn', 'true', { expires: 1 });
-                Cookies.set('userName', arrayUsersNames[props.username], { expires: 1 });
+                Cookies.set('loggedIn', 'true', { expires: 1 }); 
+                Cookies.set('userName', arrayUsersNames[props.username], { expires: 1 }); 
                 props.login(true);
                 navigate('/Home');
             } else {
@@ -56,7 +58,6 @@ const SignIn = (props) => {
         }
     };
 
-
     /**
      * Realiza una comprobación para ver si el usuario ya ha iniciado sesión.
      * Si el usuario ha iniciado sesión, actualiza el estado en el componente principal y redirige a la página de inicio.
@@ -64,19 +65,23 @@ const SignIn = (props) => {
      * @param {Object} props - El objeto de propiedades que contiene los datos necesarios para el componente.
      * @returns {void}
      */
+
     useEffect(() => {
-        if (Cookies.get('loggedIn') === 'true') {
+
+        if(Cookies.get('loggedIn') === 'true') {
             props.login(true);
             navigate('/Home');
         }
-    }, [props, navigate]);
 
+    }, []);
+    
     /**
      * Actualiza el nombre de usuario en las propiedades basado en el valor del objetivo del evento.
      *
      * @param {Event} e - El objeto del evento.
      * @return {void} Esta función no devuelve nada.
      */
+
     const handleUsernameChange = (e) => {
         props.setUsername(e.target.value);
     };
@@ -87,19 +92,20 @@ const SignIn = (props) => {
      * @param {object} e - El objeto del evento.
      * @return {void} No hay valor de retorno.
      */
+
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };
 
     return (
         <main className="px-3 mt-5">
-            <div fluid id="login-container">
+            <Container fluid id="login-container">
                 <Row className="d-flex justify-content-center align-items-center h-100">
                     <Col xl={10}>
                         <Card className="login-card mt-5">
                             <Row>
                                 <Col md={6} lg={5} className="d-none d-md-block text-center login-image">
-                                    <img src={imgLogin} alt="formulario de inicio de sesión" className="img-fluid" width="75%" />
+                                    <img src={imgLogin} alt="login form" className="img-fluid" width="75%" />
                                 </Col>
                                 <Col md={6} lg={7} className="d-flex align-items-center mt-5 mb-5">
                                     <Card.Body className="p-4 p-lg-5 text-black">
@@ -112,7 +118,7 @@ const SignIn = (props) => {
                                                 <Form.Label>Usuario</Form.Label>
                                                 <Form.Control
                                                     type="email"
-                                                    placeholder="nombre@ejemplo.com"
+                                                    placeholder="name@example.com"
                                                     value={props.username}
                                                     onChange={handleUsernameChange}
                                                 />
@@ -121,7 +127,7 @@ const SignIn = (props) => {
                                                 <Form.Label>Contraseña</Form.Label>
                                                 <Form.Control
                                                     type="password"
-                                                    placeholder="Contraseña"
+                                                    placeholder="Password"
                                                     value={password}
                                                     onChange={handlePasswordChange}
                                                 />
@@ -142,7 +148,7 @@ const SignIn = (props) => {
                         </Card>
                     </Col>
                 </Row>
-            </div>
+            </Container>
         </main>
     );
 }

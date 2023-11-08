@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Row } from 'react-bootstrap';
 
 /**
@@ -24,6 +24,7 @@ import { Form, Row } from 'react-bootstrap';
  * @param {function} props.setMotivoEspecificoBackup - La función de devolución de llamada para establecer las opciones de motivo específico de respaldo.
  * @return {JSX.Element} El campo de formulario renderizado.
  */
+
 const NewForm = (props) => {
     const {
         type,
@@ -32,6 +33,7 @@ const NewForm = (props) => {
         value,
         onValueChange,
         handleChange,
+        values,
         touched,
         errors,
         urlData,
@@ -49,7 +51,7 @@ const NewForm = (props) => {
             setMotivoEspecifico(options);
             setMotivoEspecificoBackup(options);
         }
-    }, [options, setMotivoEspecifico, setMotivoEspecificoBackup, title]);
+    }, []);
 
     /**
      * Maneja el evento de cambio del elemento select.
@@ -57,6 +59,7 @@ const NewForm = (props) => {
      * @param {Event} e - El objeto de evento.
      * @return {void} No devuelve ningún valor.
      */
+
     const handleSelectChange = (e) => {
         onValueChange(e.target.value);
         handleChange(title)(e);
@@ -68,6 +71,7 @@ const NewForm = (props) => {
      * @param {Event} e - El objeto de evento de cambio.
      * @return {void} No devuelve ningún valor.
      */
+
     const handleMotivoChange = (e) => {
         onValueChange(e.target.value);
         handleChange(title)(e);
@@ -81,6 +85,7 @@ const NewForm = (props) => {
      * @param {array} motivoEspecificoBackup - Las opciones de motivo específico de respaldo.
      * @return {void} No devuelve nada.
      */
+
     useEffect(() => {
         if (motivoConsulta) {
             let filterNumber = '';
@@ -90,17 +95,18 @@ const NewForm = (props) => {
             const filteredOptions = motivoEspecificoBackup.filter((opcion) => opcion.startsWith(filterNumber));
             if (filteredOptions.length === 0) {
                 setMotivoEspecifico(['N/A']);
-            } else {
+            }else{
                 setMotivoEspecifico(filteredOptions);
             }
-        }
-    }, [motivoConsulta, motivoEspecificoBackup, setMotivoEspecifico]);
+         } 
+    }, [motivoConsulta]);
 
     /**
      * Renderiza el componente Motivo.
      *
      * @return {JSX.Element} El elemento JSX renderizado.
      */
+
     const renderMotivo = () => {
         return (
             <div>
@@ -127,6 +133,7 @@ const NewForm = (props) => {
      *
      * @return {JSX.Element} El elemento específico renderizado.
      */
+
     const renderEspecifico = () => {
         return (
             <div>
@@ -148,11 +155,12 @@ const NewForm = (props) => {
         );
     };
 
-    /**
+      /**
      * Renderiza un campo de formulario según el tipo y las opciones proporcionadas.
      *
      * @return {JSX.Element} El campo de formulario renderizado.
      */
+
     const renderFormField = () => {
         if (type === 'list' && options) {
             if (title === 'Motivo Consulta') {
@@ -197,7 +205,7 @@ const NewForm = (props) => {
                         value={initialValue}
                         onChange={handleSelectChange}
                         type="text"
-                        placeholder={initialValue || 'Anónimo'}
+                        placeholder={initialValue || 'Anonymous'}
                         isValid={touched[title] && !errors[title]}
                     />
                     {touched[title] && errors[title] && <div className="text-danger">{errors[title]}</div>}
@@ -212,7 +220,7 @@ const NewForm = (props) => {
                         onChange={handleSelectChange}
                         as="textarea"
                         rows={3}
-                        placeholder="Mensaje"
+                        placeholder="Message"
                         isValid={touched[title] && !errors[title]}
                     />
                     {touched[title] && errors[title] && <div className="text-danger">{errors[title]}</div>}
