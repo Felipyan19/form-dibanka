@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
 import { Formik, Form as FormikForm } from 'formik';
 import * as yup from 'yup';
 import Cookies from 'js-cookie';
@@ -14,24 +13,23 @@ import { send_data } from '../../send_data';
 import Swal from 'sweetalert2'
 
 /**
- * Renders a form card component.
+ * Renderiza un componente de tarjeta de formulario.
  *
- * @param {Object} selectedCampaña - the currently selected campaign
- * @param {function} setSelectedCampaña - a function to set the selected campaign
- * @param {Object} selectedPagaduria - the currently selected pagaduria
- * @param {function} setSelectedPagaduria - a function to set the selected pagaduria
- * @param {Array} formArray - an array of form data
- * @param {function} setFormArray - a function to set the form data array
- * @param {function} setSelectedData - a function to set the selected data
- * @param {string} backgroundImage - the background image for the card
- * @param {function} setBackgroundImage - a function to set the background image
- * @param {string} text - the text for the card
- * @param {function} setText - a function to set the text
- * @param {string} telefono - the telephone number
- * @param {function} setTelefono - a function to set the telephone number
- * @param {string} IdWolkvox - the Wolkvox ID
- * @param {function} setIdWolkvox - a function to set the Wolkvox ID
- * @return {JSX.Element} - the rendered form card component
+ * @param {Object} selectedCampaña - la campaña actualmente seleccionada
+ * @param {function} setSelectedCampaña - una función para establecer la campaña seleccionada
+ * @param {Object} selectedPagaduria - la pagaduría actualmente seleccionada
+ * @param {function} setSelectedPagaduria - una función para establecer la pagaduría seleccionada
+ * @param {Array} formArray - un arreglo de datos de formulario
+ * @param {function} setFormArray - una función para establecer el arreglo de datos de formulario
+ * @param {function} setSelectedData - una función para establecer los datos seleccionados
+ * @param {string} backgroundImage - la imagen de fondo para la tarjeta
+ * @param {function} setBackgroundImage - una función para establecer la imagen de fondo
+ * @param {function} setText - una función para establecer el texto
+ * @param {string} telefono - el número de teléfono
+ * @param {function} setTelefono - una función para establecer el número de teléfono
+ * @param {string} IdWolkvox - el ID de Wolkvox
+ * @param {function} setIdWolkvox - una función para establecer el ID de Wolkvox
+ * @return {JSX.Element} - el componente de tarjeta de formulario renderizado
  */
 const FormCard = ({
   selectedCampaña,
@@ -41,9 +39,7 @@ const FormCard = ({
   formArray,
   setFormArray,
   setSelectedData,
-  backgroundImage,
   setBackgroundImage,
-  text,
   setText,
   telefono,
   setTelefono,
@@ -71,11 +67,12 @@ const FormCard = ({
     formCampaña: '',
   });
   const schema = yup.object().shape(arraySchema);
+
   /**
-   * Handles the change event for the campaign.
+   * Maneja el evento de cambio para la campaña.
    *
-   * @param {type} value - the new value of the campaign
-   * @return {type} - none
+   * @param {type} value - el nuevo valor de la campaña
+   * @return {type} - ninguno
    */
   const handleCampaignChange = useCallback((value) => {
     if (!formData[selectedPagaduria]) {
@@ -85,61 +82,58 @@ const FormCard = ({
     const dataForm = formData[selectedPagaduria][filterDataCampaign].data;
     const configForm = formData[selectedPagaduria][filterDataCampaign].config;
     setSelectedCampaña(filterDataCampaign);
-  
+
     if (formData[selectedPagaduria][filterDataCampaign] && dataForm) {
       const updatedSchema = { ...arraySchema };
       const updatedInitialValues = { ...arrayInitialValues };
-  
+
       dataForm.forEach((form) => {
         updatedInitialValues[form.title] = '';
         updatedSchema[form.title] = yup.string().required('Este campo es obligatorio');
       });
-  
+
       setArraySchema(updatedSchema);
       setArrayInitialValues(updatedInitialValues);
-  
+
       const initialFormArray = dataForm.map((form) => ({
         ...form,
         value: '',
       }));
-  
+
       setFormArray(initialFormArray);
       setBackgroundImage(configForm.backgroundImage);
       setText(configForm.text);
     } else {
       setFormArray([]);
     }
-  }, [setText,setBackgroundImage,setSelectedCampaña,selectedPagaduria, arraySchema, arrayInitialValues, setFormArray,]);  
-  
+  }, [setText, setBackgroundImage, setSelectedCampaña, selectedPagaduria, arraySchema, arrayInitialValues, setFormArray]);
+
   useEffect(() => {
     if (selectedCampaña) {
       handleCampaignChange(selectedCampaña);
-  
+
       if (formData[selectedPagaduria] && formData[selectedPagaduria][selectedCampaña] && formData[selectedPagaduria][selectedCampaña].data) {
         setMotivoEspecificoBackup(formData[selectedPagaduria][selectedCampaña].data[8].options);
       }
     }
   }, [selectedCampaña, selectedPagaduria, handleCampaignChange]);
-  
 
   /**
-   * Handles the change event for the "Pagaduria" input.
+   * Maneja el evento de cambio para el input "Pagaduria".
    *
-   * @param {type} value - The new value selected for the "Pagaduria" input.
-   * @return {undefined} This function does not return anything.
+   * @param {type} value - El nuevo valor seleccionado para el input "Pagaduria".
+   * @return {undefined} Esta función no retorna nada.
    */
   function handlePagaduriaChange(value) {
-
     setSelectedPagaduria(value);
-
   }
 
   /**
-   * Updates a field in the form array.
+   * Actualiza un campo en el arreglo de formularios.
    *
-   * @param {string} fieldName - The name of the field to be updated.
-   * @param {any} fieldValue - The new value for the field.
-   * @return {void} This function does not return anything.
+   * @param {string} fieldName - El nombre del campo que se actualizará.
+   * @param {any} fieldValue - El nuevo valor para el campo.
+   * @return {void} Esta función no retorna nada.
    */
   const handleFieldChange = (fieldName, fieldValue) => {
     const updatedFormArray = formArray.map((form) =>
@@ -149,18 +143,18 @@ const FormCard = ({
   };
 
   /**
-   * Checks if the form is valid.
+   * Comprueba si el formulario es válido.
    *
-   * @return {boolean} Returns true if the form is valid, otherwise false.
+   * @return {boolean} Devuelve true si el formulario es válido, de lo contrario, devuelve false.
    */
   const isFormValid = () => {
     return !formArray.some((form) => form.required && form.value === '');
   };
 
   /**
-   * Handle the action of showing data.
+   * Maneja la acción de mostrar los datos.
    *
-   * @return {undefined} No return value.
+   * @return {undefined} No retorna ningún valor.
    */
   const handleShowData = () => {
     if (!isFormValid()) {
@@ -180,33 +174,35 @@ const FormCard = ({
     });
 
     if (urlData.cedulaCliente) {
-      data['Numero de Identificación'] = urlData.cedulaCliente;
+      data['Número de Identificación'] = urlData.cedulaCliente;
     }
 
-    if(selectedPagaduria === 'Aliados'){
+    if (selectedPagaduria === 'Aliados') {
       data['Tipo de Identificación'] = 'NIT';
     }
-    if(selectedPagaduria === 'Afiliados'){
-      data['Tipo de Identificación'] = 'CEDULA DE CIUDADANIA';
+    if (selectedPagaduria === 'Afiliados') {
+      data['Tipo de Identificación'] = 'CÉDULA DE CIUDADANÍA';
     }
-    data.Agente = Cookies.get('userName')
+    data.Agente = Cookies.get('userName');
     data.source = selectedPagaduria + '-' + selectedCampaña;
     setSelectedData(data);
 
-    send_data(data, setSendtoExcel, setModal,setResponse);
+    send_data(data, setSendtoExcel, setModal, setResponse);
   };
+
   if (modal) {
     Swal.fire({
-      title: 'Registro Exitoso #'+response,
-      text: 'Se ha registrado con exito en la hoja '+selectedPagaduria+'-'+selectedCampaña,
+      title: 'Registro Exitoso #' + response,
+      text: 'Se ha registrado con éxito en la hoja ' + selectedPagaduria + '-' + selectedCampaña,
       icon: 'success',
       confirmButtonText: 'Ok',
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.reload();
-      } 
+      }
     });
   }
+
   return (
     <Card.Body className="p-5">
       <div className="d-flex justify-content-between align-items-center">
@@ -234,7 +230,7 @@ const FormCard = ({
                 formData={formData}
                 selectedCampaña={selectedCampaña}
                 setSelectedCampaña={setSelectedCampaña}
-                handleCampañaChange={handleCampaignChange}
+                handleCampaignChange={handleCampaignChange}
                 setTelefono={setTelefono}
                 setIdWolkvox={setIdWolkvox}
                 urlData={urlData}
@@ -252,22 +248,21 @@ const FormCard = ({
                   value={form.value}
                   urlData={urlData}
                   onValueChange={(fieldValue) => handleFieldChange(form.title, fieldValue)}
-                  selectedPagaduria = {selectedPagaduria}
-                  motivoConsulta = {motivoConsulta}
-                  setMotivoConsulta = {setMotivoConsulta}
-                  motivoEspecifico = {motivoEspecifico}
-                  setMotivoEspecifico = {setMotivoEspecifico}
-                  motivoEspecificoBackup = {motivoEspecificoBackup}
-                  setMotivoEspecificoBackup = {setMotivoEspecificoBackup}
-
+                  selectedPagaduria={selectedPagaduria}
+                  motivoConsulta={motivoConsulta}
+                  setMotivoConsulta={setMotivoConsulta}
+                  motivoEspecifico={motivoEspecifico}
+                  setMotivoEspecifico={setMotivoEspecifico}
+                  motivoEspecificoBackup={motivoEspecificoBackup}
+                  setMotivoEspecificoBackup={setMotivoEspecificoBackup}
                 />
               ))}
-              <Button 
-                onClick={() => handleChange('Tipo de Identificación')('go')} 
-                type="submit" 
-                className="btn mt-5" 
+              <Button
+                onClick={() => handleChange('Tipo de Identificación')('go')}
+                type="submit"
+                className="btn mt-5"
                 variant="primary"
-                >
+              >
                 Enviar Datos
               </Button>
             </FormikForm>
@@ -278,7 +273,6 @@ const FormCard = ({
           {
             <Skeleton count={10} height={30} />
           }
-
         </p>
       )}
     </Card.Body>

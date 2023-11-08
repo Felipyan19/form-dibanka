@@ -26,48 +26,57 @@
 *   [NavbarComponent][22]
     *   [Parameters][23]
 *   [Home][24]
-*   [Layout][25]
-    *   [Parameters][26]
-*   [FormLayout][27]
-    *   [Parameters][28]
-*   [FormCard][29]
-    *   [Parameters][30]
-*   [handleCampaignChange][31]
-    *   [Parameters][32]
-*   [handlePagaduriaChange][33]
-    *   [Parameters][34]
-*   [handleFieldChange][35]
-    *   [Parameters][36]
-*   [isFormValid][37]
-*   [handleShowData][38]
-*   [FormDefault][39]
-    *   [Parameters][40]
-*   [renderOptions][41]
-    *   [Parameters][42]
-*   [customHandleChange][43]
-    *   [Parameters][44]
-*   [renderFormGroup][45]
-    *   [Parameters][46]
-*   [NewForm][47]
-    *   [Parameters][48]
-*   [handleSelectChange][49]
-    *   [Parameters][50]
-*   [handleMotivoChange][51]
-    *   [Parameters][52]
-*   [renderMotivo][53]
-*   [renderEspecifico][54]
-*   [renderFormField][55]
-*   [MyModal][56]
-*   [send\_data][57]
-    *   [Parameters][58]
+*   [selectedCampaña][25]
+*   [selectedPagaduria][26]
+*   [formArray][27]
+*   [selectedData][28]
+*   [backgroundImage][29]
+*   [text][30]
+*   [telefono][31]
+*   [IdWolkvox][32]
+*   [urlData][33]
+*   [Layout][34]
+    *   [Parameters][35]
+*   [FormLayout][36]
+    *   [Parameters][37]
+*   [FormCard][38]
+    *   [Parameters][39]
+*   [handleCampaignChange][40]
+    *   [Parameters][41]
+*   [handlePagaduriaChange][42]
+    *   [Parameters][43]
+*   [handleFieldChange][44]
+    *   [Parameters][45]
+*   [isFormValid][46]
+*   [handleShowData][47]
+*   [FormDefault][48]
+    *   [Parameters][49]
+*   [renderOptions][50]
+    *   [Parameters][51]
+*   [customHandleChange][52]
+    *   [Parameters][53]
+*   [renderFormGroup][54]
+    *   [Parameters][55]
+*   [NewForm][56]
+    *   [Parameters][57]
+*   [handleSelectChange][58]
+    *   [Parameters][59]
+*   [handleMotivoChange][60]
+    *   [Parameters][61]
+*   [renderMotivo][62]
+*   [renderEspecifico][63]
+*   [renderFormField][64]
+*   [MyModal][65]
+*   [send\_data][66]
+    *   [Parameters][67]
 
 ## AppRoutes
 
-Generates the routes for the App.
+Genera las rutas para la aplicación.
 
 ### Parameters
 
-*   `$0` **[Object][59]**&#x20;
+*   `$0` **[Object][68]**&#x20;
 
     *   `$0.setAceptedLogin` &#x20;
     *   `$0.aceptedLogin` &#x20;
@@ -75,184 +84,239 @@ Generates the routes for the App.
     *   `$0.setUsername` &#x20;
     *   `$0.urlParametres` &#x20;
     *   `$0.setUrlParametres` &#x20;
-*   `setAceptedLogin` **[function][60]** function to set the accepted login status
-*   `aceptedLogin` **[boolean][61]** the accepted login status
-*   `username` **[string][62]** the username
-*   `setUsername` **[function][60]** function to set the username
-*   `urlParametres` **[object][59]** the URL parameters
-*   `setUrlParametres` **[function][60]** function to set the URL parameters
+*   `setAceptedLogin` **[function][69]** función para establecer el estado de inicio de sesión aceptado
+*   `aceptedLogin` **[boolean][70]** el estado de inicio de sesión aceptado
+*   `username` **[string][71]** el nombre de usuario
+*   `setUsername` **[function][69]** función para establecer el nombre de usuario
+*   `urlParametres` **[object][68]** los parámetros de la URL
+*   `setUrlParametres` **[function][69]** función para establecer los parámetros de la URL
 
-Returns **[object][59]** the generated routes
+Returns **[object][68]** las rutas generadas
 
 ## App
 
-Generate the function comment for the given function body.
+Genera el comentario de función para el cuerpo de la función dada.
 
-Returns **JSX.Element** The rendered JSX element.
+Returns **JSX.Element** El elemento JSX renderizado.
 
 ## arrow\_function
 
-Retrieves URL parameters from the current window's URL using the `URLSearchParams` API,
-stores the parameters in the local storage as a JSON string, and sets the `loginUrl` state variable to `true`.
+Recupera los parámetros de la URL desde la URL actual de la ventana utilizando la API `URLSearchParams`,
+almacena los parámetros en el almacenamiento local como una cadena JSON y establece la variable de estado `loginUrl` en `true`.
 
 Returns **void**&#x20;
 
 ## ProtectedRoute
 
-Generate the function comment for the given function body.
+Ruta protegida que redirige a otra ruta si el usuario no puede acceder a ella.
 
 ### Parameters
 
-*   `$0` **[Object][59]**&#x20;
+*   `$0` **[Object][68]**&#x20;
 
     *   `$0.canActivate` &#x20;
     *   `$0.redirectPath`   (optional, default `'/'`)
     *   `$0.children` &#x20;
-*   `canActivate` **[object][59]** A boolean value indicating whether the user can access the route.
-*   `redirectPath` **[string][62]** The path to redirect to if the user cannot access the route. Default is '/'.
-*   `children` **ReactNode** The children components to render if the user can access the route.
+*   `canActivate` **[object][68]** Un valor booleano que indica si el usuario puede acceder a la ruta.
+*   `redirectPath` **[string][71]** La ruta a la que se redirigirá si el usuario no puede acceder. El valor predeterminado es '/'.
+*   `children` **ReactNode** Los componentes hijos que se renderizarán si el usuario puede acceder a la ruta.
 
-Returns **(ReactNode | null)** The rendered children components if the user can access the route, otherwise null.
+Returns **(ReactNode | null)** Los componentes hijos renderizados si el usuario puede acceder a la ruta, de lo contrario, nulo.
 
 ## NotFound
 
-Render a component to display "Not Found".
+Renderiza un componente para mostrar "No encontrado".
 
-Returns **React.Component** A React component to display "Not Found".
+Returns **React.Component** Un componente React para mostrar "No encontrado".
 
 ## SignIn
 
-Sign in function that handles the login process.
+Función de inicio de sesión que maneja el proceso de inicio de sesión.
 
 ### Parameters
 
-*   `props` **[Object][59]** the props object containing the necessary data.
+*   `props` **[Object][68]** el objeto de propiedades que contiene los datos necesarios.
 
-Returns **void** This function does not return anything.
-
-## handleLogin
-
-Handles the login functionality.
-
-Returns **[Promise][63]\<void>** A promise that resolves when the login is successful.
+Returns **void** Esta función no devuelve nada.
 
 ## handleLogin
 
-Handles the login process by removing the 'loggedIn' cookie
-and setting the 'acceptedLogin' state to false.
+Maneja la funcionalidad de inicio de sesión.
 
-Returns **void** This function does not return a value.
+Returns **[Promise][72]\<void>** Una promesa que se resuelve cuando el inicio de sesión es exitoso.
+
+## handleLogin
+
+Maneja el proceso de inicio de sesión eliminando la cookie 'loggedIn'
+y estableciendo el estado 'acceptedLogin' en false.
+
+Returns **void** Esta función no devuelve ningún valor.
 
 ## useEffect
 
-Performs a check to see if the user is already logged in.
-If the user is logged in, updates the state in the parent component and redirects to the home page.
+Realiza una comprobación para ver si el usuario ya ha iniciado sesión.
+Si el usuario ha iniciado sesión, actualiza el estado en el componente principal y redirige a la página de inicio.
 
 ### Parameters
 
-*   `props` **[Object][59]** The props object containing the necessary data for the component.
+*   `props` **[Object][68]** El objeto de propiedades que contiene los datos necesarios para el componente.
 
 Returns **void**&#x20;
 
 ## useEffect
 
-Executes two useEffect hooks to set values based on urlData and handle changes.
+Ejecuta dos ganchos useEffect para establecer valores basados en urlData y manejar cambios.
 
 ### Parameters
 
-*   `urlData` **[object][59]** An object containing data from the URL, including `ani`, `id_call`, `mensaje`, and `cedulaCliente`.
-*   `selectedPagaduria` **[string][62]** The currently selected pagaduria.
-*   `selectedCampaña` **[string][62]** The currently selected campaña.
-*   `handleChange` **[function][60]** A function to handle form changes.
-*   `handlePagaduriaChange` **[function][60]** A function to handle pagaduria changes.
-*   `handleCampañaChange` **[function][60]** A function to handle campaña changes.
-*   `setTelefono` **[function][60]** A function to set the telefono value.
-*   `setIdWolkvox` **[function][60]** A function to set the idWolkvox value.
+*   `urlData` **[object][68]** Un objeto que contiene datos de la URL, incluyendo `ani`, `id_call`, `mensaje` y `cedulaCliente`.
+*   `selectedPagaduria` **[string][71]** La pagaduría actualmente seleccionada.
+*   `selectedCampaña` **[string][71]** La campaña actualmente seleccionada.
+*   `handleChange` **[function][69]** Una función para manejar cambios en el formulario.
+*   `handlePagaduriaChange` **[function][69]** Una función para manejar cambios en la pagaduría.
+*   `handleCampañaChange` **[function][69]** Una función para manejar cambios en la campaña.
+*   `setTelefono` **[function][69]** Una función para establecer el valor del teléfono.
+*   `setIdWolkvox` **[function][69]** Una función para establecer el ID de Wolkvox.
 
 ## useEffect
 
-Updates the motivoEspecifico array based on the selected motivoConsulta value.
+Actualiza el array motivoEspecifico basándose en el valor de motivoConsulta seleccionado.
 
 ### Parameters
 
-*   `motivoConsulta` **[string][62]** The selected motivo consulta value.
-*   `motivoEspecificoBackup` **[array][64]** The backup motivo especifico options.
+*   `motivoConsulta` **[string][71]** El valor del motivo de consulta seleccionado.
+*   `motivoEspecificoBackup` **[array][73]** Las opciones de motivo específico de respaldo.
 
-Returns **void** This function does not return anything.
+Returns **void** No devuelve nada.
 
 ## handleUsernameChange
 
-Updates the username in the props based on the value of the event target.
+Actualiza el nombre de usuario en las propiedades basado en el valor del objetivo del evento.
 
 ### Parameters
 
-*   `e` **[Event][65]** The event object.
+*   `e` **[Event][74]** El objeto del evento.
 
-Returns **void** This function does not return anything.
+Returns **void** Esta función no devuelve nada.
 
 ## handlePasswordChange
 
-Handles the change event for the password input field.
+Maneja el evento de cambio para el campo de entrada de contraseña.
 
 ### Parameters
 
-*   `e` **[object][59]** The event object.
+*   `e` **[object][68]** El objeto del evento.
 
-Returns **void** No return value.
+Returns **void** No hay valor de retorno.
 
 ## NavbarComponent
 
-Renders the Navbar component.
+Renderiza el componente Navbar.
 
 ### Parameters
 
-*   `$0` **[Object][59]**&#x20;
+*   `$0` **[Object][68]**&#x20;
 
-    *   `$0.setAceptedLogin` &#x20;
-*   `setAceptedLogin` **[function][60]** A function to set the accepted login state
-*   `username` **[string][62]** The username of the logged-in user
+    *   `$0.setAcceptedLogin` &#x20;
+    *   `$0.username` &#x20;
+*   `setAcceptedLogin` **[function][69]** Una función para establecer el estado de inicio de sesión aceptado.
+*   `username` **[string][71]** El nombre de usuario del usuario que ha iniciado sesión.
 
-Returns **JSX.Element** The rendered Navbar component
+Returns **JSX.Element** El componente Navbar renderizado.
 
 ## Home
 
-Renders the Home component.
+Renderiza el componente Home.
 
-Returns **JSX.Element** The rendered Home component.
+Returns **JSX.Element** El componente Home renderizado.
+
+## selectedCampaña
+
+Estado para el valor de la campaña seleccionada.
+
+Type: [string][71]
+
+## selectedPagaduria
+
+Estado para la pagaduría seleccionada.
+
+Type: [string][71]
+
+## formArray
+
+Estado para el arreglo de formularios.
+
+Type: [Array][73]
+
+## selectedData
+
+Estado para los datos seleccionados.
+
+Type: [Object][68]
+
+## backgroundImage
+
+Estado para la imagen de fondo.
+
+Type: [string][71]
+
+## text
+
+Estado para el texto.
+
+Type: [Array][73]
+
+## telefono
+
+Estado para el número de teléfono.
+
+Type: [string][71]
+
+## IdWolkvox
+
+Estado para el ID de Wolkvox.
+
+Type: [string][71]
+
+## urlData
+
+Datos de la URL almacenados en el almacenamiento local.
+
+Type: [Object][68]
 
 ## Layout
 
-Renders a layout component.
+Renderiza un componente de diseño.
 
 ### Parameters
 
-*   `$0` **[Object][59]**&#x20;
+*   `$0` **[Object][68]**&#x20;
 
     *   `$0.children` &#x20;
-*   `props` **[Object][59]** The component properties.
-*   `children` **ReactNode** The child components to render.
+*   `props` **[Object][68]** Las propiedades del componente.
+*   `children` **ReactNode** Los componentes hijos a renderizar.
 
-Returns **ReactNode** The rendered layout component.
+Returns **ReactNode** El componente de diseño renderizado.
 
 ## FormLayout
 
-Renders a form layout with the given children.
+Renderiza un diseño de formulario con los componentes hijos proporcionados.
 
 ### Parameters
 
-*   `children` **[object][59]** The children components to render within the form.
+*   `children` **[object][68]** Los componentes hijos a renderizar dentro del formulario.
 
     *   `children.children` &#x20;
 
-Returns **JSX.Element** The rendered form layout.
+Returns **JSX.Element** El diseño de formulario renderizado.
 
 ## FormCard
 
-Renders a form card component.
+Renderiza un componente de tarjeta de formulario.
 
 ### Parameters
 
-*   `$0` **[Object][59]**&#x20;
+*   `$0` **[Object][68]**&#x20;
 
     *   `$0.selectedCampaña` &#x20;
     *   `$0.setSelectedCampaña` &#x20;
@@ -261,82 +325,79 @@ Renders a form card component.
     *   `$0.formArray` &#x20;
     *   `$0.setFormArray` &#x20;
     *   `$0.setSelectedData` &#x20;
-    *   `$0.backgroundImage` &#x20;
     *   `$0.setBackgroundImage` &#x20;
-    *   `$0.text` &#x20;
     *   `$0.setText` &#x20;
     *   `$0.telefono` &#x20;
     *   `$0.setTelefono` &#x20;
     *   `$0.IdWolkvox` &#x20;
     *   `$0.setIdWolkvox` &#x20;
-*   `selectedCampaña` **[Object][59]** the currently selected campaign
-*   `setSelectedCampaña` **[function][60]** a function to set the selected campaign
-*   `selectedPagaduria` **[Object][59]** the currently selected pagaduria
-*   `setSelectedPagaduria` **[function][60]** a function to set the selected pagaduria
-*   `formArray` **[Array][64]** an array of form data
-*   `setFormArray` **[function][60]** a function to set the form data array
-*   `setSelectedData` **[function][60]** a function to set the selected data
-*   `backgroundImage` **[string][62]** the background image for the card
-*   `setBackgroundImage` **[function][60]** a function to set the background image
-*   `text` **[string][62]** the text for the card
-*   `setText` **[function][60]** a function to set the text
-*   `telefono` **[string][62]** the telephone number
-*   `setTelefono` **[function][60]** a function to set the telephone number
-*   `IdWolkvox` **[string][62]** the Wolkvox ID
-*   `setIdWolkvox` **[function][60]** a function to set the Wolkvox ID
+*   `selectedCampaña` **[Object][68]** la campaña actualmente seleccionada
+*   `setSelectedCampaña` **[function][69]** una función para establecer la campaña seleccionada
+*   `selectedPagaduria` **[Object][68]** la pagaduría actualmente seleccionada
+*   `setSelectedPagaduria` **[function][69]** una función para establecer la pagaduría seleccionada
+*   `formArray` **[Array][73]** un arreglo de datos de formulario
+*   `setFormArray` **[function][69]** una función para establecer el arreglo de datos de formulario
+*   `setSelectedData` **[function][69]** una función para establecer los datos seleccionados
+*   `backgroundImage` **[string][71]** la imagen de fondo para la tarjeta
+*   `setBackgroundImage` **[function][69]** una función para establecer la imagen de fondo
+*   `setText` **[function][69]** una función para establecer el texto
+*   `telefono` **[string][71]** el número de teléfono
+*   `setTelefono` **[function][69]** una función para establecer el número de teléfono
+*   `IdWolkvox` **[string][71]** el ID de Wolkvox
+*   `setIdWolkvox` **[function][69]** una función para establecer el ID de Wolkvox
 
-Returns **JSX.Element** the rendered form card component
+Returns **JSX.Element** el componente de tarjeta de formulario renderizado
 
 ## handleCampaignChange
 
-Handles the change event for the campaign.
+Maneja el evento de cambio para la campaña.
 
 ### Parameters
 
-*   `value` **type** the new value of the campaign
+*   `value` **type** el nuevo valor de la campaña
 
-Returns **type** none
+Returns **type** ninguno
 
 ## handlePagaduriaChange
 
-Handles the change event for the "Pagaduria" input.
+Maneja el evento de cambio para el input "Pagaduria".
 
 ### Parameters
 
-*   `value` **type** The new value selected for the "Pagaduria" input.
+*   `value` **type** El nuevo valor seleccionado para el input "Pagaduria".
 
-Returns **[undefined][66]** This function does not return anything.
+Returns **[undefined][75]** Esta función no retorna nada.
 
 ## handleFieldChange
 
-Updates a field in the form array.
+Actualiza un campo en el arreglo de formularios.
 
 ### Parameters
 
-*   `fieldName` **[string][62]** The name of the field to be updated.
-*   `fieldValue` **any** The new value for the field.
+*   `fieldName` **[string][71]** El nombre del campo que se actualizará.
+*   `fieldValue` **any** El nuevo valor para el campo.
 
-Returns **void** This function does not return anything.
+Returns **void** Esta función no retorna nada.
 
 ## isFormValid
 
-Checks if the form is valid.
+Comprueba si el formulario es válido.
 
-Returns **[boolean][61]** Returns true if the form is valid, otherwise false.
+Returns **[boolean][70]** Devuelve true si el formulario es válido, de lo contrario, devuelve false.
 
 ## handleShowData
 
-Handle the action of showing data.
+Maneja la acción de mostrar los datos.
 
-Returns **[undefined][66]** No return value.
+Returns **[undefined][75]** No retorna ningún valor.
 
 ## FormDefault
 
-Generates the form for the default values.
+Genera el formulario para los valores predeterminados.
 
 ### Parameters
 
-*   `$0` **[Object][59]**&#x20;
+*   `$0` **[Object][68]**&#x20;
 
     *   `$0.values` &#x20;
     *   `$0.handleChange` &#x20;
@@ -350,134 +411,134 @@ Generates the form for the default values.
     *   `$0.setTelefono` &#x20;
     *   `$0.setIdWolkvox` &#x20;
     *   `$0.urlData` &#x20;
-*   `values` **[object][59]** the values for the form
-*   `handleChange` **[function][60]** the function to handle form changes
-*   `touched` **[object][59]** the touched form fields
-*   `errors` **[object][59]** the form errors
-*   `selectedPagaduria` **[string][62]** the selected pagaduria
-*   `handlePagaduriaChange` **[function][60]** the function to handle pagaduria changes
-*   `formData` **[object][59]** the form data
-*   `selectedCampaña` **[string][62]** the selected campaña
-*   `handleCampañaChange` **[function][60]** the function to handle campaña changes
-*   `setTelefono` **[function][60]** the function to set telefono
-*   `setIdWolkvox` **[function][60]** the function to set idWolkvox
-*   `urlData` **[object][59]** the url data
+*   `values` **[object][68]** los valores para el formulario
+*   `handleChange` **[function][69]** la función para manejar los cambios en el formulario
+*   `touched` **[object][68]** los campos del formulario que se han tocado
+*   `errors` **[object][68]** los errores del formulario
+*   `selectedPagaduria` **[string][71]** la pagaduría seleccionada
+*   `handlePagaduriaChange` **[function][69]** la función para manejar los cambios de la pagaduría
+*   `formData` **[object][68]** los datos del formulario
+*   `selectedCampaña` **[string][71]** la campaña seleccionada
+*   `handleCampañaChange` **[function][69]** la función para manejar los cambios de la campaña
+*   `setTelefono` **[function][69]** la función para establecer el teléfono
+*   `setIdWolkvox` **[function][69]** la función para establecer el ID de Wolkvox
+*   `urlData` **[object][68]** los datos de la URL
 
-Returns **JSX.Element** the form component
+Returns **JSX.Element** el componente del formulario
 
 ## renderOptions
 
-Renders the options for a given set of options.
+Renderiza las opciones para un conjunto de opciones.
 
 ### Parameters
 
-*   `options` **[Object][59]** The options to render.
+*   `options` **[Object][68]** Las opciones a renderizar.
 
-Returns **[Array][64]** An array of option elements.
+Returns **[Array][73]** Un arreglo de elementos de opción.
 
 ## customHandleChange
 
-A function that handles the change of a name and value.
+Una función que maneja el cambio de un nombre y un valor.
 
 ### Parameters
 
-*   `name` **[string][62]** the name of the input field
-*   `value` **any** the value of the input field
+*   `name` **[string][71]** el nombre del campo de entrada
+*   `value` **any** el valor del campo de entrada
 
 ## renderFormGroup
 
-Renders a form group element.
+Renderiza un elemento de grupo de formulario.
 
 ### Parameters
 
-*   `id` **[string][62]** The ID for the form control.
-*   `label` **[string][62]** The label for the form control.
-*   `selectOptions` **[object][59]** The select options for the form control.
+*   `id` **[string][71]** El ID para el control del formulario.
+*   `label` **[string][71]** La etiqueta para el control del formulario.
+*   `selectOptions` **[object][68]** Las opciones de selección para el control del formulario.
 
-Returns **JSX.Element** The rendered form group element.
+Returns **JSX.Element** El elemento de grupo de formulario renderizado.
 
 ## NewForm
 
-Renders a form field based on the provided props.
+Renderiza un campo de formulario basado en las propiedades proporcionadas.
 
 ### Parameters
 
-*   `props` **[Object][59]** The props object containing the necessary data for rendering the form field.
+*   `props` **[Object][68]** El objeto de propiedades que contiene los datos necesarios para renderizar el campo de formulario.
 
-    *   `props.type` **[string][62]** The type of the form field.
-    *   `props.title` **[string][62]** The title of the form field.
-    *   `props.options` **[Array][64]** The options for the form field.
-    *   `props.value` **[string][62]** The current value of the form field.
-    *   `props.onValueChange` **[function][60]** The callback function for when the value of the form field changes.
-    *   `props.handleChange` **[function][60]** The callback function for when the form field changes.
-    *   `props.values` **[Object][59]** The values object containing the current values of all form fields.
-    *   `props.touched` **[Object][59]** The touched object indicating if a form field has been touched.
-    *   `props.errors` **[Object][59]** The errors object containing the validation errors for the form fields.
-    *   `props.urlData` **[Object][59]** The data object containing additional data from the URL.
-    *   `props.selectedPagaduria` **[string][62]** The selected pagaduria.
-    *   `props.motivoConsulta` **[string][62]** The selected motivo consulta.
-    *   `props.setMotivoConsulta` **[function][60]** The callback function for setting the motivo consulta value.
-    *   `props.motivoEspecifico` **[Array][64]** The motivo especifico options.
-    *   `props.setMotivoEspecifico` **[function][60]** The callback function for setting the motivo especifico value.
-    *   `props.motivoEspecificoBackup` **[Array][64]** The backup motivo especifico options.
-    *   `props.setMotivoEspecificoBackup` **[function][60]** The callback function for setting the backup motivo especifico options.
+    *   `props.type` **[string][71]** El tipo de campo de formulario.
+    *   `props.title` **[string][71]** El título del campo de formulario.
+    *   `props.options` **[Array][73]** Las opciones para el campo de formulario.
+    *   `props.value` **[string][71]** El valor actual del campo de formulario.
+    *   `props.onValueChange` **[function][69]** La función de devolución de llamada cuando cambia el valor del campo de formulario.
+    *   `props.handleChange` **[function][69]** La función de devolución de llamada cuando cambia el campo de formulario.
+    *   `props.values` **[Object][68]** El objeto de valores que contiene los valores actuales de todos los campos de formulario.
+    *   `props.touched` **[Object][68]** El objeto tocado que indica si se ha tocado un campo de formulario.
+    *   `props.errors` **[Object][68]** El objeto de errores que contiene los errores de validación de los campos de formulario.
+    *   `props.urlData` **[Object][68]** El objeto de datos que contiene datos adicionales de la URL.
+    *   `props.selectedPagaduria` **[string][71]** La pagaduría seleccionada.
+    *   `props.motivoConsulta` **[string][71]** El motivo de consulta seleccionado.
+    *   `props.setMotivoConsulta` **[function][69]** La función de devolución de llamada para establecer el valor del motivo de consulta.
+    *   `props.motivoEspecifico` **[Array][73]** Las opciones de motivo específico.
+    *   `props.setMotivoEspecifico` **[function][69]** La función de devolución de llamada para establecer el valor del motivo específico.
+    *   `props.motivoEspecificoBackup` **[Array][73]** Las opciones de motivo específico de respaldo.
+    *   `props.setMotivoEspecificoBackup` **[function][69]** La función de devolución de llamada para establecer las opciones de motivo específico de respaldo.
 
-Returns **JSX.Element** The rendered form field.
+Returns **JSX.Element** El campo de formulario renderizado.
 
 ## handleSelectChange
 
-Handles the change event of the select element.
+Maneja el evento de cambio del elemento select.
 
 ### Parameters
 
-*   `e` **[Event][65]** The event object.
+*   `e` **[Event][74]** El objeto de evento.
 
-Returns **void** No return value.
+Returns **void** No devuelve ningún valor.
 
 ## handleMotivoChange
 
-Handles the change event for the motivo input.
+Maneja el evento de cambio para el input del motivo.
 
 ### Parameters
 
-*   `e` **[Event][65]** The change event object.
+*   `e` **[Event][74]** El objeto de evento de cambio.
 
-Returns **void**&#x20;
+Returns **void** No devuelve ningún valor.
 
 ## renderMotivo
 
-Renders the Motivo component.
+Renderiza el componente Motivo.
 
-Returns **JSX.Element** The rendered JSX element.
+Returns **JSX.Element** El elemento JSX renderizado.
 
 ## renderEspecifico
 
-Render a specific element.
+Renderiza un elemento específico.
 
-Returns **JSX.Element** The rendered specific element.
+Returns **JSX.Element** El elemento específico renderizado.
 
 ## renderFormField
 
-Renders a form field based on the type and options provided.
+Renderiza un campo de formulario según el tipo y las opciones proporcionadas.
 
-Returns **JSX.Element** The rendered form field.
+Returns **JSX.Element** El campo de formulario renderizado.
 
 ## MyModal
 
-Renders a modal component with a form submission success message.
+Renderiza un componente de modal con un mensaje de éxito de envío de formulario.
 
-Returns **JSX.Element** The rendered modal component.
+Returns **JSX.Element** El componente de modal renderizado.
 
 ## send\_data
 
-Sends data to the specified URL and handles the response.
+Envía datos a la URL especificada y maneja la respuesta.
 
 ### Parameters
 
-*   `data` **[object][59]** The data to be sent.
-*   `setSendtoExcel` **[function][60]** A function to set the state of sending data to Excel.
-*   `setModal` **[function][60]** A function to set the state of the modal.
-*   `setResponse` **[function][60]** A function to set the response data.
+*   `data` **[object][68]** Los datos que se enviarán.
+*   `setSendtoExcel` **[function][69]** Una función para establecer el estado de envío de datos a Excel.
+*   `setModal` **[function][69]** Una función para establecer el estado del modal.
+*   `setResponse` **[function][69]** Una función para establecer los datos de respuesta.
 
 [1]: #approutes
 
@@ -527,86 +588,104 @@ Sends data to the specified URL and handles the response.
 
 [24]: #home
 
-[25]: #layout
+[25]: #selectedcampaña
 
-[26]: #parameters-9
+[26]: #selectedpagaduria
 
-[27]: #formlayout
+[27]: #formarray
 
-[28]: #parameters-10
+[28]: #selecteddata
 
-[29]: #formcard
+[29]: #backgroundimage
 
-[30]: #parameters-11
+[30]: #text
 
-[31]: #handlecampaignchange
+[31]: #telefono
 
-[32]: #parameters-12
+[32]: #idwolkvox
 
-[33]: #handlepagaduriachange
+[33]: #urldata
 
-[34]: #parameters-13
+[34]: #layout
 
-[35]: #handlefieldchange
+[35]: #parameters-9
 
-[36]: #parameters-14
+[36]: #formlayout
 
-[37]: #isformvalid
+[37]: #parameters-10
 
-[38]: #handleshowdata
+[38]: #formcard
 
-[39]: #formdefault
+[39]: #parameters-11
 
-[40]: #parameters-15
+[40]: #handlecampaignchange
 
-[41]: #renderoptions
+[41]: #parameters-12
 
-[42]: #parameters-16
+[42]: #handlepagaduriachange
 
-[43]: #customhandlechange
+[43]: #parameters-13
 
-[44]: #parameters-17
+[44]: #handlefieldchange
 
-[45]: #renderformgroup
+[45]: #parameters-14
 
-[46]: #parameters-18
+[46]: #isformvalid
 
-[47]: #newform
+[47]: #handleshowdata
 
-[48]: #parameters-19
+[48]: #formdefault
 
-[49]: #handleselectchange
+[49]: #parameters-15
 
-[50]: #parameters-20
+[50]: #renderoptions
 
-[51]: #handlemotivochange
+[51]: #parameters-16
 
-[52]: #parameters-21
+[52]: #customhandlechange
 
-[53]: #rendermotivo
+[53]: #parameters-17
 
-[54]: #renderespecifico
+[54]: #renderformgroup
 
-[55]: #renderformfield
+[55]: #parameters-18
 
-[56]: #mymodal
+[56]: #newform
 
-[57]: #send_data
+[57]: #parameters-19
 
-[58]: #parameters-22
+[58]: #handleselectchange
 
-[59]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[59]: #parameters-20
 
-[60]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[60]: #handlemotivochange
 
-[61]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[61]: #parameters-21
 
-[62]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[62]: #rendermotivo
 
-[63]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[63]: #renderespecifico
 
-[64]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[64]: #renderformfield
 
-[65]: https://developer.mozilla.org/docs/Web/API/Event
+[65]: #mymodal
 
-[66]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[66]: #send_data
+
+[67]: #parameters-22
+
+[68]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[69]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[70]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[71]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[72]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+[73]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[74]: https://developer.mozilla.org/docs/Web/API/Event
+
+[75]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined

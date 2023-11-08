@@ -7,23 +7,67 @@ import { MyModal } from '../../Components/Modal';
 import imgForm from '../../img/plataforma-de-beneficios-scaled.jpg';
 import './style.css';
 
-
 /**
- * Renders the Home component.
+ * Renderiza el componente Home.
  *
- * @return {JSX.Element} The rendered Home component.
+ * @return {JSX.Element} El componente Home renderizado.
  */
 function Home() {
 
+    /**
+     * Estado para el valor de la campaña seleccionada.
+     * @type {string}
+     */
     const [selectedCampaña, setSelectedCampaña] = useState('');
+
+    /**
+     * Estado para la pagaduría seleccionada.
+     * @type {string}
+     */
     const [selectedPagaduria, setSelectedPagaduria] = useState('');
+
+    /**
+     * Estado para el arreglo de formularios.
+     * @type {Array}
+     */
     const [formArray, setFormArray] = useState([]);
+
+    /**
+     * Estado para los datos seleccionados.
+     * @type {Object}
+     */
     const [selectedData, setSelectedData] = useState({});
+
+    /**
+     * Estado para la imagen de fondo.
+     * @type {string}
+     */
     const [backgroundImage, setBackgroundImage] = useState(imgForm);
+
+    /**
+     * Estado para el texto.
+     * @type {Array}
+     */
     const [text, setText] = useState([]);
+
+    /**
+     * Estado para el número de teléfono.
+     * @type {string}
+     */
     const [telefono, setTelefono] = useState('');
+
+    /**
+     * Estado para el ID de Wolkvox.
+     * @type {string}
+     */
     const [IdWolkvox, setIdWolkvox] = useState('');
+
+    /**
+     * Datos de la URL almacenados en el almacenamiento local.
+     * @type {Object}
+     */
     const urlData = JSON.parse(localStorage.getItem('urlParametres'));
+
     return (
         <Layout>
             <FormLayout>
@@ -50,7 +94,7 @@ function Home() {
                 <Col md={6} lg={5} className="text-center-col p-5">
                     <div className="container-card">
                         <div className="container-img mb-5">
-                            <img src={backgroundImage} alt="login form background" className="img-fluid" />
+                            <img src={backgroundImage} alt="Fondo del formulario de inicio de sesión" className="img-fluid" />
                         </div>
                         {text &&
                             text.map((parrafo, index) => (

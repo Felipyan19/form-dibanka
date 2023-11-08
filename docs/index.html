@@ -97,6 +97,15 @@
 </ul>
 </li>
 <li><a href="#home">Home</a></li>
+<li><a href="#selectedcampa%C3%B1a">selectedCampaña</a></li>
+<li><a href="#selectedpagaduria">selectedPagaduria</a></li>
+<li><a href="#formarray">formArray</a></li>
+<li><a href="#selecteddata">selectedData</a></li>
+<li><a href="#backgroundimage">backgroundImage</a></li>
+<li><a href="#text">text</a></li>
+<li><a href="#telefono">telefono</a></li>
+<li><a href="#idwolkvox">IdWolkvox</a></li>
+<li><a href="#urldata">urlData</a></li>
 <li><a href="#layout">Layout</a>
 <ul>
 <li><a href="#parameters-9">Parameters</a></li>
@@ -175,7 +184,7 @@
 </li>
 </ul>
 <h2>AppRoutes</h2>
-<p>Generates the routes for the App.</p>
+<p>Genera las rutas para la aplicación.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
@@ -190,34 +199,34 @@
 </ul>
 </li>
 <li>
-<p><code>setAceptedLogin</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> function to set the accepted login status</p>
+<p><code>setAceptedLogin</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> función para establecer el estado de inicio de sesión aceptado</p>
 </li>
 <li>
-<p><code>aceptedLogin</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></strong> the accepted login status</p>
+<p><code>aceptedLogin</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></strong> el estado de inicio de sesión aceptado</p>
 </li>
 <li>
-<p><code>username</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the username</p>
+<p><code>username</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> el nombre de usuario</p>
 </li>
 <li>
-<p><code>setUsername</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> function to set the username</p>
+<p><code>setUsername</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> función para establecer el nombre de usuario</p>
 </li>
 <li>
-<p><code>urlParametres</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> the URL parameters</p>
+<p><code>urlParametres</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> los parámetros de la URL</p>
 </li>
 <li>
-<p><code>setUrlParametres</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> function to set the URL parameters</p>
+<p><code>setUrlParametres</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> función para establecer los parámetros de la URL</p>
 </li>
 </ul>
-<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> the generated routes</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> las rutas generadas</p>
 <h2>App</h2>
-<p>Generate the function comment for the given function body.</p>
-<p>Returns <strong>JSX.Element</strong> The rendered JSX element.</p>
+<p>Genera el comentario de función para el cuerpo de la función dada.</p>
+<p>Returns <strong>JSX.Element</strong> El elemento JSX renderizado.</p>
 <h2>arrow_function</h2>
-<p>Retrieves URL parameters from the current window's URL using the <code>URLSearchParams</code> API,
-stores the parameters in the local storage as a JSON string, and sets the <code>loginUrl</code> state variable to <code>true</code>.</p>
+<p>Recupera los parámetros de la URL desde la URL actual de la ventana utilizando la API <code>URLSearchParams</code>,
+almacena los parámetros en el almacenamiento local como una cadena JSON y establece la variable de estado <code>loginUrl</code> en <code>true</code>.</p>
 <p>Returns <strong>void</strong> </p>
 <h2>ProtectedRoute</h2>
-<p>Generate the function comment for the given function body.</p>
+<p>Ruta protegida que redirige a otra ruta si el usuario no puede acceder a ella.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
@@ -229,99 +238,127 @@ stores the parameters in the local storage as a JSON string, and sets the <code>
 </ul>
 </li>
 <li>
-<p><code>canActivate</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> A boolean value indicating whether the user can access the route.</p>
+<p><code>canActivate</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> Un valor booleano que indica si el usuario puede acceder a la ruta.</p>
 </li>
 <li>
-<p><code>redirectPath</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The path to redirect to if the user cannot access the route. Default is '/'.</p>
+<p><code>redirectPath</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> La ruta a la que se redirigirá si el usuario no puede acceder. El valor predeterminado es '/'.</p>
 </li>
 <li>
-<p><code>children</code> <strong>ReactNode</strong> The children components to render if the user can access the route.</p>
+<p><code>children</code> <strong>ReactNode</strong> Los componentes hijos que se renderizarán si el usuario puede acceder a la ruta.</p>
 </li>
 </ul>
-<p>Returns <strong>(ReactNode | null)</strong> The rendered children components if the user can access the route, otherwise null.</p>
+<p>Returns <strong>(ReactNode | null)</strong> Los componentes hijos renderizados si el usuario puede acceder a la ruta, de lo contrario, nulo.</p>
 <h2>NotFound</h2>
-<p>Render a component to display &quot;Not Found&quot;.</p>
-<p>Returns <strong>React.Component</strong> A React component to display &quot;Not Found&quot;.</p>
+<p>Renderiza un componente para mostrar &quot;No encontrado&quot;.</p>
+<p>Returns <strong>React.Component</strong> Un componente React para mostrar &quot;No encontrado&quot;.</p>
 <h2>SignIn</h2>
-<p>Sign in function that handles the login process.</p>
+<p>Función de inicio de sesión que maneja el proceso de inicio de sesión.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> the props object containing the necessary data.</li>
+<li><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> el objeto de propiedades que contiene los datos necesarios.</li>
 </ul>
-<p>Returns <strong>void</strong> This function does not return anything.</p>
+<p>Returns <strong>void</strong> Esta función no devuelve nada.</p>
 <h2>handleLogin</h2>
-<p>Handles the login functionality.</p>
-<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&lt;void&gt;</strong> A promise that resolves when the login is successful.</p>
+<p>Maneja la funcionalidad de inicio de sesión.</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&lt;void&gt;</strong> Una promesa que se resuelve cuando el inicio de sesión es exitoso.</p>
 <h2>handleLogin</h2>
-<p>Handles the login process by removing the 'loggedIn' cookie
-and setting the 'acceptedLogin' state to false.</p>
-<p>Returns <strong>void</strong> This function does not return a value.</p>
+<p>Maneja el proceso de inicio de sesión eliminando la cookie 'loggedIn'
+y estableciendo el estado 'acceptedLogin' en false.</p>
+<p>Returns <strong>void</strong> Esta función no devuelve ningún valor.</p>
 <h2>useEffect</h2>
-<p>Performs a check to see if the user is already logged in.
-If the user is logged in, updates the state in the parent component and redirects to the home page.</p>
+<p>Realiza una comprobación para ver si el usuario ya ha iniciado sesión.
+Si el usuario ha iniciado sesión, actualiza el estado en el componente principal y redirige a la página de inicio.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The props object containing the necessary data for the component.</li>
+<li><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> El objeto de propiedades que contiene los datos necesarios para el componente.</li>
 </ul>
 <p>Returns <strong>void</strong> </p>
 <h2>useEffect</h2>
-<p>Executes two useEffect hooks to set values based on urlData and handle changes.</p>
+<p>Ejecuta dos ganchos useEffect para establecer valores basados en urlData y manejar cambios.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>urlData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> An object containing data from the URL, including <code>ani</code>, <code>id_call</code>, <code>mensaje</code>, and <code>cedulaCliente</code>.</li>
-<li><code>selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The currently selected pagaduria.</li>
-<li><code>selectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The currently selected campaña.</li>
-<li><code>handleChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to handle form changes.</li>
-<li><code>handlePagaduriaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to handle pagaduria changes.</li>
-<li><code>handleCampañaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to handle campaña changes.</li>
-<li><code>setTelefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to set the telefono value.</li>
-<li><code>setIdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to set the idWolkvox value.</li>
+<li><code>urlData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> Un objeto que contiene datos de la URL, incluyendo <code>ani</code>, <code>id_call</code>, <code>mensaje</code> y <code>cedulaCliente</code>.</li>
+<li><code>selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> La pagaduría actualmente seleccionada.</li>
+<li><code>selectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> La campaña actualmente seleccionada.</li>
+<li><code>handleChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para manejar cambios en el formulario.</li>
+<li><code>handlePagaduriaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para manejar cambios en la pagaduría.</li>
+<li><code>handleCampañaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para manejar cambios en la campaña.</li>
+<li><code>setTelefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para establecer el valor del teléfono.</li>
+<li><code>setIdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para establecer el ID de Wolkvox.</li>
 </ul>
 <h2>useEffect</h2>
-<p>Updates the motivoEspecifico array based on the selected motivoConsulta value.</p>
+<p>Actualiza el array motivoEspecifico basándose en el valor de motivoConsulta seleccionado.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>motivoConsulta</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The selected motivo consulta value.</li>
-<li><code>motivoEspecificoBackup</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></strong> The backup motivo especifico options.</li>
+<li><code>motivoConsulta</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El valor del motivo de consulta seleccionado.</li>
+<li><code>motivoEspecificoBackup</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></strong> Las opciones de motivo específico de respaldo.</li>
 </ul>
-<p>Returns <strong>void</strong> This function does not return anything.</p>
+<p>Returns <strong>void</strong> No devuelve nada.</p>
 <h2>handleUsernameChange</h2>
-<p>Updates the username in the props based on the value of the event target.</p>
+<p>Actualiza el nombre de usuario en las propiedades basado en el valor del objetivo del evento.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a></strong> The event object.</li>
+<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a></strong> El objeto del evento.</li>
 </ul>
-<p>Returns <strong>void</strong> This function does not return anything.</p>
+<p>Returns <strong>void</strong> Esta función no devuelve nada.</p>
 <h2>handlePasswordChange</h2>
-<p>Handles the change event for the password input field.</p>
+<p>Maneja el evento de cambio para el campo de entrada de contraseña.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> The event object.</li>
+<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> El objeto del evento.</li>
 </ul>
-<p>Returns <strong>void</strong> No return value.</p>
+<p>Returns <strong>void</strong> No hay valor de retorno.</p>
 <h2>NavbarComponent</h2>
-<p>Renders the Navbar component.</p>
+<p>Renderiza el componente Navbar.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
 <p><code>$0</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> </p>
 <ul>
-<li><code>$0.setAceptedLogin</code>  </li>
+<li><code>$0.setAcceptedLogin</code>  </li>
+<li><code>$0.username</code>  </li>
 </ul>
 </li>
 <li>
-<p><code>setAceptedLogin</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to set the accepted login state</p>
+<p><code>setAcceptedLogin</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para establecer el estado de inicio de sesión aceptado.</p>
 </li>
 <li>
-<p><code>username</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The username of the logged-in user</p>
+<p><code>username</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El nombre de usuario del usuario que ha iniciado sesión.</p>
 </li>
 </ul>
-<p>Returns <strong>JSX.Element</strong> The rendered Navbar component</p>
+<p>Returns <strong>JSX.Element</strong> El componente Navbar renderizado.</p>
 <h2>Home</h2>
-<p>Renders the Home component.</p>
-<p>Returns <strong>JSX.Element</strong> The rendered Home component.</p>
+<p>Renderiza el componente Home.</p>
+<p>Returns <strong>JSX.Element</strong> El componente Home renderizado.</p>
+<h2>selectedCampaña</h2>
+<p>Estado para el valor de la campaña seleccionada.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></p>
+<h2>selectedPagaduria</h2>
+<p>Estado para la pagaduría seleccionada.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></p>
+<h2>formArray</h2>
+<p>Estado para el arreglo de formularios.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></p>
+<h2>selectedData</h2>
+<p>Estado para los datos seleccionados.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+<h2>backgroundImage</h2>
+<p>Estado para la imagen de fondo.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></p>
+<h2>text</h2>
+<p>Estado para el texto.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></p>
+<h2>telefono</h2>
+<p>Estado para el número de teléfono.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></p>
+<h2>IdWolkvox</h2>
+<p>Estado para el ID de Wolkvox.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></p>
+<h2>urlData</h2>
+<p>Datos de la URL almacenados en el almacenamiento local.</p>
+<p>Type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
 <h2>Layout</h2>
-<p>Renders a layout component.</p>
+<p>Renderiza un componente de diseño.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
@@ -331,27 +368,27 @@ If the user is logged in, updates the state in the parent component and redirect
 </ul>
 </li>
 <li>
-<p><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The component properties.</p>
+<p><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> Las propiedades del componente.</p>
 </li>
 <li>
-<p><code>children</code> <strong>ReactNode</strong> The child components to render.</p>
+<p><code>children</code> <strong>ReactNode</strong> Los componentes hijos a renderizar.</p>
 </li>
 </ul>
-<p>Returns <strong>ReactNode</strong> The rendered layout component.</p>
+<p>Returns <strong>ReactNode</strong> El componente de diseño renderizado.</p>
 <h2>FormLayout</h2>
-<p>Renders a form layout with the given children.</p>
+<p>Renderiza un diseño de formulario con los componentes hijos proporcionados.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
-<p><code>children</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> The children components to render within the form.</p>
+<p><code>children</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> Los componentes hijos a renderizar dentro del formulario.</p>
 <ul>
 <li><code>children.children</code>  </li>
 </ul>
 </li>
 </ul>
-<p>Returns <strong>JSX.Element</strong> The rendered form layout.</p>
+<p>Returns <strong>JSX.Element</strong> El diseño de formulario renderizado.</p>
 <h2>FormCard</h2>
-<p>Renders a form card component.</p>
+<p>Renderiza un componente de tarjeta de formulario.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
@@ -364,9 +401,7 @@ If the user is logged in, updates the state in the parent component and redirect
 <li><code>$0.formArray</code>  </li>
 <li><code>$0.setFormArray</code>  </li>
 <li><code>$0.setSelectedData</code>  </li>
-<li><code>$0.backgroundImage</code>  </li>
 <li><code>$0.setBackgroundImage</code>  </li>
-<li><code>$0.text</code>  </li>
 <li><code>$0.setText</code>  </li>
 <li><code>$0.telefono</code>  </li>
 <li><code>$0.setTelefono</code>  </li>
@@ -375,82 +410,79 @@ If the user is logged in, updates the state in the parent component and redirect
 </ul>
 </li>
 <li>
-<p><code>selectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> the currently selected campaign</p>
+<p><code>selectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> la campaña actualmente seleccionada</p>
 </li>
 <li>
-<p><code>setSelectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the selected campaign</p>
+<p><code>setSelectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer la campaña seleccionada</p>
 </li>
 <li>
-<p><code>selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> the currently selected pagaduria</p>
+<p><code>selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> la pagaduría actualmente seleccionada</p>
 </li>
 <li>
-<p><code>setSelectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the selected pagaduria</p>
+<p><code>setSelectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer la pagaduría seleccionada</p>
 </li>
 <li>
-<p><code>formArray</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> an array of form data</p>
+<p><code>formArray</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> un arreglo de datos de formulario</p>
 </li>
 <li>
-<p><code>setFormArray</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the form data array</p>
+<p><code>setFormArray</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer el arreglo de datos de formulario</p>
 </li>
 <li>
-<p><code>setSelectedData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the selected data</p>
+<p><code>setSelectedData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer los datos seleccionados</p>
 </li>
 <li>
-<p><code>backgroundImage</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the background image for the card</p>
+<p><code>backgroundImage</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> la imagen de fondo para la tarjeta</p>
 </li>
 <li>
-<p><code>setBackgroundImage</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the background image</p>
+<p><code>setBackgroundImage</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer la imagen de fondo</p>
 </li>
 <li>
-<p><code>text</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the text for the card</p>
+<p><code>setText</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer el texto</p>
 </li>
 <li>
-<p><code>setText</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the text</p>
+<p><code>telefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> el número de teléfono</p>
 </li>
 <li>
-<p><code>telefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the telephone number</p>
+<p><code>setTelefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer el número de teléfono</p>
 </li>
 <li>
-<p><code>setTelefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the telephone number</p>
+<p><code>IdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> el ID de Wolkvox</p>
 </li>
 <li>
-<p><code>IdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the Wolkvox ID</p>
-</li>
-<li>
-<p><code>setIdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> a function to set the Wolkvox ID</p>
+<p><code>setIdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> una función para establecer el ID de Wolkvox</p>
 </li>
 </ul>
-<p>Returns <strong>JSX.Element</strong> the rendered form card component</p>
+<p>Returns <strong>JSX.Element</strong> el componente de tarjeta de formulario renderizado</p>
 <h2>handleCampaignChange</h2>
-<p>Handles the change event for the campaign.</p>
+<p>Maneja el evento de cambio para la campaña.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>value</code> <strong>type</strong> the new value of the campaign</li>
+<li><code>value</code> <strong>type</strong> el nuevo valor de la campaña</li>
 </ul>
-<p>Returns <strong>type</strong> none</p>
+<p>Returns <strong>type</strong> ninguno</p>
 <h2>handlePagaduriaChange</h2>
-<p>Handles the change event for the &quot;Pagaduria&quot; input.</p>
+<p>Maneja el evento de cambio para el input &quot;Pagaduria&quot;.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>value</code> <strong>type</strong> The new value selected for the &quot;Pagaduria&quot; input.</li>
+<li><code>value</code> <strong>type</strong> El nuevo valor seleccionado para el input &quot;Pagaduria&quot;.</li>
 </ul>
-<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></strong> This function does not return anything.</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></strong> Esta función no retorna nada.</p>
 <h2>handleFieldChange</h2>
-<p>Updates a field in the form array.</p>
+<p>Actualiza un campo en el arreglo de formularios.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>fieldName</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The name of the field to be updated.</li>
-<li><code>fieldValue</code> <strong>any</strong> The new value for the field.</li>
+<li><code>fieldName</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El nombre del campo que se actualizará.</li>
+<li><code>fieldValue</code> <strong>any</strong> El nuevo valor para el campo.</li>
 </ul>
-<p>Returns <strong>void</strong> This function does not return anything.</p>
+<p>Returns <strong>void</strong> Esta función no retorna nada.</p>
 <h2>isFormValid</h2>
-<p>Checks if the form is valid.</p>
-<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></strong> Returns true if the form is valid, otherwise false.</p>
+<p>Comprueba si el formulario es válido.</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></strong> Devuelve true si el formulario es válido, de lo contrario, devuelve false.</p>
 <h2>handleShowData</h2>
-<p>Handle the action of showing data.</p>
-<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></strong> No return value.</p>
+<p>Maneja la acción de mostrar los datos.</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></strong> No retorna ningún valor.</p>
 <h2>FormDefault</h2>
-<p>Generates the form for the default values.</p>
+<p>Genera el formulario para los valores predeterminados.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
@@ -471,128 +503,128 @@ If the user is logged in, updates the state in the parent component and redirect
 </ul>
 </li>
 <li>
-<p><code>values</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> the values for the form</p>
+<p><code>values</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> los valores para el formulario</p>
 </li>
 <li>
-<p><code>handleChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> the function to handle form changes</p>
+<p><code>handleChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> la función para manejar los cambios en el formulario</p>
 </li>
 <li>
-<p><code>touched</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> the touched form fields</p>
+<p><code>touched</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> los campos del formulario que se han tocado</p>
 </li>
 <li>
-<p><code>errors</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> the form errors</p>
+<p><code>errors</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> los errores del formulario</p>
 </li>
 <li>
-<p><code>selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the selected pagaduria</p>
+<p><code>selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> la pagaduría seleccionada</p>
 </li>
 <li>
-<p><code>handlePagaduriaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> the function to handle pagaduria changes</p>
+<p><code>handlePagaduriaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> la función para manejar los cambios de la pagaduría</p>
 </li>
 <li>
-<p><code>formData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> the form data</p>
+<p><code>formData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> los datos del formulario</p>
 </li>
 <li>
-<p><code>selectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the selected campaña</p>
+<p><code>selectedCampaña</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> la campaña seleccionada</p>
 </li>
 <li>
-<p><code>handleCampañaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> the function to handle campaña changes</p>
+<p><code>handleCampañaChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> la función para manejar los cambios de la campaña</p>
 </li>
 <li>
-<p><code>setTelefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> the function to set telefono</p>
+<p><code>setTelefono</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> la función para establecer el teléfono</p>
 </li>
 <li>
-<p><code>setIdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> the function to set idWolkvox</p>
+<p><code>setIdWolkvox</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> la función para establecer el ID de Wolkvox</p>
 </li>
 <li>
-<p><code>urlData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> the url data</p>
+<p><code>urlData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> los datos de la URL</p>
 </li>
 </ul>
-<p>Returns <strong>JSX.Element</strong> the form component</p>
+<p>Returns <strong>JSX.Element</strong> el componente del formulario</p>
 <h2>renderOptions</h2>
-<p>Renders the options for a given set of options.</p>
+<p>Renderiza las opciones para un conjunto de opciones.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>options</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The options to render.</li>
+<li><code>options</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> Las opciones a renderizar.</li>
 </ul>
-<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> An array of option elements.</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> Un arreglo de elementos de opción.</p>
 <h2>customHandleChange</h2>
-<p>A function that handles the change of a name and value.</p>
+<p>Una función que maneja el cambio de un nombre y un valor.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>name</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> the name of the input field</li>
-<li><code>value</code> <strong>any</strong> the value of the input field</li>
+<li><code>name</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> el nombre del campo de entrada</li>
+<li><code>value</code> <strong>any</strong> el valor del campo de entrada</li>
 </ul>
 <h2>renderFormGroup</h2>
-<p>Renders a form group element.</p>
+<p>Renderiza un elemento de grupo de formulario.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>id</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The ID for the form control.</li>
-<li><code>label</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The label for the form control.</li>
-<li><code>selectOptions</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> The select options for the form control.</li>
+<li><code>id</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El ID para el control del formulario.</li>
+<li><code>label</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> La etiqueta para el control del formulario.</li>
+<li><code>selectOptions</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> Las opciones de selección para el control del formulario.</li>
 </ul>
-<p>Returns <strong>JSX.Element</strong> The rendered form group element.</p>
+<p>Returns <strong>JSX.Element</strong> El elemento de grupo de formulario renderizado.</p>
 <h2>NewForm</h2>
-<p>Renders a form field based on the provided props.</p>
+<p>Renderiza un campo de formulario basado en las propiedades proporcionadas.</p>
 <h3>Parameters</h3>
 <ul>
 <li>
-<p><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The props object containing the necessary data for rendering the form field.</p>
+<p><code>props</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> El objeto de propiedades que contiene los datos necesarios para renderizar el campo de formulario.</p>
 <ul>
-<li><code>props.type</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The type of the form field.</li>
-<li><code>props.title</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The title of the form field.</li>
-<li><code>props.options</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> The options for the form field.</li>
-<li><code>props.value</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The current value of the form field.</li>
-<li><code>props.onValueChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> The callback function for when the value of the form field changes.</li>
-<li><code>props.handleChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> The callback function for when the form field changes.</li>
-<li><code>props.values</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The values object containing the current values of all form fields.</li>
-<li><code>props.touched</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The touched object indicating if a form field has been touched.</li>
-<li><code>props.errors</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The errors object containing the validation errors for the form fields.</li>
-<li><code>props.urlData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> The data object containing additional data from the URL.</li>
-<li><code>props.selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The selected pagaduria.</li>
-<li><code>props.motivoConsulta</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> The selected motivo consulta.</li>
-<li><code>props.setMotivoConsulta</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> The callback function for setting the motivo consulta value.</li>
-<li><code>props.motivoEspecifico</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> The motivo especifico options.</li>
-<li><code>props.setMotivoEspecifico</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> The callback function for setting the motivo especifico value.</li>
-<li><code>props.motivoEspecificoBackup</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> The backup motivo especifico options.</li>
-<li><code>props.setMotivoEspecificoBackup</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> The callback function for setting the backup motivo especifico options.</li>
+<li><code>props.type</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El tipo de campo de formulario.</li>
+<li><code>props.title</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El título del campo de formulario.</li>
+<li><code>props.options</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> Las opciones para el campo de formulario.</li>
+<li><code>props.value</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El valor actual del campo de formulario.</li>
+<li><code>props.onValueChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> La función de devolución de llamada cuando cambia el valor del campo de formulario.</li>
+<li><code>props.handleChange</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> La función de devolución de llamada cuando cambia el campo de formulario.</li>
+<li><code>props.values</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> El objeto de valores que contiene los valores actuales de todos los campos de formulario.</li>
+<li><code>props.touched</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> El objeto tocado que indica si se ha tocado un campo de formulario.</li>
+<li><code>props.errors</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> El objeto de errores que contiene los errores de validación de los campos de formulario.</li>
+<li><code>props.urlData</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></strong> El objeto de datos que contiene datos adicionales de la URL.</li>
+<li><code>props.selectedPagaduria</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> La pagaduría seleccionada.</li>
+<li><code>props.motivoConsulta</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></strong> El motivo de consulta seleccionado.</li>
+<li><code>props.setMotivoConsulta</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> La función de devolución de llamada para establecer el valor del motivo de consulta.</li>
+<li><code>props.motivoEspecifico</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> Las opciones de motivo específico.</li>
+<li><code>props.setMotivoEspecifico</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> La función de devolución de llamada para establecer el valor del motivo específico.</li>
+<li><code>props.motivoEspecificoBackup</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></strong> Las opciones de motivo específico de respaldo.</li>
+<li><code>props.setMotivoEspecificoBackup</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> La función de devolución de llamada para establecer las opciones de motivo específico de respaldo.</li>
 </ul>
 </li>
 </ul>
-<p>Returns <strong>JSX.Element</strong> The rendered form field.</p>
+<p>Returns <strong>JSX.Element</strong> El campo de formulario renderizado.</p>
 <h2>handleSelectChange</h2>
-<p>Handles the change event of the select element.</p>
+<p>Maneja el evento de cambio del elemento select.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a></strong> The event object.</li>
+<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a></strong> El objeto de evento.</li>
 </ul>
-<p>Returns <strong>void</strong> No return value.</p>
+<p>Returns <strong>void</strong> No devuelve ningún valor.</p>
 <h2>handleMotivoChange</h2>
-<p>Handles the change event for the motivo input.</p>
+<p>Maneja el evento de cambio para el input del motivo.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a></strong> The change event object.</li>
+<li><code>e</code> <strong><a href="https://developer.mozilla.org/docs/Web/API/Event">Event</a></strong> El objeto de evento de cambio.</li>
 </ul>
-<p>Returns <strong>void</strong> </p>
+<p>Returns <strong>void</strong> No devuelve ningún valor.</p>
 <h2>renderMotivo</h2>
-<p>Renders the Motivo component.</p>
-<p>Returns <strong>JSX.Element</strong> The rendered JSX element.</p>
+<p>Renderiza el componente Motivo.</p>
+<p>Returns <strong>JSX.Element</strong> El elemento JSX renderizado.</p>
 <h2>renderEspecifico</h2>
-<p>Render a specific element.</p>
-<p>Returns <strong>JSX.Element</strong> The rendered specific element.</p>
+<p>Renderiza un elemento específico.</p>
+<p>Returns <strong>JSX.Element</strong> El elemento específico renderizado.</p>
 <h2>renderFormField</h2>
-<p>Renders a form field based on the type and options provided.</p>
-<p>Returns <strong>JSX.Element</strong> The rendered form field.</p>
+<p>Renderiza un campo de formulario según el tipo y las opciones proporcionadas.</p>
+<p>Returns <strong>JSX.Element</strong> El campo de formulario renderizado.</p>
 <h2>MyModal</h2>
-<p>Renders a modal component with a form submission success message.</p>
-<p>Returns <strong>JSX.Element</strong> The rendered modal component.</p>
+<p>Renderiza un componente de modal con un mensaje de éxito de envío de formulario.</p>
+<p>Returns <strong>JSX.Element</strong> El componente de modal renderizado.</p>
 <h2>send_data</h2>
-<p>Sends data to the specified URL and handles the response.</p>
+<p>Envía datos a la URL especificada y maneja la respuesta.</p>
 <h3>Parameters</h3>
 <ul>
-<li><code>data</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> The data to be sent.</li>
-<li><code>setSendtoExcel</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to set the state of sending data to Excel.</li>
-<li><code>setModal</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to set the state of the modal.</li>
-<li><code>setResponse</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> A function to set the response data.</li>
+<li><code>data</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></strong> Los datos que se enviarán.</li>
+<li><code>setSendtoExcel</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para establecer el estado de envío de datos a Excel.</li>
+<li><code>setModal</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para establecer el estado del modal.</li>
+<li><code>setResponse</code> <strong><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></strong> Una función para establecer los datos de respuesta.</li>
 </ul></article>
     </section>
 
@@ -610,7 +642,7 @@ If the user is logged in, updates the state in the parent component and redirect
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Nov 07 2023 15:31:15 GMT-0500 (hora estándar de Colombia)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Nov 07 2023 19:37:54 GMT-0500 (hora estándar de Colombia)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -4,22 +4,22 @@ import imgUser from '../../img/user-interface.png';
 import './Header.css';
 
 /**
- * Renders the Navbar component.
+ * Renderiza el componente Navbar.
  *
- * @param {function} setAceptedLogin - A function to set the accepted login state
- * @param {string} username - The username of the logged-in user
- * @return {JSX.Element} The rendered Navbar component
+ * @param {function} setAcceptedLogin - Una función para establecer el estado de inicio de sesión aceptado.
+ * @param {string} username - El nombre de usuario del usuario que ha iniciado sesión.
+ * @return {JSX.Element} El componente Navbar renderizado.
  */
-const NavbarComponent = ({ setAceptedLogin }) => {
+const NavbarComponent = ({ setAcceptedLogin, username }) => {
   /**
-   * Handles the login process by removing the 'loggedIn' cookie
-   * and setting the 'acceptedLogin' state to false.
+   * Maneja el proceso de inicio de sesión eliminando la cookie 'loggedIn'
+   * y estableciendo el estado 'acceptedLogin' en false.
    *
-   * @return {void} This function does not return a value.
+   * @return {void} Esta función no devuelve ningún valor.
    */
   const handleLogin = () => {
     Cookies.remove('loggedIn');
-    setAceptedLogin(false);
+    setAcceptedLogin(false);
   };
 
   return (
@@ -32,7 +32,7 @@ const NavbarComponent = ({ setAceptedLogin }) => {
           <img src={imgUser} alt="perfil" className="profile-img" />
           <p className="profile-name">
           {
-          Cookies.get('userName')
+          username
           }
           </p>
         </div>

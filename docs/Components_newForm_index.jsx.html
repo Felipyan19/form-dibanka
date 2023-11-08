@@ -30,27 +30,27 @@
 import { Form, Row } from 'react-bootstrap';
 
 /**
- * Renders a form field based on the provided props.
+ * Renderiza un campo de formulario basado en las propiedades proporcionadas.
  *
- * @param {Object} props - The props object containing the necessary data for rendering the form field.
- * @param {string} props.type - The type of the form field.
- * @param {string} props.title - The title of the form field.
- * @param {Array} props.options - The options for the form field.
- * @param {string} props.value - The current value of the form field.
- * @param {function} props.onValueChange - The callback function for when the value of the form field changes.
- * @param {function} props.handleChange - The callback function for when the form field changes.
- * @param {Object} props.values - The values object containing the current values of all form fields.
- * @param {Object} props.touched - The touched object indicating if a form field has been touched.
- * @param {Object} props.errors - The errors object containing the validation errors for the form fields.
- * @param {Object} props.urlData - The data object containing additional data from the URL.
- * @param {string} props.selectedPagaduria - The selected pagaduria.
- * @param {string} props.motivoConsulta - The selected motivo consulta.
- * @param {function} props.setMotivoConsulta - The callback function for setting the motivo consulta value.
- * @param {Array} props.motivoEspecifico - The motivo especifico options.
- * @param {function} props.setMotivoEspecifico - The callback function for setting the motivo especifico value.
- * @param {Array} props.motivoEspecificoBackup - The backup motivo especifico options.
- * @param {function} props.setMotivoEspecificoBackup - The callback function for setting the backup motivo especifico options.
- * @return {JSX.Element} The rendered form field.
+ * @param {Object} props - El objeto de propiedades que contiene los datos necesarios para renderizar el campo de formulario.
+ * @param {string} props.type - El tipo de campo de formulario.
+ * @param {string} props.title - El título del campo de formulario.
+ * @param {Array} props.options - Las opciones para el campo de formulario.
+ * @param {string} props.value - El valor actual del campo de formulario.
+ * @param {function} props.onValueChange - La función de devolución de llamada cuando cambia el valor del campo de formulario.
+ * @param {function} props.handleChange - La función de devolución de llamada cuando cambia el campo de formulario.
+ * @param {Object} props.values - El objeto de valores que contiene los valores actuales de todos los campos de formulario.
+ * @param {Object} props.touched - El objeto tocado que indica si se ha tocado un campo de formulario.
+ * @param {Object} props.errors - El objeto de errores que contiene los errores de validación de los campos de formulario.
+ * @param {Object} props.urlData - El objeto de datos que contiene datos adicionales de la URL.
+ * @param {string} props.selectedPagaduria - La pagaduría seleccionada.
+ * @param {string} props.motivoConsulta - El motivo de consulta seleccionado.
+ * @param {function} props.setMotivoConsulta - La función de devolución de llamada para establecer el valor del motivo de consulta.
+ * @param {Array} props.motivoEspecifico - Las opciones de motivo específico.
+ * @param {function} props.setMotivoEspecifico - La función de devolución de llamada para establecer el valor del motivo específico.
+ * @param {Array} props.motivoEspecificoBackup - Las opciones de motivo específico de respaldo.
+ * @param {function} props.setMotivoEspecificoBackup - La función de devolución de llamada para establecer las opciones de motivo específico de respaldo.
+ * @return {JSX.Element} El campo de formulario renderizado.
  */
 const NewForm = (props) => {
     const {
@@ -77,13 +77,13 @@ const NewForm = (props) => {
             setMotivoEspecifico(options);
             setMotivoEspecificoBackup(options);
         }
-    }, [options,setMotivoEspecifico,setMotivoEspecificoBackup,title]);
+    }, [options, setMotivoEspecifico, setMotivoEspecificoBackup, title]);
 
     /**
-     * Handles the change event of the select element.
+     * Maneja el evento de cambio del elemento select.
      *
-     * @param {Event} e - The event object.
-     * @return {void} No return value.
+     * @param {Event} e - El objeto de evento.
+     * @return {void} No devuelve ningún valor.
      */
     const handleSelectChange = (e) => {
         onValueChange(e.target.value);
@@ -91,23 +91,23 @@ const NewForm = (props) => {
     };
 
     /**
-     * Handles the change event for the motivo input.
+     * Maneja el evento de cambio para el input del motivo.
      *
-     * @param {Event} e - The change event object.
-     * @return {void} 
+     * @param {Event} e - El objeto de evento de cambio.
+     * @return {void} No devuelve ningún valor.
      */
     const handleMotivoChange = (e) => {
         onValueChange(e.target.value);
         handleChange(title)(e);
         setMotivoConsulta(e.target.value);
     };
-    
+
     /**
-     * Updates the motivoEspecifico array based on the selected motivoConsulta value.
-     * 
-     * @param {string} motivoConsulta - The selected motivo consulta value.
-     * @param {array} motivoEspecificoBackup - The backup motivo especifico options.
-     * @returns {void} - This function does not return anything.
+     * Actualiza el array motivoEspecifico basándose en el valor de motivoConsulta seleccionado.
+     *
+     * @param {string} motivoConsulta - El valor del motivo de consulta seleccionado.
+     * @param {array} motivoEspecificoBackup - Las opciones de motivo específico de respaldo.
+     * @return {void} No devuelve nada.
      */
     useEffect(() => {
         if (motivoConsulta) {
@@ -124,11 +124,10 @@ const NewForm = (props) => {
         }
     }, [motivoConsulta, motivoEspecificoBackup, setMotivoEspecifico]);
 
-
     /**
-     * Renders the Motivo component.
+     * Renderiza el componente Motivo.
      *
-     * @return {JSX.Element} The rendered JSX element.
+     * @return {JSX.Element} El elemento JSX renderizado.
      */
     const renderMotivo = () => {
         return (
@@ -152,9 +151,9 @@ const NewForm = (props) => {
     };
 
     /**
-     * Render a specific element.
+     * Renderiza un elemento específico.
      *
-     * @return {JSX.Element} The rendered specific element.
+     * @return {JSX.Element} El elemento específico renderizado.
      */
     const renderEspecifico = () => {
         return (
@@ -178,9 +177,9 @@ const NewForm = (props) => {
     };
 
     /**
-     * Renders a form field based on the type and options provided.
+     * Renderiza un campo de formulario según el tipo y las opciones proporcionadas.
      *
-     * @return {JSX.Element} The rendered form field.
+     * @return {JSX.Element} El campo de formulario renderizado.
      */
     const renderFormField = () => {
         if (type === 'list' &amp;&amp; options) {
@@ -226,7 +225,7 @@ const NewForm = (props) => {
                         value={initialValue}
                         onChange={handleSelectChange}
                         type="text"
-                        placeholder={initialValue || 'Anonymous'}
+                        placeholder={initialValue || 'Anónimo'}
                         isValid={touched[title] &amp;&amp; !errors[title]}
                     />
                     {touched[title] &amp;&amp; errors[title] &amp;&amp; &lt;div className="text-danger">{errors[title]}&lt;/div>}
@@ -241,7 +240,7 @@ const NewForm = (props) => {
                         onChange={handleSelectChange}
                         as="textarea"
                         rows={3}
-                        placeholder="Message"
+                        placeholder="Mensaje"
                         isValid={touched[title] &amp;&amp; !errors[title]}
                     />
                     {touched[title] &amp;&amp; errors[title] &amp;&amp; &lt;div className="text-danger">{errors[title]}&lt;/div>}
@@ -291,7 +290,7 @@ export { NewForm };
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Nov 07 2023 15:31:15 GMT-0500 (hora estándar de Colombia)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Nov 07 2023 19:37:54 GMT-0500 (hora estándar de Colombia)
 </footer>
 
 <script> prettyPrint(); </script>

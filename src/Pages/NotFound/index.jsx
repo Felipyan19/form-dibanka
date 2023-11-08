@@ -1,7 +1,7 @@
 /**
- * Render a component to display "Not Found".
+ * Renderiza un componente para mostrar "No encontrado".
  *
- * @return {React.Component} A React component to display "Not Found".
+ * @return {React.Component} Un componente React para mostrar "No encontrado".
  */
 const NotFound = () => {
     return (

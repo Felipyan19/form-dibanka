@@ -2,10 +2,10 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
 /**
- * Renders a form layout with the given children.
+ * Renderiza un diseño de formulario con los componentes hijos proporcionados.
  *
- * @param {object} children - The children components to render within the form.
- * @return {JSX.Element} - The rendered form layout.
+ * @param {object} children - Los componentes hijos a renderizar dentro del formulario.
+ * @return {JSX.Element} - El diseño de formulario renderizado.
  */
 function FormLayout({ children }) {
     return (

@@ -8,15 +8,15 @@ import { Home } from '../Home';
 import './App.css';
 
 /**
- * Generates the routes for the App.
+ * Genera las rutas para la aplicación.
  *
- * @param {function} setAceptedLogin - function to set the accepted login status
- * @param {boolean} aceptedLogin - the accepted login status
- * @param {string} username - the username
- * @param {function} setUsername - function to set the username
- * @param {object} urlParametres - the URL parameters
- * @param {function} setUrlParametres - function to set the URL parameters
- * @return {object} the generated routes
+ * @param {function} setAceptedLogin - función para establecer el estado de inicio de sesión aceptado
+ * @param {boolean} aceptedLogin - el estado de inicio de sesión aceptado
+ * @param {string} username - el nombre de usuario
+ * @param {function} setUsername - función para establecer el nombre de usuario
+ * @param {object} urlParametres - los parámetros de la URL
+ * @param {function} setUrlParametres - función para establecer los parámetros de la URL
+ * @return {object} las rutas generadas
  */
 const AppRoutes = (
   { 
@@ -49,9 +49,9 @@ const AppRoutes = (
 }
 
 /**
- * Generate the function comment for the given function body.
+ * Genera el comentario de función para el cuerpo de la función dada.
  *
- * @return {JSX.Element} The rendered JSX element.
+ * @return {JSX.Element} El elemento JSX renderizado.
  */
 const App = () => {
   const [aceptedLogin, setAceptedLogin] = useState(false);
@@ -60,8 +60,8 @@ const App = () => {
 
   useEffect(() => {
       /**
-       * Retrieves URL parameters from the current window's URL using the `URLSearchParams` API,
-       * stores the parameters in the local storage as a JSON string, and sets the `loginUrl` state variable to `true`.
+       * Recupera los parámetros de la URL desde la URL actual de la ventana utilizando la API `URLSearchParams`,
+       * almacena los parámetros en el almacenamiento local como una cadena JSON y establece la variable de estado `loginUrl` en `true`.
        * 
        * @returns {void}
        */

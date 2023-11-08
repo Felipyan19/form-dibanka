@@ -1,16 +1,16 @@
 /**
- * Renders a layout component.
+ * Renderiza un componente de diseño.
  *
- * @param {Object} props - The component properties.
- *   @param {ReactNode} children - The child components to render.
- * @return {ReactNode} The rendered layout component.
+ * @param {Object} props - Las propiedades del componente.
+ *   @param {ReactNode} children - Los componentes hijos a renderizar.
+ * @return {ReactNode} El componente de diseño renderizado.
  */
 const Layout = ({ children }) => {
-    return (
-      <div className='mt-5 mb-5 flex flex-col items-center'>
-        {children}
-      </div>
-    )
-  }
-  
-  export { Layout }
+  return (
+    <div className='mt-5 mb-5 flex flex-col items-center'>
+      {children}
+    </div>
+  )
+}
+
+export { Layout }
