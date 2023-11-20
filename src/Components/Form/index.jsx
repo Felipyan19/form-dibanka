@@ -202,7 +202,7 @@ const FormCard = ({
     // });
   // }
   
-  if(!modal){
+  if(modal){
     const Toast = Swal.mixin({
       toast: true,
       showConfirmButton: true,
