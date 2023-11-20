@@ -186,11 +186,29 @@ const FormCard = ({
     data.Agente = Cookies.get('userName')
     data.source = selectedPagaduria + '-' + selectedCampaña;
     setSelectedData(data);
-
     send_data(data, setSendtoExcel, setModal,setResponse);
+    console.log(data)
   };
-  if (modal) {
-    Swal.fire({
+  // if (!modal) {
+    // Swal.mixin({
+    //   title: 'Registro Exitoso #'+response,
+    //   text: 'Se ha registrado con exito en la hoja '+selectedPagaduria+'-'+selectedCampaña,
+    //   icon: 'success',
+    //   confirmButtonText: 'Ok',
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     window.location.reload();
+    //   } 
+    // });
+  // }
+  
+  if(!modal){
+    const Toast = Swal.mixin({
+      toast: true,
+      showConfirmButton: true,
+      timerProgressBar: false,
+    });
+    Toast.fire({
       title: 'Registro Exitoso #'+response,
       text: 'Se ha registrado con exito en la hoja '+selectedPagaduria+'-'+selectedCampaña,
       icon: 'success',
@@ -201,6 +219,7 @@ const FormCard = ({
       } 
     });
   }
+  
   return (
     <Card.Body className="p-5">
       <div className="d-flex justify-content-between align-items-center">

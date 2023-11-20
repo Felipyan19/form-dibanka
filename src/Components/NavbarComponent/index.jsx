@@ -13,12 +13,7 @@ import './Header.css';
  */
 
 const NavbarComponent = ({ setAceptedLogin }) => {
-  const [Docs, setDocs] = useState(false);
-  const [UrlDocs, setUrlDocs] = useState('/Docs');
-  const handleDocs = () => {
-    setDocs(!Docs);
-    Docs ? setUrlDocs('/Docs') : setUrlDocs('/Home');
-  };
+  
 
   /**
    * Maneja el proceso de inicio de sesión eliminando la cookie 'loggedIn'
@@ -44,15 +39,6 @@ const NavbarComponent = ({ setAceptedLogin }) => {
               Cookies.get('userName')
             }
           </p>
-        </div>
-        <div className="salir">
-          <NavLink 
-            to={UrlDocs}>
-            <button id="salirbtn" 
-            onClick={() => handleDocs()}>
-            {!Docs ? 'Documentacion' : 'Formulario'}
-            </button>
-          </NavLink>
         </div>
         <div className="salir">
           <NavLink to='/'>
