@@ -41,7 +41,7 @@ const NavbarComponent = ({ setAceptedLogin }) => {
           </p>
         </div>
         <div className="salir">
-          <NavLink to='/'>
+          <NavLink to='/DiBanka'>
             <button id="salirbtn" onClick={handleLogin}>Salir</button>
           </NavLink>
         </div>

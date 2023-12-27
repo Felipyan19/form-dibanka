@@ -31,22 +31,22 @@ const AppRoutes = (
   }) => { 
     
     let routes = useRoutes([
-      { path: '/Home', 
+      { path: '/DiBanka/Home', 
       element: (
         <ProtectedRoute canActivate={aceptedLogin}>
           <Home urlParametres={urlParametres} />
         </ProtectedRoute>
       )
     },    
-    { path: '/', element: 
+    { path: '/DiBanka', element: 
     <SignIn
        login={setAceptedLogin} 
        username={username}
        setUsername={setUsername}
        setUrlParametres={setUrlParametres}
        /> },
-     { path: '/Docs', element: <ExternalPage /> },
-     { path: '/*', element: <NotFound /> },
+     { path: '/DiBanka/Docs', element: <ExternalPage /> },
+     { path: '/DiBanka/*', element: <NotFound /> },
   ]);
   return routes;
 }

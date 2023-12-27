@@ -49,7 +49,7 @@ const SignIn = (props) => {
                 Cookies.set('loggedIn', 'true', { expires: 1 }); 
                 Cookies.set('userName', arrayUsersNames[props.username], { expires: 1 }); 
                 props.login(true);
-                navigate('/Home');
+                navigate('/DiBanka/Home');
             } else {
                 throw new Error('Usuario o contraseña incorrectos.');
             }
@@ -70,7 +70,7 @@ const SignIn = (props) => {
 
         if(Cookies.get('loggedIn') === 'true') {
             props.login(true);
-            navigate('/Home');
+            navigate('/DiBanka/Home');
         }
 
     }, []);
